@@ -4,7 +4,7 @@ Het Adaptor Pattern converteert de interface van een klasse naar een andere inte
 
 ![image](./images/Adaptor.png)
 
-#Builder
+# Builder
 
 Gebruik het builder Pattern om de constructie van een product af te schermen en zorg dat je het in stappen kan construeren.
 
@@ -19,7 +19,7 @@ Vaak gebruikt voor **samengestelde objecten**.
 ![image](./images/Builder.png)
 ![image](./images/Builder1.png)
 
-#Command
+# Command
 
 het Command Pattern schermt een aanroep af door middel van een object, waarbij je verschillende aanroepen in verschillende objecten kan opbergen, in een queue zetten, of op schijf kunt bewaren. Ook undo-operaties kunnen worden ondersteund.
 
@@ -30,18 +30,18 @@ het Command Pattern schermt een aanroep af door middel van een object, waarbij j
 ![image](./images/Command.png)
 ![image](./images/Command1.png)
 
-##Macro-Command
+## Macro-Command
 
 ![image](./images/Command-Macro.png)
 
-#Composite
+# Composite
 
 Het Composite Pattern stelt je in staat om objecten in boomstructuren samen te stellen om partwhole hiërarchiën weer te geven. Composite laat clients de afzonderlijke objecten of samengestelde objecten op uniforme wijze behandelen.
 
 ![image](./images/Composite.png)
 ![image](./images/Composite1.png)
 
-#Abstract Factory
+# Abstract Factory
 
 Het Abstract Factory Pattern levert een interface voor de vervaardiging van reeksen gerelateerde of onafhankelijke objecten zonder hun concrete klassen te specifieren.
 
@@ -49,7 +49,7 @@ We schrijven de code zodanig dat de **Client** de **Factory** gebruikt voor het 
 
 ![image](./images/AbstractFactory.png)
 
-#Factory Method
+# Factory Method
 
 Het Factory Method Pattern definieert een interface voor het creëren van een object, maar laat de subklassen beslissen welke klasse er geïnstantieert wordt. De Factory Method draagt de instanties door aan de subklassen.
 
@@ -57,7 +57,7 @@ De **Abstracte Creator-Klasse** definieert een abstracte fabrieksmethode die doo
 
 ![image](./images/FactoryMethod.png)
 
-#Simple Factory
+# Simple Factory
 
 We nemen de code voor de creatie op en verplaatsen deze naar een ander object dat alleen maar het maken als taak zal hebben. Wanneer een methode een klasse retoruneert uit verschillende klassen met gelijkaardige superklasse.
 
@@ -77,7 +77,7 @@ public Pizza createPizza(String type){
 ```
 
 
-#Iterator
+# Iterator
 
 Het Iterator Pattern voorziet ons van een manier voor sequentiële toegang tot de elementen van een aggregaatobject zonder de onderliggende representatie weer te geven.
 
@@ -91,7 +91,7 @@ Na opschonen met java.util.iterator
 
 ![image](./images/Iterator3.png)
 
-#Proxy
+# Proxy
 
 Het Proxy Pattern zorgt voor een surrogaat of plaatsvervanger voor een ander object om de toegang hiertoe te controleren.
 
@@ -102,13 +102,13 @@ Structureel gelijk aan **Decorator** maar de doelstellingen veranderen:
 
 ![image](./images/Proxy.png)
 
-#Singleton
+# Singleton
 
 Het Singleton Pattern garandeert dat een klasse slechts één instantie heeft, en biedt een globaal toegangspunt ernaartoe.
 
 ![image](./images/Singleton1.png)
 
-#Template Method
+# Template Method
 
 Het Template Method Pattern definieert het skelet van een algoritme in een methode, waarbij sommige stappen aan subklassen worden overgelaten. De Template Method laat subklassen bepaalde stappen in een algoritme herdefiniëren zonder de structuur van het algoritme te veranderen.
 
@@ -117,7 +117,7 @@ De Template Methode maakt gebruik van **primitieve methoden** om een algoritme t
 ![image](./images/Template.png)
 ![image](./images/Template1.png)
 
-##Hook
+## Hook
 
 ![image](./images/Template-Hook.png)
 
