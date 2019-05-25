@@ -68,7 +68,7 @@ De **Abstracte Creator-Klasse** definieert een abstracte fabrieksmethode die doo
 * De methode isoleert de Client van het weten welk soort concreet product gemaakt is.
 
 ![image](./images/FactoryMethod.png)
-![image](./images/FactoryMethod.png)
+![image](./images/FactoryMethod1.png)
 
 ```java
 public abstract class PizzaStore {
