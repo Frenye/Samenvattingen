@@ -53,9 +53,57 @@ We schrijven de code zodanig dat de **Client** de **Factory** gebruikt voor het 
 
 Het Factory Method Pattern definieert een interface voor het creëren van een object, maar laat de subklassen beslissen welke klasse er geïnstantieert wordt. De Factory Method draagt de instanties door aan de subklassen.
 
-De **Abstracte Creator-Klasse** definieert een abstracte fabrieksmethode die door de subklassen geïmplementeerd wordt om producten te vervaardigen.
+* De **Creator** 
+	* Bevat de implementaties voor alle methodes voor manipulatie van het product.
+	* Bevat abstracte Factory Methode die alle subklassen moeten implementeren.
+* De **Concrete Creator** 
+	* Implementeert de Factory Methode.
+	* Is verantwoordelijk voor de creatie van Concrete Producten.
+	* Is de enige klasse die kennis over de creatie heeft.
+* Alle **Producten** moeten dezelfde interface implementeren zodat de klassen die de producten gebruiken hier naar kunnen refereren.
+
+De **Abstracte Creator-Klasse** definieert een abstracte fabrieksmethode die door de subklassen geïmplementeerd wordt om producten te vervaardigen. 
+
+* De verantwoordelijkheid voor het maken van de producten is verplaatst naar een methode die zich gedraagt als een Factory.
+* De methode isoleert de Client van het weten welk soort concreet product gemaakt is.
 
 ![image](./images/FactoryMethod.png)
+![image](./images/FactoryMethod.png)
+
+```java
+public abstract class PizzaStore {
+
+	public Pizza orderPizza(String type) {
+		Pizza pizza;
+
+		pizza = createPizza(type);
+
+		pizza.prepare();
+		pizza.bake();
+		pizza.cut();
+		pizza.box();
+
+		return pizza;
+	}
+
+	abstract Pizza createPizza(String type);
+}
+
+public class NYPizzaStore extends PizzaStore {
+	
+	Pizza createPizza(String item) {
+		if (item.equals("cheese")) {
+			return new NYStyleCheesePizza();
+		} else if (item.equals("veggie")) {
+			return new NYStyleVeggiePizza();
+		} else if (item.equals("clam")) {
+			return new NYStyleClamPizza();
+		} else if (item.equals("pepperoni")) {
+			return new NYStylePepperoniPizza();
+		} else return null;
+	}
+}
+```
 
 # Simple Factory
 
