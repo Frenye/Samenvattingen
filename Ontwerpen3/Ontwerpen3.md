@@ -1,4 +1,4 @@
-#Adaptor
+# Adaptor
 
 Het Adaptor Pattern converteert de interface van een klasse naar een andere interface die de client verwacht. Adapters zorgen ervoor dat klassen samenwerken. Zonder de adapters lukt dit niet vanwege incompatibele interfaces.
 
