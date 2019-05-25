@@ -45,9 +45,52 @@ Het Composite Pattern stelt je in staat om objecten in boomstructuren samen te s
 
 Het Abstract Factory Pattern levert een interface voor de vervaardiging van reeksen gerelateerde of onafhankelijke objecten zonder hun concrete klassen te specifieren.
 
+* Voor elk Product definiëren we een create methode.
+
 We schrijven de code zodanig dat de **Client** de **Factory** gebruikt voor het maken van de producten. Door een verscheidenheid aan fabrieken krijgen we een verscheidenheid aan implementaties voor de producten. Maar de Clientcode blijft hetzelfde.
 
 ![image](./images/AbstractFactory.png)
+
+```java
+public interface PizzaIngredientFactory {
+
+	public Dough createDough();
+	public Sauce createSauce();
+	public Cheese createCheese();
+	public Veggies[] createVeggies();
+	public Pepperoni createPepperoni();
+	public Clams createClam();
+
+}
+
+public class NYPizzaIngredientFactory implements PizzaIngredientFactory {
+	
+	public Dough createDough() {
+		return new ThinCrustDough();
+	}
+
+	public Sauce createSauce() {
+		return new MarinaraSauce();
+	}
+
+	public Cheese createCheese() {
+		return new ReggianoCheese();
+	}
+
+	public Veggies[] createVeggies() {
+		Veggies veggies[] = { new Garlic(), new Onion(), new RedPepper() };
+		return veggies;
+	}
+
+	public Pepperoni create Pepperoni() {
+		return new SlicedPepperoni();
+	}
+
+	public Clams createClam() {
+		return new FreshClams();
+	}
+}
+```
 
 # Factory Method
 
