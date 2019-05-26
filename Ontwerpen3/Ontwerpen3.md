@@ -341,7 +341,7 @@ public class Waitress {
 * De **PancakeHouseIterator** klasse wordt verwijderd en de create methode wordt aangepast.
 * In de **DinerMenuIterator** klasse wordt een remove methode toegevoegd.
 
-Hierdoor ken de Client enkel Menu en Iterator, de Client is losgekoppeld van de implementaties van Menus dus kan er een Iterator gebruikt worden om te itereren over elke menulijst.
+Hierdoor kent de Client enkel Menu en Iterator, de Client is losgekoppeld van de implementaties van Menus dus kan er een Iterator gebruikt worden om te itereren over elke menulijst.
 
 ![image](./images/Iterator3.png)
 
