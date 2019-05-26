@@ -265,7 +265,77 @@ Het Iterator Pattern voorziet ons van een manier voor sequentiële toegang tot d
 ![image](./images/Iterator1.png)
 ![image](./images/Iterator2.png)
 
-Na opschonen met java.util.iterator
+```java
+public interface Iterator {
+	boolean hasNext();
+	Object next();
+}
+
+public class DinnerMenuIterator implements Iterator {
+	MenuItem[] items;
+	int position = 0;
+
+	public DinnerMenuIterator(MenuItem[] items) {
+		this.items = items;
+	}
+
+	public MenuItem next() {
+		MenuItem menuItem = items[position];
+		position = position + 1;
+		return menuItem;
+	}
+
+	public boolean hasNext() {
+		if (position >= items.length || items[position] == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+}
+
+public class DinnerMenu {
+	static final int MAX_ITEMS = 6;
+	int nuberOfItems = 0;
+	MenuItem[] menuItems;
+
+	public Iterator createIterator() {
+		return new DinnerMenuIterator(menuItems);
+	}
+}
+
+public class Waitress {
+	PancakeHouseMenu pancakeHouseMenu;
+	DinerMenu dinerMenu;
+
+	public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu) {
+		this.pancakeHouseMenu = pancakeHouseMenu;
+		this.dinerMenu = dinerMenu;
+	}
+
+	public void printMenu() {
+		Iterator pancakeIterator = pencakeHouseMenu.createIterator();
+		Iterator dinerIterator = dinerMenu.createIterator();
+
+		System.out.println("MENU\n----\nBREAKFAST);
+		printMenu(pancakeIterator);
+		System.out.println("\nLUNCH");
+		printMenu(dinerIterator);
+
+	}
+
+	public void printMenu(Iterator iterator) {
+		while (iterator.hasNext()) {
+			MenuItem menuItem = iterator.next();
+			System.out.print(menuItem.getName() + ", ");
+			System.out.print(menuItem.getPrice() + " -- ");
+			System.out.println(menuItem.getDescription());
+		}
+	}
+}
+```
+
+## Na opschonen met java.util.iterator en Menu Interface.
 
 ![image](./images/Iterator3.png)
 
