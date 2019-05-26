@@ -261,6 +261,7 @@ Het Iterator Pattern voorziet ons van een manier voor sequentiële toegang tot d
 
 * Iterator Pattern is gebaseerd op een Iterator interface.
 * Een implementatie van Iterator weet hoe hij moet itereren door zijn specifieke lijst.
+* De Client wordt losgekoppeld van de implementatie van de concrete klassen.
 
 ![image](./images/Iterator1.png)
 ![image](./images/Iterator2.png)
@@ -337,8 +338,40 @@ public class Waitress {
 
 ## Na opschonen met java.util.iterator en Menu Interface.
 
+* De **PancakeHouseIterator** klasse wordt verwijderd en de create methode wordt aangepast.
+* In de **DinerMenuIterator** klasse wordt een remove methode toegevoegd.
+
+Hierdoor ken de Client enkel Menu en Iterator, de Client is losgekoppeld van de implementaties van Menus dus kan er een Iterator gebruikt worden om te itereren over elke menulijst.
+
 ![image](./images/Iterator3.png)
 
+```java
+public class PancakeHouseMenu {
+	public Iterator<MenuItem> createIterator() {
+		return menuItems.iterator();
+	}
+}
+
+public class DinerMenuIterator implements Iterator {
+	
+	public void remove () {
+		
+		if (position <= 0) {
+			throw new IllegalSateException("Kan niet verwijderen");
+		}
+		if (list[position-1] != null) {
+			for (int i = position-1; i < (list.length-1) {
+				list[i] = list[i+1];
+			}
+			list[list.length-1] = null;
+		}
+	}
+}
+
+public interface Menu {
+	public Iterator<MenuItem> createIterator();
+}
+```
 # Proxy
 
 Het Proxy Pattern zorgt voor een surrogaat of plaatsvervanger voor een ander object om de toegang hiertoe te controleren.
