@@ -45,9 +45,13 @@ Het Composite Pattern stelt je in staat om objecten in boomstructuren samen te s
 
 Het Abstract Factory Pattern levert een interface voor de vervaardiging van reeksen gerelateerde of onafhankelijke objecten zonder hun concrete klassen te specifieren.
 
-* Voor elk Product definiëren we een create methode.
+* De **Abstract Factory** definieert de interface dat alle Concrete Factories moeten implementeren, die bestaat uit een set van methodes voor de creatie van producten.
+* De **Concrete Factory** maakt eigen versie van elk Product. De Client gebruikt een van deze Factories zodat die nooit een Product object moet instantieren.
+* De **Client** is geschreven met de Abstracte Factory en wordt tijdens runtime composed met een Concrete Factory.
 
 We schrijven de code zodanig dat de **Client** de **Factory** gebruikt voor het maken van de producten. Door een verscheidenheid aan fabrieken krijgen we een verscheidenheid aan implementaties voor de producten. Maar de Clientcode blijft hetzelfde.
+
+We voorzien een manier voor het maken van een familie producten, Code is losgekoppeld van de Factory waardoor een variatie van Factories kunnen geimplementeerd worden.
 
 ![image](./images/AbstractFactory.png)
 
@@ -88,6 +92,77 @@ public class NYPizzaIngredientFactory implements PizzaIngredientFactory {
 
 	public Clams createClam() {
 		return new FreshClams();
+	}
+}
+
+public abstract class Pizza {
+
+	String name;
+	Dough dough;
+	sauce sauce;
+	Veggies veggies[];
+	Cheese cheese;
+	Pepperoni pepperoni;
+	Clams clam;
+
+	abstract void prepare();
+
+	void bake() {
+		System.out.println("Bake for 25 minutes at 350°");
+	}
+
+	void cut() {
+		System.out.println("Cutting the pizza into diagonal slices");
+	}
+
+	void box() {
+		System.out.println("Place pizza in official PizzaStore box");
+	}
+
+	void setName(String name) {
+		this.name = name;
+	}
+
+	String getName() {
+		return name;
+	}
+}
+
+public class CheesePizza extends Pizza {
+	PizzaIngredientFactory ingredientFactory;
+
+	public CheesePizza(PizzaIngredientFactory ingredientFactory) {
+		this.ingredientFactory = ingredientFactory;
+	}
+
+	void prepare() {
+		System.out.println("Preparing " + name);
+		dough = ingredientFactory.createDough();
+		sauce = ingredientFactory.createSauce();
+		cheese = ingredientFactory.createCheese();
+	}
+}
+
+public class NYPizzaStore extends PizzaStore {
+
+	protected Pizza createPizza(String item) {
+		Pizza pizza = null;
+		PizzaIngredientFactory ingredientFactory = new PizzaIngredientFactory();
+
+		if (item.equals("cheese")) {
+			pizza = new CheesePizza(ingredientFactory);
+			pizza.setName("New York Style Cheese Pizza");
+		} else if (item.equals("veggie")) {
+			pizza = new VeggiePizza(ingredientFactory);
+			pizza.setName("New York Style Veggie Pizza");
+		} else if (item.equals("clam")) {
+			pizza = new ClamPizza(ingredientFactory);
+			pizza.setName("New York Style Clam Pizza");
+		} else if (item.equals("pepperoni")) {
+			pizza = new PepperoniPizza(ingredientFactory);
+			pizza.setName("New York Style Pepperoni Pizza);
+		}
+		return pizza;
 	}
 }
 ```
