@@ -4,6 +4,73 @@ Het Adaptor Pattern converteert de interface van een klasse naar een andere inte
 
 ![image](./images/Adaptor.png)
 ![image](./images/Adapter1.png)
+
+```java
+public interface Duck {
+    void quack();
+    void fly();
+}
+
+public class MallardDuck implements Duck {
+    public void quack() {
+        System.out.println("Quack");
+    }
+
+    public void fly() {
+        System.out.println("I'm flying");
+    }
+}
+
+public interface Turkey {
+    void gobble();
+    void fly();
+}
+
+public class WildTurkey implements Turkey {
+    public void gobble() {
+        System.out.println("Gobble gobble");
+    }
+
+    public void fly() {
+        System.out.println("I'm flying a short distance");
+    }
+}
+
+public class TurkeyAdapter implements Duck {
+    private Turkey turkey;
+
+    public TurkeyAdapter(Turkey turkey) {
+        this.turkey = turkey;
+    }
+
+    public void quack() {
+        turkey.gobble();
+    }
+
+    public void fly() {
+        for (int i = 0; i < 5; i++) {
+            turkey.fly();
+        }
+    }
+}
+
+public class Adapter {
+    public static void main(String[] args) {
+        MallardDuck duck = new MallardDuck();
+        testDuck(duck);
+
+        WildTurkey turkey = new WildTurkey();
+        Duck turkeyAdapter = new TurkeyAdapter(turkey);
+        testDuck(turkeyAdapter);
+    }
+
+    static void testDuck(Duck duck) {
+        duck.quack();
+        duck.fly();
+    }
+}
+```
+
 # Builder
 
 Gebruik het builder Pattern om de constructie van een product af te schermen en zorg dat je het in stappen kan construeren.
@@ -1036,99 +1103,66 @@ public class Template {
 }
 ```
 
-public abstract class CaffeineBeverage {
+public interface Duck {
+    void quack();
+    void fly();
+}
 
-    // MAG NIET OVERRIDEN WORDEN, vandaar de "final"
-    public final void prepareRecipe() {
-        boilWater();
-        brew();
-        pourInCup();
-
-        if (customerWantsCondiments()) addCondiments();
+public class MallardDuck implements Duck {
+    public void quack() {
+        System.out.println("Quack");
     }
 
-    protected void boilWater() {
-        System.out.println("Boiling water");
-    }
-
-    protected void pourInCup() {
-        System.out.println("Boiling water");
-    }
-
-    protected abstract void brew();
-    protected abstract void addCondiments();
-
-    // Dit is een hook
-    protected boolean customerWantsCondiments() {
-        return true;
+    public void fly() {
+        System.out.println("I'm flying");
     }
 }
 
-public class Coffee extends CaffeineBeverage {
-    @Override
-    protected void brew() {
-        System.out.println("Dripping coffee through filter");    
+public interface Turkey {
+    void gobble();
+    void fly();
+}
+
+public class WildTurkey implements Turkey {
+    public void gobble() {
+        System.out.println("Gobble gobble");
     }
 
-    @Override
-    protected void addCondiments() {
-        System.out.println("Adding sugar and milk");
+    public void fly() {
+        System.out.println("I'm flying a short distance");
     }
 }
 
-public class Tea extends CaffeineBeverage {
-    @Override
-    protected void brew() {
-        System.out.println("Steeping the tea");    
+public class TurkeyAdapter implements Duck {
+    private Turkey turkey;
+
+    public TurkeyAdapter(Turkey turkey) {
+        this.turkey = turkey;
     }
 
-    @Override
-    protected void addCondiments() {
-        System.out.println("Adding lemon");
+    public void quack() {
+        turkey.gobble();
+    }
+
+    public void fly() {
+        for (int i = 0; i < 5; i++) {
+            turkey.fly();
+        }
     }
 }
 
-public class CoffeeWithHook extends CaffeineBeverage {
-    private boolean wantsCondiments;
-    public CoffeeWithHook(boolean wantsCondiments) {
-        this.wantsCondiments = wantsCondiments;
-    }
-    @Override
-    protected void brew() {
-        System.out.println("Dripping coffee through filter");    
-    }
-
-    @Override
-    protected void addCondiments() {
-        System.out.println("Adding sugar and milk");
-    }
-
-    protected boolean customerWantsCondiments() {
-        return wantsCondiments;
-    }
-}
-
-public class Template {
+public class Adapter {
     public static void main(String[] args) {
-        System.out.println("Making coffee");
-        CaffeineBeverage beverage = new Coffee();
-        beverage.prepareRecipe();
+        MallardDuck duck = new MallardDuck();
+        testDuck(duck);
 
-        System.out.println("Making tea");
-        beverage = new Tea();
-        beverage.prepareRecipe();
-
-        System.out.println("Making coffee with a hook");
-        boolean answer = getUserInputForCoffee();
-        beverage = new CoffeeWithHook(answer);
-        beverage.prepareRecipe();
+        WildTurkey turkey = new WildTurkey();
+        Duck turkeyAdapter = new TurkeyAdapter(turkey);
+        testDuck(turkeyAdapter);
     }
 
-    public static boolean getUserInputForCoffee() {
-        String answer = null;
-        System.out.println("Would you like milk and sugar with your coffee (y/n)?");
-        Scanner in = new Scanner(System.in);
-
-        return in.next().equalsIgnoreCase("y");
+    static void testDuck(Duck duck) {
+        duck.quack();
+        duck.fly();
     }
 }
