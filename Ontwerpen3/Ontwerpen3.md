@@ -161,6 +161,17 @@ public class Waitress {
 
 ## Null Iterator
 
+In **MenuItem**: Null iterator retourneert altijd false bij aanroep van hasNext().
+
+```java
+@Override
+public Iterator createIterator() {
+	return new NullIterator();
+}
+```
+
+De **NullIterator** klasse:
+
 ```java
 public class NullIterator implements Iterator<MenuComponent> {
     public MenuComponent next() {
@@ -169,6 +180,66 @@ public class NullIterator implements Iterator<MenuComponent> {
 
     public boolean hasNext() {
         return false;
+    }
+
+    public void remove() {
+	throw new UnsupportedOperationException("Not supported");
+    }
+}
+```
+
+## Composite Iterator
+
+In **Menu**: een knoop geeft een iterator terug over zijn kinderen.
+
+```java
+@Override
+public Iterator createIterator() {
+	if (iterator == null) {
+		itarator = new CompositeIterator(menuComponents.iterator());
+	}
+	return iterator;
+}
+```
+
+De **CompositeIterator** klasse: 
+
+```java
+public class CompositeIterator implements Iterator<MenuComponent> {
+    private Stack<Iterator<MenuComponent>> stack = new Stack<>();
+
+    public CompositeIterator(Iterator<MenuComponent> iterator)
+    {
+        stack.push(iterator);
+    }
+
+    public MenuComponent next()
+    {
+        if (hasNext()) {
+            Iterator<MenuComponent> iterator = stack.peek();
+            MenuComponent component = iterator.next();
+
+            // It is not a leaf, it has children
+            if (component instanceof Menu) {
+                stack.push(component.createIterator());
+            }
+        }
+
+        return null;
+    }
+
+    public boolean hasNext()
+    {
+        if (stack.empty()) return false;
+
+        Iterator<MenuComponent> iterator = stack.peek();
+
+        if ( ! iterator.hasNext()) {
+            stack.pop();
+            return hasNext();
+        }
+
+        return true;
     }
 }
 ```
@@ -534,14 +605,40 @@ De Template Methode maakt gebruik van **primitieve methoden** om een algoritme t
 
 ![image](./images/Template-Hook.png)
 
-## Null Iterator
+public class CompositeIterator implements Iterator<MenuComponent> {
+    private Stack<Iterator<MenuComponent>> stack = new Stack<>();
 
-public class NullIterator implements Iterator<MenuComponent> {
-    public MenuComponent next() {
+    public CompositeIterator(Iterator<MenuComponent> iterator)
+    {
+        stack.push(iterator);
+    }
+
+    public MenuComponent next()
+    {
+        if (hasNext()) {
+            Iterator<MenuComponent> iterator = stack.peek();
+            MenuComponent component = iterator.next();
+
+            // It is not a leaf, it has children
+            if (component instanceof Menu) {
+                stack.push(component.createIterator());
+            }
+        }
+
         return null;
     }
 
-    public boolean hasNext() {
-        return false;
+    public boolean hasNext()
+    {
+        if (stack.empty()) return false;
+
+        Iterator<MenuComponent> iterator = stack.peek();
+
+        if ( ! iterator.hasNext()) {
+            stack.pop();
+            return hasNext();
+        }
+
+        return true;
     }
 }
