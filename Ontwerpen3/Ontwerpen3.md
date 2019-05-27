@@ -161,6 +161,7 @@ public class Waitress {
 
 ## Null Iterator
 
+```java
 public class NullIterator implements Iterator<MenuComponent> {
     public MenuComponent next() {
         return null;
@@ -170,6 +171,7 @@ public class NullIterator implements Iterator<MenuComponent> {
         return false;
     }
 }
+```
 
 # Abstract Factory
 
