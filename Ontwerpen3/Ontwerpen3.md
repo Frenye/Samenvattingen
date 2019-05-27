@@ -8,16 +8,103 @@ Het Adaptor Pattern converteert de interface van een klasse naar een andere inte
 
 Gebruik het builder Pattern om de constructie van een product af te schermen en zorg dat je het in stappen kan construeren.
 
-* De **Builder** klasse specifieert een abstracte interface voor de creatie van de onderdelen van het Product object.
+* De **Builder** klasse specifieert een abstracte interface voor de creatie van de onderdelen van het Product object. De Builder bevat alle methodes die nodig zijn voor het bouwen van de onderdelen.
 * De **ConcreteBuilder** bouwt de onderdelen van het complexe object en gooit deze samen door implementatie van de Builder Interface. Het houdt een representatievan het object bij en biedt een interface voor het opvangen van het product.
-* De **Director** klasse bouwt het complexe object gebruik makend van de interface van de Builder.
+* De **Director** klasse bouwt het complexe object gebruik makend van de interface van de Builder. De Director ken de stappen voor het bouwen en vraagt de Builder om de structuur te maken.
 * Het **Product** stelt het complexe object voor dat gebouwd wordt.
 
-Geeft de mogelijkheid om objecten in meerdere stappen en wisselende processen te maken, in tegenstelling tot éénstapsfactory.
-Vaak gebruikt voor **samengestelde objecten**.
+Voordelen: 
+
+* Schermt de manier waarop een complex object gebouwd wordt af.
+* Geeft de mogelijkheid om objecten in meerdere stappen en wisselende processen te maken, in tegenstelling tot éénstapsfactory.
+* Verbergt interne representatie van het product voor de Client.
+* Productimplementaties kunnen steeds wisselen, omdat een client alleen een abstracte interface ziet.
+
+
 
 ![image](./images/Builder.png)
 ![image](./images/Builder1.png)
+
+```java
+// De builder: de abstracte klasse
+public abstract class SandwichBuilder {
+    private Sandwich sandwich;
+    public Sandwich getSandwich {
+        return sandwich;
+    }    
+
+    public void createNewSandwich() {
+        sandwich = new Sandwich();
+    }
+
+    public abstract void prepareBread();
+    public abstract void applyMeatAndCheese();
+    public abstract void applyVegetables();
+    public abstract void addCondiments();
+}
+
+// De builder klassen: concrete klassen
+public class MySandwhichBuilder extends SandwichBuilder {
+    public void prepareBread() {
+        Sandwich sandwich = getSandwich();
+        sandwich.setbreadType(BreadType.Wheat);
+    }
+    public void applyMeatAndCheese() {
+        // ...
+    }
+    public void applyVegetables() {
+        // ...
+    }
+    public void addCondiments() {
+        // ...
+    }
+}
+
+public class ClubSandwichBuilder extends SandwichBuilder {
+    public void prepareBread() {
+        Sandwich sandwich = getSandwich();
+        sandwich.setbreadType(BreadType.White);
+    }
+    public void applyMeatAndCheese() {
+        // ...
+    }
+    public void applyVegetables() {
+        // ...
+    }
+    public void addCondiments() {
+        // ...
+    }
+}
+
+// De Director
+public class SandwichDirector {
+    private SandwichBuilder builder;
+
+    public SandwichDirector(SandwichBuilder builder) {
+        this.builder = builder;
+    }
+
+    public void buildSandwich() {
+        builder.createNewSandwich();
+        builder.prepareBread();
+        builder.applyMeatAndCheese();
+        builder.applyVegetables();
+        builder.addCondiments();
+    }
+
+    public Sandwich getSandwich() {
+        return builder.getSandwich();
+    }
+}
+
+public static void main(String[] args) {
+    SandwichDirector director = new SandwichDirector(new MySandwhichBuilder());
+
+    director.buildSandwich();
+    Sandwich sandwich = director.getSandwich();
+    sandwich.display();
+}
+```
 
 # Command
 
@@ -605,40 +692,81 @@ De Template Methode maakt gebruik van **primitieve methoden** om een algoritme t
 
 ![image](./images/Template-Hook.png)
 
-public class CompositeIterator implements Iterator<MenuComponent> {
-    private Stack<Iterator<MenuComponent>> stack = new Stack<>();
+// De builder: de abstracte klasse
+public abstract class SandwichBuilder {
+    private Sandwich sandwich;
+    public Sandwich getSandwich {
+        return sandwich;
+    }    
 
-    public CompositeIterator(Iterator<MenuComponent> iterator)
-    {
-        stack.push(iterator);
+    public void createNewSandwich() {
+        sandwich = new Sandwich();
     }
 
-    public MenuComponent next()
-    {
-        if (hasNext()) {
-            Iterator<MenuComponent> iterator = stack.peek();
-            MenuComponent component = iterator.next();
+    public abstract void prepareBread();
+    public abstract void applyMeatAndCheese();
+    public abstract void applyVegetables();
+    public abstract void addCondiments();
+}
 
-            // It is not a leaf, it has children
-            if (component instanceof Menu) {
-                stack.push(component.createIterator());
-            }
-        }
+// De builder klassen: concrete klassen
+public class MySandwhichBuilder extends SandwichBuilder {
+    public void prepareBread() {
+        Sandwich sandwich = getSandwich();
+        sandwich.setbreadType(BreadType.Wheat);
+    }
+    public void applyMeatAndCheese() {
+        // ...
+    }
+    public void applyVegetables() {
+        // ...
+    }
+    public void addCondiments() {
+        // ...
+    }
+}
 
-        return null;
+public class ClubSandwichBuilder extends SandwichBuilder {
+    public void prepareBread() {
+        Sandwich sandwich = getSandwich();
+        sandwich.setbreadType(BreadType.White);
+    }
+    public void applyMeatAndCheese() {
+        // ...
+    }
+    public void applyVegetables() {
+        // ...
+    }
+    public void addCondiments() {
+        // ...
+    }
+}
+
+// De Director
+public class SandwichDirector {
+    private SandwichBuilder builder;
+
+    public SandwichDirector(SandwichBuilder builder) {
+        this.builder = builder;
     }
 
-    public boolean hasNext()
-    {
-        if (stack.empty()) return false;
-
-        Iterator<MenuComponent> iterator = stack.peek();
-
-        if ( ! iterator.hasNext()) {
-            stack.pop();
-            return hasNext();
-        }
-
-        return true;
+    public void buildSandwich() {
+        builder.createNewSandwich();
+        builder.prepareBread();
+        builder.applyMeatAndCheese();
+        builder.applyVegetables();
+        builder.addCondiments();
     }
+
+    public Sandwich getSandwich() {
+        return builder.getSandwich();
+    }
+}
+
+public static void main(String[] args) {
+    SandwichDirector director = new SandwichDirector(new MySandwhichBuilder());
+
+    director.buildSandwich();
+    Sandwich sandwich = director.getSandwich();
+    sandwich.display();
 }
