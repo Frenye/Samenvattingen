@@ -922,6 +922,86 @@ Structureel gelijk aan **Decorator** maar de doelstellingen veranderen:
 
 ![image](./images/Proxy.png)
 
+De **Remote Service** aanmaken
+
+1. Remote interface aanmaken
+2. Remote implementatie maken
+3. stub en skeleton worden dynamisch
+4. RMI registry starten
+5. Het remote object bekend maken bij de namen service
+6. Run
+
+### Remote interface aanmaken 
+
+* Remote interface aanmaken en laten implementeren van Remote
+* Methoden die die we willen aanroepen over internet definiëren
+* Elke methode gooit RemoteException
+* Alle argumenten en retourwaarden moeten primitief of serialiseerbaar zijn
+
+```java
+public interface GumballMachineRemote extends Remote {
+	int getCount() throws RemoteException;
+	String getLocation() throws RemoteException;
+	String getState() throws RemoteException;
+}
+
+public abstract class GumballMachineState implements serializable {
+	transient protected GumballMachine gumballMachine; //transient = moet niet geserialiseerd worden
+	protected GumballMachineState(GumballMachine gumballMachine) {
+		this.gumballMachine = gumballMachine;
+	}
+	protected String insertQuarter() {
+		return "You can't insert a quarter";
+	}
+}
+```
+
+### Remote implementatie maken
+
+* Deze klasse doet het echte werk
+* Hiervan wil de Client methodes oproepen
+* Aangeven dat het over een remote object gaat door UnicastRemoteObject te implementeren
+* UnicastRemoteObject uitbreiden
+
+```java
+public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote {
+	private GumballMachineState currentState;
+	private int count = 0;
+	private final String location;
+
+	public GumballMachine(String location, int numberGumballs) throws RemoteException {
+		this.location = location;
+		this.count = numberGumballs;
+		toState((numberGumballs > 0)? new NoQuarterState(this) : new OutOfGumballsState(this));
+	}
+
+	public String insertQuarter() {
+		return currentState.insertQuarter();
+	}
+}
+```
+
+### RMI Registry starten en Remote Object bekend maken bij de namen service
+
+* RMI registry service starten
+* Stel remote service beschikbaar aan de remote clients
+
+```java
+private void registerRemoteGumballMachine() {
+	try {
+		Registry registry = LocateRegistry.createRegistry(1099);
+		GumballMachineRemote machine = new GumballMachine(location, count);
+		registry.rebind("gumballmachine", machine);
+	} catch (RemoteException ex) {
+		ex.printStackTrace();
+	}
+}
+```
+
+## Client laten werken met Remote
+
+
+
 # Singleton
 
 Het Singleton Pattern garandeert dat een klasse slechts één instantie heeft, en biedt een globaal toegangspunt ernaartoe.
