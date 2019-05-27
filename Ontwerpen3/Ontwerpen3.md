@@ -3,7 +3,7 @@
 Het Adaptor Pattern converteert de interface van een klasse naar een andere interface die de client verwacht. Adapters zorgen ervoor dat klassen samenwerken. Zonder de adapters lukt dit niet vanwege incompatibele interfaces.
 
 ![image](./images/Adaptor.png)
-
+![image](./images/Adapter1.png)
 # Builder
 
 Gebruik het builder Pattern om de constructie van een product af te schermen en zorg dat je het in stappen kan construeren.
@@ -117,9 +117,191 @@ het Command Pattern schermt een aanroep af door middel van een object, waarbij j
 ![image](./images/Command.png)
 ![image](./images/Command1.png)
 
+* De **Client** maakt Command objecten aan die dan in de slots van de RemoteControl worden geladen.
+* de **RemoteControl** Heeft een set commands, een per knop. Wanneer een knop ingedrukt is dan wordt de juiste methode aangferoepen.
+
+```java
+public interface Command { // Command
+    void execute();
+    void undo();
+}
+
+// Zorgt er voor dat we geen if-statements moeten zetten met de vraag of we wel execute() kunnen aanroepen
+public class NoCommand implements Command { // ConcreteCommand
+    public void execute() {}
+    public void undo() {}
+}
+
+// Voorbeelden
+public class LightOnCommand implements Command { // ConcreteCommand
+    private Light light;
+
+    public LightOnCommand(Light light) {
+        this.light = light;
+    }
+
+    public void execute() {
+        light.on();
+    }
+
+    public void undo() {
+        light.off();
+    }
+}
+
+public class LightOffCommand implements Command { // ConcreteCommand
+    private Light light;
+
+    public LightOffCommand(Light light) {
+        this.light = light;
+    }
+
+    public void execute() {
+        light.off();
+    }
+
+    public void undo() {
+        light.on();
+    }
+}
+
+public class StereoOnWithCDCommand implements Command { // ConcreteCommand
+    private Stereo stereo;
+
+    public StereoOnWithCDCommand(Stereo stereo) {
+        this.stereo = stereo;
+    }
+
+    public void execute() {
+        stereo.on();
+        stereo.setCD();
+        stereo.setVolume(11);
+    }
+}
+
+// Hoe runnen:
+public class RemoteControl { // Invoker, invoked commands
+    private Command[] onCommands;
+    private Command[] offCommands;
+    private Command undoCommand;
+    private final int numberCommands = 7;
+
+    public RemoteControl() {
+        onCommands = new Command[numberCommands];
+        offCommands = new Command[numberCommands];
+        Command noCommand = new NoCommand();
+
+        for (int i = 0; i < numberCommands; i++) {
+            onCommands[i] = noCommand;
+            offCommands[i] = noCommand;
+        }
+
+        undoCommand = noCommand;
+    }
+
+    public void setCommand(int slot, Command onCommand, Command offCommand) {
+        onCommands[slot] = onCommand;
+        offCommands[slot] = offCommand;
+    }
+
+    public void onButtonWasPushed(int slot) {
+        onCommands[slot].execute();
+        undoCommand = onCommands[slot];
+    }
+
+    public void undoButtonWasPushed() {
+        undoCommand.undo();
+        undoCommand = new NoCommand();
+    }
+
+}
+
+public class RemoteControlApp { // Client
+    public static void main(String[] args) {
+        RemoteControl remoteControl = new RemoteControl();
+
+        Light livingRoomLight = new Light("Living Room Lighting");
+        Light kitchenLight = new Light("Kitchen lighting");
+        Stereo stereo = new Stereo("Stereo");
+        // ...
+
+        LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
+        LightOffCommand livingRoomLightOff = new LightOffCommand(livingRoomLight);
+        LightOnCommand kitchenLightOn = new LightOnCommand(kitchenLight);
+        LightOffCommand kitchenLightOff = new LightOffCommand(kitchenLight);
+        StereoOnWithCDCommand stereoOnWithCD = new StereoOnWithCDCommand(stereo);
+
+        // Execution
+        remoteControl.setCommand(1, livingRoomLightOn, livingRoomLightOff);
+        remoteControl.setCommand(2, kitchenLightOn, kitchenLightOff);
+
+        remoteControl.onButtonWasPushed(1);
+        remoteControl.onButtonWasPushed(2);
+        remoteControl.undoButtonWasPushed();
+        remoteControl.undoButtonWasPushed();
+    }
+}
+```
+
 ## Macro-Command
 
-![image](./images/Command-Macro.png)
+Een command, die een verzameling van commands bevat. deze commands kan je dan een voor een executen.
+
+![imagge](./images/Command-Macro.png)
+
+```java
+public class MacroCommand implements Command { // ConcreteCommand
+    private Command[] commands;
+    public MacroCommand(Command[] commands) {
+        this.commands = commands;
+    }
+
+    public void execute() {
+        Arrays.stream(commands).forEach(Command::execute);
+    }
+
+    public void undo() {
+
+    }
+}
+
+public class RemoteLoader { // Client
+    public static void main(String[] args) {
+        RemoteControl remotecontrol = new RemoteControl();
+
+        Light light = new Light("Living Room");
+        Tv tv = new Tv("Living Room");
+        Stereo stereo = new Stereo("Living Room");
+        Hottub hottub = new Hottub();
+
+        LightOnCommand lightOn = new LightOnCommand(light);
+        StereoOnCommand stereoOn = new StereoOnCommand(stereo);
+        TvOnCommand tvOn = new TvOnCommand(tv);
+        HottubOnCommand hottubOn = new HottubOnCommand(hottub);
+
+        LightOffCommand lightOff = new LightOffCommand(light);
+        StereoOffCommand stereoOff = new StereoOffCommand(stereo);
+        TvOffCommand tvOff = new TvOffCommand(tv);
+        HottubOffCommand hottubOff = new HottubOffCommand(hottub);
+
+        Command[] partyOn = { lightOn, stereoOn, tvOn, hottubOn };
+        Command[] partyOff = { lightOff, stereoOff, tvOff, hottubOff };
+
+        MacroCommand partyOnMacro = new MacroCommand(partyOn);
+        MacroCommand partyOffMacro = new MacroCommand(partyOff);
+
+        remoteControl.setCommand(0, partyOnMacro, partyOffMacro);
+
+        System.out.println(remoteControl);
+
+        System.out.println("--- Pushing Macro On---");
+        remoteControl.onButtonWasPushed(0);
+
+        System.out.println("--- Pushing Macro Off---");
+        remoteControl.offButtonWasPushed(0);
+    }
+}
+``` 
 
 # Composite
 
@@ -751,17 +933,202 @@ De Template Methode maakt gebruik van **primitieve methoden** om een algoritme t
 
 ## Hook
 
+De hook is zodat een subklasse een override kan uitvoeren.
+
 ![image](./images/Template-Hook.png)
 
-public class Singleton {
+```java
+public abstract class CaffeineBeverage {
 
-    // Maak meteen een instanties
-    private static final Singleton instance = new Singleton();
+    // MAG NIET OVERRIDEN WORDEN, vandaar de "final"
+    public final void prepareRecipe() {
+        boilWater();
+        brew();
+        pourInCup();
 
-    private Singleton() {
+        if (customerWantsCondiments()) addCondiments();
     }
 
-    public static Singleton getInstance() {
-        return instance;
+    protected void boilWater() {
+        System.out.println("Boiling water");
+    }
+
+    protected void pourInCup() {
+        System.out.println("Boiling water");
+    }
+
+    protected abstract void brew();
+    protected abstract void addCondiments();
+
+    // Dit is een hook
+    protected boolean customerWantsCondiments() {
+        return true;
+    }
+}
+
+public class Coffee extends CaffeineBeverage {
+    @Override
+    protected void brew() {
+        System.out.println("Dripping coffee through filter");    
+    }
+
+    @Override
+    protected void addCondiments() {
+        System.out.println("Adding sugar and milk");
+    }
+}
+
+public class Tea extends CaffeineBeverage {
+    @Override
+    protected void brew() {
+        System.out.println("Steeping the tea");    
+    }
+
+    @Override
+    protected void addCondiments() {
+        System.out.println("Adding lemon");
+    }
+}
+
+public class CoffeeWithHook extends CaffeineBeverage {
+    private boolean wantsCondiments;
+    public CoffeeWithHook(boolean wantsCondiments) {
+        this.wantsCondiments = wantsCondiments;
+    }
+    @Override
+    protected void brew() {
+        System.out.println("Dripping coffee through filter");    
+    }
+
+    @Override
+    protected void addCondiments() {
+        System.out.println("Adding sugar and milk");
+    }
+
+    protected boolean customerWantsCondiments() {
+        return wantsCondiments;
+    }
+}
+
+public class Template {
+    public static void main(String[] args) {
+        System.out.println("Making coffee");
+        CaffeineBeverage beverage = new Coffee();
+        beverage.prepareRecipe();
+
+        System.out.println("Making tea");
+        beverage = new Tea();
+        beverage.prepareRecipe();
+
+        System.out.println("Making coffee with a hook");
+        boolean answer = getUserInputForCoffee();
+        beverage = new CoffeeWithHook(answer);
+        beverage.prepareRecipe();
+    }
+
+    public static boolean getUserInputForCoffee() {
+        String answer = null;
+        System.out.println("Would you like milk and sugar with your coffee (y/n)?");
+        Scanner in = new Scanner(System.in);
+
+        return in.next().equalsIgnoreCase("y");
+    }
+}
+```
+
+public abstract class CaffeineBeverage {
+
+    // MAG NIET OVERRIDEN WORDEN, vandaar de "final"
+    public final void prepareRecipe() {
+        boilWater();
+        brew();
+        pourInCup();
+
+        if (customerWantsCondiments()) addCondiments();
+    }
+
+    protected void boilWater() {
+        System.out.println("Boiling water");
+    }
+
+    protected void pourInCup() {
+        System.out.println("Boiling water");
+    }
+
+    protected abstract void brew();
+    protected abstract void addCondiments();
+
+    // Dit is een hook
+    protected boolean customerWantsCondiments() {
+        return true;
+    }
+}
+
+public class Coffee extends CaffeineBeverage {
+    @Override
+    protected void brew() {
+        System.out.println("Dripping coffee through filter");    
+    }
+
+    @Override
+    protected void addCondiments() {
+        System.out.println("Adding sugar and milk");
+    }
+}
+
+public class Tea extends CaffeineBeverage {
+    @Override
+    protected void brew() {
+        System.out.println("Steeping the tea");    
+    }
+
+    @Override
+    protected void addCondiments() {
+        System.out.println("Adding lemon");
+    }
+}
+
+public class CoffeeWithHook extends CaffeineBeverage {
+    private boolean wantsCondiments;
+    public CoffeeWithHook(boolean wantsCondiments) {
+        this.wantsCondiments = wantsCondiments;
+    }
+    @Override
+    protected void brew() {
+        System.out.println("Dripping coffee through filter");    
+    }
+
+    @Override
+    protected void addCondiments() {
+        System.out.println("Adding sugar and milk");
+    }
+
+    protected boolean customerWantsCondiments() {
+        return wantsCondiments;
+    }
+}
+
+public class Template {
+    public static void main(String[] args) {
+        System.out.println("Making coffee");
+        CaffeineBeverage beverage = new Coffee();
+        beverage.prepareRecipe();
+
+        System.out.println("Making tea");
+        beverage = new Tea();
+        beverage.prepareRecipe();
+
+        System.out.println("Making coffee with a hook");
+        boolean answer = getUserInputForCoffee();
+        beverage = new CoffeeWithHook(answer);
+        beverage.prepareRecipe();
+    }
+
+    public static boolean getUserInputForCoffee() {
+        String answer = null;
+        System.out.println("Would you like milk and sugar with your coffee (y/n)?");
+        Scanner in = new Scanner(System.in);
+
+        return in.next().equalsIgnoreCase("y");
     }
 }
