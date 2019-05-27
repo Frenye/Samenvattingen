@@ -677,7 +677,68 @@ Structureel gelijk aan **Decorator** maar de doelstellingen veranderen:
 
 Het Singleton Pattern garandeert dat een klasse slechts één instantie heeft, en biedt een globaal toegangspunt ernaartoe.
 
+* De **getInstance** methode is static, waardoor deze van overal toegankelijk is.
+* De **uniqueInstance** variabele bevat de enige insantie.
+
 ![image](./images/Singleton1.png)
+
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+
+        return instance;
+    }
+}
+```
+
+## Singleton en threading
+
+Bijvoorbeeld als 2 threads tegelijk een instantie aanmaken waardoor we dan verschillende instanties hebben.
+
+Oplossing met **Synchronized**:
+
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+    }
+
+    // synchronized keyword
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+
+        return instance;
+    }
+}
+```
+
+Oplossing met **Eager Loading**:
+
+```java
+public class Singleton {
+
+    // Maak meteen een instanties
+    private static final Singleton instance = new Singleton();
+
+    private Singleton() {
+    }
+
+    public static Singleton getInstance() {
+        return instance;
+    }
+}
+```
 
 # Template Method
 
@@ -692,81 +753,15 @@ De Template Methode maakt gebruik van **primitieve methoden** om een algoritme t
 
 ![image](./images/Template-Hook.png)
 
-// De builder: de abstracte klasse
-public abstract class SandwichBuilder {
-    private Sandwich sandwich;
-    public Sandwich getSandwich {
-        return sandwich;
-    }    
+public class Singleton {
 
-    public void createNewSandwich() {
-        sandwich = new Sandwich();
+    // Maak meteen een instanties
+    private static final Singleton instance = new Singleton();
+
+    private Singleton() {
     }
 
-    public abstract void prepareBread();
-    public abstract void applyMeatAndCheese();
-    public abstract void applyVegetables();
-    public abstract void addCondiments();
-}
-
-// De builder klassen: concrete klassen
-public class MySandwhichBuilder extends SandwichBuilder {
-    public void prepareBread() {
-        Sandwich sandwich = getSandwich();
-        sandwich.setbreadType(BreadType.Wheat);
+    public static Singleton getInstance() {
+        return instance;
     }
-    public void applyMeatAndCheese() {
-        // ...
-    }
-    public void applyVegetables() {
-        // ...
-    }
-    public void addCondiments() {
-        // ...
-    }
-}
-
-public class ClubSandwichBuilder extends SandwichBuilder {
-    public void prepareBread() {
-        Sandwich sandwich = getSandwich();
-        sandwich.setbreadType(BreadType.White);
-    }
-    public void applyMeatAndCheese() {
-        // ...
-    }
-    public void applyVegetables() {
-        // ...
-    }
-    public void addCondiments() {
-        // ...
-    }
-}
-
-// De Director
-public class SandwichDirector {
-    private SandwichBuilder builder;
-
-    public SandwichDirector(SandwichBuilder builder) {
-        this.builder = builder;
-    }
-
-    public void buildSandwich() {
-        builder.createNewSandwich();
-        builder.prepareBread();
-        builder.applyMeatAndCheese();
-        builder.applyVegetables();
-        builder.addCondiments();
-    }
-
-    public Sandwich getSandwich() {
-        return builder.getSandwich();
-    }
-}
-
-public static void main(String[] args) {
-    SandwichDirector director = new SandwichDirector(new MySandwhichBuilder());
-
-    director.buildSandwich();
-    Sandwich sandwich = director.getSandwich();
-    sandwich.display();
 }
