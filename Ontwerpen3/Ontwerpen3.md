@@ -1037,6 +1037,82 @@ private void doTest() {
 ```
 ## De Virtuele Proxy
 
+**Remote Proxy**: Lokale vertegenwoordiger van een object in een andere JVM.
+**Virtuele Proxy**: Fungeert als surrogaat voor object voor en na creatie, daarna delegeert de proxyt direct naar RealSubject.
+
+![image](./images/Proxy1.png)
+
+Werking ImageProxy:
+
+1. ImageProxy maakt eerst ImageIcon en begint met het laden van dan een netwerk-URL
+2. Terwijl de bytes van de afbeelding worden opgehaald toont ImageProxy laadboodschap
+3. Wanneer de afbeelding volledig geladen is delegeert ImageProxy alle methodeaanroepen naar ImageIcon, inclusief paintIcon, getWidth, getHeight
+4. Vraagt de gebruiker om een nieuwe afbeelding, dan maken we een nieuwe proxy en starten we het proces opnieuw
+
+![image](./images/Proxy2.png)
+
+```java
+// Een tijdelijke afbeelding laden tot de echte afbeelding geladen is
+public class ImageProxy implements Icon {
+    private ImageIcon imageIcon;
+    private URL imageUrl;
+    private Thread retrievalThread;
+    public ImageProxy(URL url) {
+        this.imageUrl = url;
+    }
+
+    @Override
+    public int getIconWidth() {
+        if (imageIcon != null) {
+            return imageIcon.getIconWidth(); // Doordelegeren
+        }
+        return 800; // Default
+    }
+
+    @Override
+    public int getIconHeight() {
+        if (imageIcon != null) {
+            return imageicon.getIconHeight();
+        }
+
+        return 600;
+    }
+
+    public void paintIcon(final Component c, Graphics g, int x, int y) {
+        if (imageIcon != null) {
+            imageIcon.paintIcon(c, g, x, y); // Toon de echte afbeelding
+        } else {
+            g.drawString("cd cover wordt geladen, wachten aub...", x + 300, y + 190); // tijdelijke string tonen
+
+            if (retrievalThread == null) {
+                retrievalThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            imageicon = new ImageIcon(imageUrl, "cd-cover"); // Nu pas ophalen
+                            c.repaint(); // Zal opnieuw uitvoeren zodat het eerste blokje wordt uitgevoerd
+                        } catch(Exception e) { e.printStackTrace(); }
+                    }
+                });
+                retrievalThread.start();
+            }
+        }
+    }
+}
+
+public class SomethingApp {
+    public static void main(String[] args) {
+        Icon icon = new ImageProxy("http://d.pr/i/1kx77+");
+
+        // Echte gui zeker?
+        imageComponent = new ImageComponent(icon);   
+        frame.getContentPane().add(imageComponent);
+    }
+}
+```
+
+## Protection Proxy
+
 
 # Singleton
 
@@ -1219,66 +1295,60 @@ public class Template {
 }
 ```
 
-public interface Duck {
-    void quack();
-    void fly();
-}
-
-public class MallardDuck implements Duck {
-    public void quack() {
-        System.out.println("Quack");
+// Een tijdelijke afbeelding laden tot de echte afbeelding geladen is
+public class ImageProxy implements Icon {
+    private ImageIcon imageIcon;
+    private URL imageUrl;
+    private Thread retrievalThread;
+    public ImageProxy(URL url) {
+        this.imageUrl = url;
     }
 
-    public void fly() {
-        System.out.println("I'm flying");
-    }
-}
-
-public interface Turkey {
-    void gobble();
-    void fly();
-}
-
-public class WildTurkey implements Turkey {
-    public void gobble() {
-        System.out.println("Gobble gobble");
+    @Override
+    public int getIconWidth() {
+        if (imageIcon != null) {
+            return imageIcon.getIconWidth(); // Doordelegeren
+        }
+        return 800; // Default
     }
 
-    public void fly() {
-        System.out.println("I'm flying a short distance");
-    }
-}
+    @Override
+    public int getIconHeight() {
+        if (imageIcon != null) {
+            return imageicon.getIconHeight();
+        }
 
-public class TurkeyAdapter implements Duck {
-    private Turkey turkey;
-
-    public TurkeyAdapter(Turkey turkey) {
-        this.turkey = turkey;
+        return 600;
     }
 
-    public void quack() {
-        turkey.gobble();
-    }
+    public void paintIcon(final Component c, Graphics g, int x, int y) {
+        if (imageIcon != null) {
+            imageIcon.paintIcon(c, g, x, y); // Toon de echte afbeelding
+        } else {
+            g.drawString("cd cover wordt geladen, wachten aub...", x + 300, y + 190); // tijdelijke string tonen
 
-    public void fly() {
-        for (int i = 0; i < 5; i++) {
-            turkey.fly();
+            if (retrievalThread == null) {
+                retrievalThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            imageicon = new ImageIcon(imageUrl, "cd-cover"); // Nu pas ophalen
+                            c.repaint(); // Zal opnieuw uitvoeren zodat het eerste blokje wordt uitgevoerd
+                        } catch(Exception e) { e.printStackTrace(); }
+                    }
+                });
+                retrievalThread.start();
+            }
         }
     }
 }
 
-public class Adapter {
+public class SomethingApp {
     public static void main(String[] args) {
-        MallardDuck duck = new MallardDuck();
-        testDuck(duck);
+        Icon icon = new ImageProxy("http://d.pr/i/1kx77+");
 
-        WildTurkey turkey = new WildTurkey();
-        Duck turkeyAdapter = new TurkeyAdapter(turkey);
-        testDuck(turkeyAdapter);
-    }
-
-    static void testDuck(Duck duck) {
-        duck.quack();
-        duck.fly();
+        // Echte gui zeker?
+        imageComponent = new ImageComponent(icon);   
+        frame.getContentPane().add(imageComponent);
     }
 }
