@@ -998,8 +998,44 @@ private void registerRemoteGumballMachine() {
 }
 ```
 
-## Client laten werken met Remote
+### Client laten werken met Remote
 
+```java
+public class GumballMonitor {
+	private GumballMachineRemote machine;
+
+	public GumballMonitor(GumballMachineRemote machine) {
+		this.machine = machine;
+	}
+
+	public void report() {
+		try {
+			System.out.println("Gumball machine: " + machine.getLocation());
+			System.out.println("Current inventory: " + machine.getCount());
+			System.out.println("Current state: " + machine.getState());
+		}catch (RemotreException ex) {
+			ex.printStackTrace();
+		}
+
+	}
+}
+```
+
+De RMI Registry
+
+```java
+private void doTest() {
+	try {
+		Registry myRegistry = LocateRegistry.getRegistry("127.0.0.1, 1099");
+		GumballMachineRemote machine = (GumballMachineRemote) myRegistry.lookup("gumballmachine");
+		GumballMonitor monitor = new GumballMonitor(machine);
+		monitor.report();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}
+```
+## De Virtuele Proxy
 
 
 # Singleton
