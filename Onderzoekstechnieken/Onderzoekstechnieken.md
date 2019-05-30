@@ -82,3 +82,23 @@ De meest eenvoudige manier om een nummer op te slaan is om een variabele van een
 ```
 > a <- 3
 ```
+
+Hiermee kunt u allerlei basisoperaties doen en opslaan:
+```
+> b <- sqrt (a*a+3)
+> b
+ [1] 3.464102
+```
+
+Lijst met nummers initialiseren via **numeric**
+```
+> a <- numeric(10)
+> a
+ [1] 0 0 0 0 0 0 0 0 0 0
+> typeof(a)
+ [1] double
+```
+
+### Strings
+
+
