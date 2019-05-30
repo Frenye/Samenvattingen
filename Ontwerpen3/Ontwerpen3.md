@@ -1111,9 +1111,6 @@ public class SomethingApp {
 }
 ```
 
-## Protection Proxy
-
-
 # Singleton
 
 Het Singleton Pattern garandeert dat een klasse slechts één instantie heeft, en biedt een globaal toegangspunt ernaartoe.
