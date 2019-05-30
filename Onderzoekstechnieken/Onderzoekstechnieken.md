@@ -224,3 +224,48 @@ Een matrix is een verzameling van gegevens die zijn aangebracht in een tweedimen
 [1,]    2    3
 [2,]    1    7
 ```
+
+# 2. Het onderzoeksproces
+
+## 2.1 De wetenschappelijke methode
+
+Verschillende methodes om kennis te vergaren: 
+
+* Wetenschappelijke methode
+* Niet-wetenschappelijke methode
+
+### Niet-wetenschappelijk:
+
+* Autoritair: Iemand geldt als autoritair en wordt als betrouwbaar bestempeld, alles wat die zegt wordt gezien als waarheid
+* Deductief: Gegeven een set va, veronderstellingen gaat men op een welbepaalde manier conclusies trekken. Afhankelijk van de waarheid van de veronderstellingen.
+
+### Wetenschappelijk:
+
+Een kenmerk van de wetenschappelijke methode is **empirische validering** gebaseerd op ervaring en directe observatie. Dus een uitspraak is geldig indien het overeen komt met wat geobserveerd wordt.
+
+Aan de hand van empirisch onderzoek kunnen we verschillende doelen behalen:
+
+1. Exploratie: bestaat iets of gebeurt er iets
+2. Beschrijving: wat zijn de eigenschappen van deze gebeurtenis
+3. Voorspelling: is een bepaalde gebeurtenis gerelateerd aan een andere en kan ik deze zo voorspellen
+4. Controle: kan ik een gebeurtenis volledig voorspellen aan de hand van andere zaken
+
+### Onderzoeksdoelstellingen
+
+Er zijn 2 grote onderzoekdoelen die we willen behalen: 
+
+* **Generalisatie**: we gaan vaak maar een onderzoek doen op een bepaalde, beperkte groep van de totale groep, als de conclusies voor de subgroep ook gelden voor de totale groep, hebben we een correcte generalisatie gevonden.
+* **Specialisatie**: toepassen van algemene kennis op een specifiek domein of probleem.
+
+2 Soorten generalisatie: 
+
+* Over 1 enkel fenomeen
+* Over verbanden tussen fenomenen
+
+Waarom zijn verbanden zo belangrijk?
+
+1. Volledig verstaan van een fenomeen
+2. Verbanden kunne zorgen voor een voorspelling
+3. Casuale verbanden: een van de fenomenen heeft dat andere fenomeen tot gevolg
+
+
