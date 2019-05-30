@@ -17,10 +17,10 @@ of
 ## 1.1 Commando's opslaan en output uitvoeren
 
 Commandos op extern bestand: 
-> source ("commands.R")
+```source ("commands.R")```  
 
 Uitvoer van console naar bestand wegschrijven
-> sink ("bestand.lis")
+```sink ("bestand.lis")```
 
 ## 1.2 R omgeving en workspace
 
