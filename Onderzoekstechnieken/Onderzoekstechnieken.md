@@ -101,6 +101,48 @@ Lijst met nummers initialiseren via **numeric**
 
 ### Strings
 
+Een tekenreeks wordt gespecifieert door gebruik te maken van aanhalingstekens. Zowel enkelvoudig als dubbele werken.
+```
+> a <- "hello"
+> a
+ [1] "hello"
+> b <- c("hello", "there")
+> b
+ [1] "hello" "there"
+>b[1]
+ [1] "hello"
+```
+
+### Factors
+
+Vaak bevat een experiment proeven voor verschillende niveaus van een verklarende variabele. Bijvoorbeeld een nominale variabele die gecodeerd wordt met een integer. De verschillende niveaus worden ook factoren genoemd
+
+Je geeft aan dat een variabele een factor is met behulp van het **factor command**
+
+### Data frames
+
+Een andere manier om informatie op te slaan is in een tabel. We kijken alleen naar het maken en definiëren van een tabel.
+
+```
+> a <- factor(c("A", "A", "B", "A", "B", "B", "C", "A", "C"))
+> results <- table(a)
+> results
+a
+A B C
+4 3 2
+> attributes(results)
+$dim
+[1] 3
+
+$dimnames
+$dimnames$a
+[1] "A" "B" "C"
 
 
+$class
+[1] "table"
 
+> summary(results)
+Number of cases in table: 9
+Number of factors: 1
+```
