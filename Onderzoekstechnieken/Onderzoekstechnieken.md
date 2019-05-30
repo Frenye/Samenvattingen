@@ -11,25 +11,25 @@ R is een softwareprogramme voor datamanipulatie, berekening en het grafisch voor
 Hulpfaciliteit: 
 
 ```
-help (functie)
+> help (functie)
 ```
 
 of
 
 ```
-?functie
+> ?functie
 ```
 
 ## 1.1 Commando's opslaan en output uitvoeren
 
 Commandos op extern bestand: 
 ```
-source ("commands.R")
+> source ("commands.R")
 ```
 
 Uitvoer van console naar bestand wegschrijven
 ```
-sink ("bestand.lis")
+> sink ("bestand.lis")
 ```
 
 ## 1.2 R omgeving en workspace
@@ -38,24 +38,24 @@ Entiteiten die R creëert staan bekend als objecten zoals variabelen of arrays v
 
 Alle objecten tonen:
 ```
-objects()
+> objects()
 ```
 
 Objecten verwijderen:
 ```
-rm(x, y)
+> rm(x, y)
 ```
 
 ## 1.3 Toewijzing
 
 De meest directe manier om een lijst met nummers op te slaan is via het c-commando, dit staat voor combine. Een andere term voor een lijst nummers is een **vector**
 ```
-variabele <- c(10.4, 5.6, 3.1)
+> variabele <- c(10.4, 5.6, 3.1)
 ```
 
 Een nummer gebruiken:
 ```
-x[2]
+> x[2]
 ```
 
 ## 1.4 Een csv file lezen
@@ -64,16 +64,21 @@ Gegevensbestanden lezen gebeurt via het read.csv() commando.
 
 Weergeven van gedefinieerde kolommen: 
 ```
-names(computers)
+> names(computers)
 ```
 
 Alles vermelden dat gebruikt wordt om variabele te beschrijven:
 ```
-attributes(computer)
+> attributes(computer)
 ```
 
 ## 1.5 Data types
 
 We kijken naar enkele manieren waarop R gegevens kan opslaan en organiseren. Dit is echter een inleiding dus beschouwen we maar een kleine subset van de verschillende datatypes die door R worden herkend
 
+### Numbers
 
+De meest eenvoudige manier om een nummer op te slaan is om een variabele van een enkel getal te nemen:
+```
+> a <- 3
+```
