@@ -17,7 +17,7 @@ Hulpfaciliteit:
 of
 
 ```rebol
-?functie
+> ?functie
 ```
 
 ## 1.1 Commando's opslaan en output uitvoeren
