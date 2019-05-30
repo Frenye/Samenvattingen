@@ -10,8 +10,8 @@ R is een softwareprogramme voor datamanipulatie, berekening en het grafisch voor
 
 Hulpfaciliteit: 
 
-* help (functie)
-* ?functie
+```help (functie)```
+```?functie```
 
 ## 1.1 Commando's opslaan en output uitvoeren
 
