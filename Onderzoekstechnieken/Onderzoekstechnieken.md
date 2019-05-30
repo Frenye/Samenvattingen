@@ -183,7 +183,7 @@ Number of cases in table: 9
 Number of factors: 1
 ```
 
-Als je rijen wil toevoegen, voeg dan nog en vector toe aan als argument van de tableopdracht.
+Als je rijen wil toevoegen, voeg dan nog en vector toe als argument van de tableopdracht.
 
 ```
 > a <- c("Sometimes", "Sometimes", "Never", "Always", "Always", "Sometimes", "Sometimes", "Never")
