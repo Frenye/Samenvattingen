@@ -196,3 +196,27 @@ a           Maybe No Yes
   Never         0  1   1
   Sometimes     2  1   1
 ```
+
+### Matrix
+
+Een matrix is een verzameling van gegevens die zijn aangebracht in een tweedimensionale rechthoekige indeling.
+
+```
+> A = matrix(
++   c(2,4,3,1,5,7),
++   nrow=2,
++   ncol=3,
++   byrow=TRUE)
+> A
+     [,1] [,2] [,3]
+[1,]    2    4    3
+[2,]    1    5    7
+> A[2,3]
+[1] 7
+> A[2, ]
+[1] 1 5 7
+> A[ ,c(1,3)]
+     [,1] [,2]
+[1,]    2    3
+[2,]    1    7
+```
