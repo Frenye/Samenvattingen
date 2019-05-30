@@ -22,12 +22,12 @@ of
 
 ## 1.1 Commando's opslaan en output uitvoeren
 
-Commandos op extern bestand: \
+Commandos op extern bestand: 
 ```
 source ("commands.R")
 ```
 
-Uitvoer van console naar bestand wegschrijven\
+Uitvoer van console naar bestand wegschrijven
 ```
 sink ("bestand.lis")
 ```
@@ -36,12 +36,12 @@ sink ("bestand.lis")
 
 Entiteiten die R creëert staan bekend als objecten zoals variabelen of arrays va cijfers. Tijdens een R sessie worden deze opgeslagen op naam.
 
-Alle objecten tonen:\
+Alle objecten tonen:
 ```
 objects()
 ```
 
-Objecten verwijderen:\
+Objecten verwijderen:
 ```
 rm(x, y)
 ```
