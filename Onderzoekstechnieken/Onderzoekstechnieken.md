@@ -10,27 +10,30 @@ R is een softwareprogramme voor datamanipulatie, berekening en het grafisch voor
 
 Hulpfaciliteit: 
 
-```help (functie)```\
-of  
+```help (functie)```
+
+of
+
 ```?functie```
 
 ## 1.1 Commando's opslaan en output uitvoeren
 
-Commandos op extern bestand:  
+Commandos op extern bestand:\
 ```source ("commands.R")```
 
-Uitvoer van console naar bestand wegschrijven  
+Uitvoer van console naar bestand wegschrijven\
 ```sink ("bestand.lis")```
 
 ## 1.2 R omgeving en workspace
 
 Entiteiten die R creëert staan bekend als objecten zoals variabelen of arrays va cijfers. Tijdens een R sessie worden deze opgeslagen op naam.
 
-Alle objecten tonen:
-> objects()
+Alle objecten tonen:\
+```objects()```
 
-Objecten verwijderen: 
-> rm(x, y)
+Objecten verwijderen:
+
+```rm(x, y)```
 
 ## 1.3 Toewijzing
 
