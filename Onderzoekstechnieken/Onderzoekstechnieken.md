@@ -102,3 +102,5 @@ Lijst met nummers initialiseren via **numeric**
 ### Strings
 
 
+
+
