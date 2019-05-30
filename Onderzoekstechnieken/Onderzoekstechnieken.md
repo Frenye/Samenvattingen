@@ -17,12 +17,12 @@ help (functie)
 of
 
 ```
-> ?functie
+?functie
 ```
 
 ## 1.1 Commando's opslaan en output uitvoeren
 
-Commandos op extern bestand:\
+Commandos op extern bestand: \
 ```
 source ("commands.R")
 ```
