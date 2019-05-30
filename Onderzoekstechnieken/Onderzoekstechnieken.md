@@ -183,4 +183,16 @@ Number of cases in table: 9
 Number of factors: 1
 ```
 
+Als je rijen wil toevoegen, voeg dan nog en vector toe aan als argument van de tableopdracht.
 
+```
+> a <- c("Sometimes", "Sometimes", "Never", "Always", "Always", "Sometimes", "Sometimes", "Never")
+> b <- c("Maybe", "Maybe", "Yes", "Maybe", "Maybe", "No", "Yes", "No")
+> results <- table(a,b)
+> results
+           b
+a           Maybe No Yes
+  Always        2  0   0
+  Never         0  1   1
+  Sometimes     2  1   1
+```
