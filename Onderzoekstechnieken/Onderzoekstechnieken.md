@@ -151,7 +151,7 @@ Data kan woren opgeslagen aan de hand van dataframes. Dit is een manier om versc
 Levels: A B
 ```
 
-###Logische variabelen
+### Logische variabelen
 
 Er zijn twee vooraf gedefinieerde variabelen: **TRUE** en **FALSE**
 
