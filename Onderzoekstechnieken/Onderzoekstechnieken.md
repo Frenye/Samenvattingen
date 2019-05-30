@@ -10,13 +10,13 @@ R is een softwareprogramme voor datamanipulatie, berekening en het grafisch voor
 
 Hulpfaciliteit: 
 
-```rebol
-> help (functie)
+```splus
+help (functie)
 ```
 
 of
 
-```rebol
+```splus
 > ?functie
 ```
 
