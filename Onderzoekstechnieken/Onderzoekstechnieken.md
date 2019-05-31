@@ -302,5 +302,5 @@ Er worden 4 meetniveaus gebruikt, het niveau bepaalt welke methodes bruikbaar zi
 
 Kan worden opgedeeld in 6 grote fasen: 
 
-1. Formuleren van de probleemstelling	_Wat is de onderzoeksvraag_
-2. Exacte informatiebehoefte definiëren	_Welke specifieke vragen moeten we stellen?_
+1. Formuleren van de probleemstelling -> _Wat is de onderzoeksvraag_
+2. Exacte informatiebehoefte definiëren -> _Welke vragen stellen?_
