@@ -297,3 +297,10 @@ Er worden 4 meetniveaus gebruikt, het niveau bepaalt welke methodes bruikbaar zi
 * **Ordinaal meetniveau**: Een variabele die is ingedeeld in categorieën, waar er echter wel een logische volgorde is tussen de categorieën _bv. goud zilver brons_
 * **Intervalniveau**: variabelen die niet n categorieën voorkomen, en waarbij berekeningen kunnen worden uitgevoerd, maar zonder absoluut nulpunt _bv. teperatuur: temperatuur kan 0 zijn maar dit wil niet zeggen dat er geen temperatuur is_
 * **Rationiveau**: intervalniveau met nulpunt, je kunt hierdoor verhoudingen berekenen tussen verschillende waarden op de schaal, als een waarde 0 is dan staat dat voor afwezigheid _bv. leeftijd of inkomen_
+
+### Onderzoeksproces
+
+Kan worden opgedeeld in 6 grote fasen: 
+
+1. Formuleren van de probleemstelling	_Wat is de onderzoeksvraag_
+2. Exacte informatiebehoefte definiëren	_Welke specifieke vragen moeten we stellen?_
