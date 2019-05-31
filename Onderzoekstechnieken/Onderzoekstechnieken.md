@@ -388,7 +388,7 @@ De boxplot wordt gevormd door een rechthoek begrensd door de kwartielwaarden, oo
 
 ## 3.10 R
 
-Zodra u een vector in het geheugen hebt, zijn de meeste basisbewerkingen beschikbaar. Indien je een operatie uitvoert op meerdere vectoren, is het vaak nodig dat de vectoren allemaal hetzelfde aantal elementen hebben
+Zodra u een vector in het geheugen hebt, zijn de meeste basisbewerkingen beschikbaar. Indien je een operatie uitvoert op meerdere vectoren, is het vaak nodig dat de vectoren allemaal hetzelfde aantal elementen hebben.
 
 ```
 > a <- c(1,2,3,4)
@@ -429,3 +429,62 @@ Zodra u een vector in het geheugen hebt, zijn de meeste basisbewerkingen beschik
 > (a+3)/(sqrt(1-b)*2-1)
 [1] 0.7512364 1.0000000 1.2884234 1.6311303
 ```
+
+De volgende commando's kunnen worden gebruikt om het gemiddelde, de kwartielen, het minimum, het maximum, de variantie en de standaardafwijking van een reekst getallen te verkrijgen.
+
+```
+> attach(computers)
+> mean(price)
+[1] 2219.577
+> median(price)
+[1] 2144
+> quantile(price)
+  0%  25%  50%  75% 100%
+ 949 1794 2144 2595 5399
+> min(price)
+[1] 949
+> max(price)
+[1] 5399
+> var(price)
+[1] 337333.2
+> sd(price)
+[1] 580.804
+
+> summary(computers)
+     price          speed
+ Min.   : 949   Min.   : 25.00
+ 1st Qu.:1794   1st Qu.: 33.00
+ Median :2144   Median : 50.00
+ Mean   :2220   Mean   : 52.01
+ 3rd Qu.:2595   3rd Qu.: 66.00
+ Max.   :5399   Max.   :100.00
+       hd              ram
+ Min.   :  80.0   Min.   : 2.000
+ 1st Qu.: 214.0   1st Qu.: 4.000
+ Median : 340.0   Median : 8.000
+ Mean   : 416.6   Mean   : 8.287
+ 3rd Qu.: 528.0   3rd Qu.: 8.000
+ Max.   :2100.0   Max.   :32.000
+     screen           cd
+ Min.   :14.00   Length:6259
+ 1st Qu.:14.00   Class :character
+ Median :14.00   Mode  :character
+ Mean   :14.61
+ 3rd Qu.:15.00
+ Max.   :17.00
+    multi             premium
+ Length:6259        Length:6259
+ Class :character   Class :character
+ Mode  :character   Mode  :character
+
+
+
+      ads            trend
+ Min.   : 39.0   Min.   : 1.00
+ 1st Qu.:162.5   1st Qu.:10.00
+ Median :246.0   Median :16.00
+ Mean   :221.3   Mean   :15.93
+ 3rd Qu.:275.0   3rd Qu.:21.50
+ Max.   :339.0   Max.   :35.00
+ ``` 
+
