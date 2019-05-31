@@ -275,13 +275,13 @@ Waarom zijn verbanden zo belangrijk?
 * Om oplossingsmethoden te ontwikkelen
 * Minder rekening gehouden met prakische toepassingen
 * Om kennis in vakgebied uit te breiden
-
+`
 #### Toegepast onderzoek
 
 * Begint bij een concreet probleem
 * Probleem moet opgelost worden
 * Meestal in bedrijfscontext
 
-## Basisconcepten in onderzoek
+## 2.2 Basisconcepten in onderzoek
 
 
