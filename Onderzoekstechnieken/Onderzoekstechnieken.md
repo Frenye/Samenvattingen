@@ -304,3 +304,10 @@ Kan worden opgedeeld in 6 grote fasen:
 
 1. Formuleren van de probleemstelling -> _Wat is de onderzoeksvraag_
 2. Exacte informatiebehoefte definiëren -> _Welke vragen stellen?_
+3. Uitvoeren van het onderzoek -> _Enquêtes, simulaties, ..._
+4. Verwerken van de gegevens -> _Statische software_
+5. Analyseren van de gegevens -> _Uitvoeren statische methodes_
+6. Conclusies schrijven -> _Schrijven onderzoeksverslag_
+
+**Oorzakelijk verband**: Een variabele veroorzaakt een oorzakelijk verband wanneer een verandering in die variabele op een betrouwbare manier een geassocieerde verandering van een andere variabele tot gevolg heeft , op voorwaarde dat alle andere potentiële oorzaken geëlimineerd zijn
+
