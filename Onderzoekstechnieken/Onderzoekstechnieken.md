@@ -505,8 +505,8 @@ Redenen waarom een steekproef gedaan wordt:
 
 Stappen om een steekproef op te zetten: 
 
-1. **Definitie populatie**: Wie is deel van de populatie, belangrijke elementen zijn bv sociale demografische of fysieke kenmerken.
-2. **Bepalen van steekproefkader**: Een populatieheeft verschillende segmenten en het is meestal onmogelijk een populatie als geheel te onderzoeken. Daarom beperken we ons tot homogene subpopulaties. Deze noemt de operationele populatie.
+1. **Definitie populatie**: Wie is deel van de populatie, belangrijke elementen zijn bv sociale, demografische of fysieke kenmerken.
+2. **Bepalen van steekproefkader**: Een populatie heeft verschillende segmenten en het is meestal onmogelijk een populatie als geheel te onderzoeken. Daarom beperken we ons tot homogene subpopulaties. Deze noemt de operationele populatie.
 3. **Budget en tijd**: Het aantal te onderzoeken objecten of personen zal ook afhankelijk zijn van budget en tijd.
 
 ## 4.2 Kiezen van steekproefmethode
