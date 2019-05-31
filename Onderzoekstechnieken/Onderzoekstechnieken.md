@@ -268,4 +268,20 @@ Waarom zijn verbanden zo belangrijk?
 2. Verbanden kunne zorgen voor een voorspelling
 3. Casuale verbanden: een van de fenomenen heeft dat andere fenomeen tot gevolg
 
+### Fundamenteel vs Toegepast onderzoek
+
+#### Fundamenteel onderzoek
+
+* Om oplossingsmethoden te ontwikkelen
+* Minder rekening gehouden met prakische toepassingen
+* Om kennis in vakgebied uit te breiden
+
+#### Toegepast onderzoek
+
+* Begint bij een concreet probleem
+* Probleem moet opgelost worden
+* Meestal in bedrijfscontext
+
+## Basisconcepten in onderzoek
+
 
