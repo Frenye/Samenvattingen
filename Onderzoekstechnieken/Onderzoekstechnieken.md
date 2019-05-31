@@ -586,7 +586,7 @@ Wanneer een functie aan bovenstaande eigenschappen voldoet dan noemt men het dri
 
 #### Discrete kansverdeling
 
-Hetgeen we meten kan een beperjkt aantal waarden aannemen (bv gooien dobbelsteen)
+Hetgeen we meten kan een beperkt aantal waarden aannemen (bv gooien dobbelsteen)
 
 * Kansen zijn allemaal groter of gelijk aan 0
 * De kans op een getal is gelijk aan de bijbehorende oppervlakte van de staaf
@@ -596,6 +596,25 @@ Hetgeen we meten kan een beperjkt aantal waarden aannemen (bv gooien dobbelsteen
 
 Hetgeen wat we meten kan niet alleen een beperkt aantal waarden aannemen, maar ook alle ertussen liggende waarden bijvoorbeeld gewicht van een persoon. De kansverdeling bestaat hier niet uit staafjes maar uit een vloeiende kromme.
 
+## 4.4 De normale verdeling
+
 ![image](./images/ContinueVerdeling.png)
 
+De normale verdeling kent volgende eigenschappen
 
+* Klokvormig
+* Symmetrisch
+* Gemiddelde, mediaan en modus zijn gelijk
+* Totales oppervlakte is 1
+* In gebied σ onder μ en σ boven μ ligt ongeveer 68% van de waarnemingen
+* In het gebied 2σ boven en onder μ ligt ongeveer 95% van alle waarnemingen
+
+### 4.4.1 De standaardnormale verdeling
+
+Indien de toevalsveranderlijke X ∼ N(μ, σ ) verdeeld is dan is de toevalsvariabele Z = (X−μ)/σ normaal verdeeld: Z ∼ N(0, 1). Dit noemen we de standaardnormale verdeling.
+
+![image](./images/StandaardnormaleGrafiek.png)
+
+In het algemeen kan men dus bij een waarneming x de zogenaamde z-score bepalen als volgt:
+
+![image](./images/Zscore.png)
