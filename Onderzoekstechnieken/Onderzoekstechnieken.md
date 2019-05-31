@@ -275,7 +275,7 @@ Waarom zijn verbanden zo belangrijk?
 * Om oplossingsmethoden te ontwikkelen
 * Minder rekening gehouden met prakische toepassingen
 * Om kennis in vakgebied uit te breiden
-`
+
 #### Toegepast onderzoek
 
 * Begint bij een concreet probleem
@@ -284,4 +284,16 @@ Waarom zijn verbanden zo belangrijk?
 
 ## 2.2 Basisconcepten in onderzoek
 
+### Meetniveaus
 
+In statistiek werken we met variabelen en waarden
+
+* Variabele: algemene eigenschap van een object waardoor we objecten van elkaar kunnen onderscheiden _bv. lengte_
+* Waarde: specifieke eigenschap, invulling voor die variabele _bv. 1m98_
+
+Er worden 4 meetniveaus gebruikt, het niveau bepaalt welke methodes bruikbaar zijn
+
+* **Nominaal meetniveau**: Slechts keuze uit bepaald aantal categorieën, waarbij geen volgorde aanwezig is tussen de antwoorden _bv. man of vrouw_
+* **Ordinaal meetniveau**: Een variabele die is ingedeeld in categorieën, waar er echter wel een logische volgorde is tussen de categorieën _bv. goud zilver brons_
+* **Intervalniveau**: variabelen die niet n categorieën voorkomen, en waarbij berekeningen kunnen worden uitgevoerd, maar zonder absoluut nulpunt _bv. teperatuur: temperatuur kan 0 zijn maar dit wil niet zeggen dat er geen temperatuur is_
+* **Rationiveau**: intervalniveau met nulpunt, je kunt hierdoor verhoudingen berekenen tussen verschillende waarden op de schaal, als een waarde 0 is dan staat dat voor afwezigheid _bv. leeftijd of inkomen_
