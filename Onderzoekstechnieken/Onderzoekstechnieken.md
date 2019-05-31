@@ -357,4 +357,5 @@ Dus:
 De **kwartielafstand** is het verschil tussen Q3 en Q1
 
 ![image](./images/Kwartiel.png)
+![image](./images/Kwartiel1.png)
 
