@@ -511,6 +511,36 @@ Stappen om een steekproef op te zetten:
 
 ## 4.2 Kiezen van steekproefmethode
 
+Soms is de populatie die men wenst te bespreken erg verschillend op een aantal belangrijke kenmerken. Daartoe wordt de populatie als geheel in een aantal elkaar niet-overlappende en homogene strata of klassen ingedeeld.
 
+Een **gestratificeerde** steekproef is proportioneel als het aandeel van de subpopulatie in de steekproef gelijk is aan de het aandeel van de subpopulatie in de populatie als geheel.
+
+Nadat gestratificeerd is, moet bepaald worden op welke wijze binnen ieder stratum het aantal benodigde objecten of correspondenten gekozen moeten worden. Aselect of niet-aselect.
+
+### 4.2.1 Fouten bij steekproeven
+
+#### Toevallige steekproeffouten
+
+Wanneer er puur door het toeval een verschil is in een waarde voor de populatie en de steekproef.
+
+#### Systematische steekproeffouten
+
+Een procedure in de steekproef die een fout oplevert die een systematische oorzaak heeft en dus niet te wijten is aan toevallige effecten.
+
+#### Toevallige niet-steekproeffouten
+
+Hieronder vallen bijvoorbeeld verkeerde aangekruiste antwoorden
+
+####Systematische niet-steekproeffouten
+
+Wanneer bijvoorbeeld respondenten met een sterke band met het onderzoek eerder geneigd zijn een vragenlijst in te vullen, ga je positieve antwoorden krijgen. Deze zijn niet representatief.
+
+### 4.2.2 Aanpassing formule standaardderivatie
+
+We noemen het gemiddelde van de steekproef het steekproefgemiddelde. Als we de standaardafwijking willen bepalenmoeten we niet meer delen door n maar door (n-1)
+
+![image](./images/VariantieFormule.png)
+
+![image](./images/SymbolenOverzicht.png)
 
 
