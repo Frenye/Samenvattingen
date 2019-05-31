@@ -311,3 +311,14 @@ Kan worden opgedeeld in 6 grote fasen:
 
 **Oorzakelijk verband**: Een variabele veroorzaakt een oorzakelijk verband wanneer een verandering in die variabele op een betrouwbare manier een geassocieerde verandering van een andere variabele tot gevolg heeft , op voorwaarde dat alle andere potentiële oorzaken geëlimineerd zijn
 
+# 3. Analyse op 1 variabele
+
+## 3.1 Beschrijvende statistiek
+
+Met beschrijvende statistiek bedoelen we een verzameling van technieken om data te synthetisch voor te stellen en samen te vatten.
+
+## 3.2 Gemiddelde
+
+Het gemiddelde van een set waarden is de som van al deze waarden gedeeld door het aantal waarden
+
+![image](./images/Gemiddelde.png)
