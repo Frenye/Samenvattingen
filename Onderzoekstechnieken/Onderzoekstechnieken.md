@@ -359,3 +359,30 @@ De **kwartielafstand** is het verschil tussen Q3 en Q1
 ![image](./images/Kwartiel.png)
 ![image](./images/Kwartiel1.png)
 
+## 3.7 Variantie en standaardafwijking
+
+De variantie is het gemiddelde van de kwadraten van de verschillen tussen de waarde van de dataset en het gemiddelde
+
+![image](./images/Variantie.png)
+
+De standaardafwijking wordt dan gedefinieerd als de vierkantswortel van de variantie
+
+![image](./images/StandaardAfwijking.png)
+
+Dit geeft ons dus zicht op wat normaal en abnormaal is. kleine SA wil zeggen dat waarden dicht bij centrummaat liggen en grote SA wil zeggen dat de waarden verspreid liggen.
+
+## 3.8 Centrummaat en Spreidingsmaat toepassen
+
+![image](./images/Meetniveaustabel.png)
+
+## 3.9 Grafieken
+
+### Boxplot
+
+De bocplot wordt gevormd door een rechthoek begrensd door de kwartielwaarden, ook de mediaan wordt er in getekend. De stelen bevatten de rest van de waarnemingen op uitschieters op extremen na
+
+* **Uitschieter**: waarde die meer dan 1,5 keer de interkwartielafstand boven/onder het derde/eerste kwartiel ligt. Aangeduid met cirkeltje
+* **Extremum**: waarde die meer dan 3 keet de interkwartielafstand boven/onder het derde/eerste kwartiel ligt. Aangeduid met sterretje
+
+![image](./images/BoxplotVoorbeeld.png)
+
