@@ -543,4 +543,59 @@ We noemen het gemiddelde van de steekproef het steekproefgemiddelde. Als we de s
 
 ![image](./images/SymbolenOverzicht.png)
 
+## 4.3 Kansverdeling van een steekproef
+
+### 4.3.1 Stochastisch experiment
+
+Een random of stochastisch experiment heeft volgende elementen nodig:
+
+* Universum of uitkomstenruimte
+* Gebeurtenis
+* Kansruimte
+
+#### Universum of uitkomstenruimte
+
+Verzameling van alle mogelijke uitkomsten van dit experiment.
+
+* Moet volledig zijn
+* Elke uitkomst moet overeenkomen met juist 1 element
+
+#### Gebeurtenis
+
+Deelverzameling van de uitkomstenruimte. Enkelvoudige gebeurtenis is singleton, een samengestelde gebeurtenis heeft cardinaliteit groter dan 1.
+
+![image](./images/Gebeurtenis.png)
+
+Opmerkingen
+
+* Door inductie leidt men af dat de unie van n gebeurtenissen eveneens een gebeurtenis is
+* Idem voor doorsnee van gebeurtenissen
+* Voor sommige toepassingen is het nodig om ook oneindige unies en doorsnedes te beschouwen
+
+#### Kansruimte
+
+Het toekennen van kansen aan gebeurtenissen dient aan de volgende regels te voldoen
+
+1. Kansen zijn steeds positief: P(A) ≥ 0 voor elke A
+2. De uitkomstenruimte heeft kans 1: P(Ω) = 1
+3. Wanneer A en B disjuncte gebeurtenissen zijn dan is P(A ∪ B) = P(A) + P(B)
+
+Wanneer een functie aan bovenstaande eigenschappen voldoet dan noemt men het drietal (Ω, P(Ω), P) een kansruimte.
+
+### 4.3.2 Kansverdeling 
+
+#### Discrete kansverdeling
+
+Hetgeen we meten kan een beperjkt aantal waarden aannemen (bv gooien dobbelsteen)
+
+* Kansen zijn allemaal groter of gelijk aan 0
+* De kans op een getal is gelijk aan de bijbehorende oppervlakte van de staaf
+* De totale oppervlakte van alle staven is 1
+
+#### Continue kansverdeling
+
+Hetgeen wat we meten kan niet alleen een beperkt aantal waarden aannemen, maar ook alle ertussen liggende waarden bijvoorbeeld gewicht van een persoon. De kansverdeling bestaat hier niet uit staafjes maar uit een vloeiende kromme.
+
+![image](./images/ContinueVerdeling.png)
+
 
