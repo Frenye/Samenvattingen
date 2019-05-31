@@ -537,7 +537,7 @@ Wanneer bijvoorbeeld respondenten met een sterke band met het onderzoek eerder g
 
 ### 4.2.2 Aanpassing formule standaardderivatie
 
-We noemen het gemiddelde van de steekproef het steekproefgemiddelde. Als we de standaardafwijking willen bepalenmoeten we niet meer delen door n maar door (n-1)
+We noemen het gemiddelde van de steekproef het steekproefgemiddelde. Als we de standaardafwijking willen bepalen moeten we niet meer delen door n maar door (n-1)
 
 ![image](./images/VariantieFormule.png)
 
