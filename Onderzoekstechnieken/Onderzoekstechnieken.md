@@ -388,7 +388,7 @@ De boxplot wordt gevormd door een rechthoek begrensd door de kwartielwaarden, oo
 
 ## 3.10 R
 
-Zodra u een vector in het geheugen hebt, zijn de meeste basisbewerkingen beschikbaar. Indien je een operatie uitvoert op meerdere vectoren, is het vaak nodigdat de vectorenallemaal hetzelfde aantal elementen hebben
+Zodra u een vector in het geheugen hebt, zijn de meeste basisbewerkingen beschikbaar. Indien je een operatie uitvoert op meerdere vectoren, is het vaak nodig dat de vectoren allemaal hetzelfde aantal elementen hebben
 
 ```
 > a <- c(1,2,3,4)
