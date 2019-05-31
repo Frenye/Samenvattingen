@@ -488,3 +488,29 @@ De volgende commando's kunnen worden gebruikt om het gemiddelde, de kwartielen, 
  Max.   :339.0   Max.   :35.00
  ``` 
 
+# 4. Steekproefonderzoek
+
+## 4.1 Populatie en Steekproeven
+
+**Populatie**: De verzameling van alle objecten of personen waar men in geïnteresseerd is en onderzoek naar wil doen.
+
+**Steekproef**: Wanneer met een subgroep uit een populatie gaat onderzoeken.
+
+Redenen waarom een steekproef gedaan wordt: 
+
+* Populatie is te groot
+* Kostbare metingen
+* Wanneer snelheid belangrijk is
+* Gemakkelijker
+
+Stappen om een steekproef op te zetten: 
+
+1. **Definitie populatie**: Wie is deel van de populatie, belangrijke elementen zijn bv sociale demografische of fysieke kenmerken.
+2. **Bepalen van steekproefkader**: Een populatieheeft verschillende segmenten en het is meestal onmogelijk een populatie als geheel te onderzoeken. Daarom beperken we ons tot homogene subpopulaties. Deze noemt de operationele populatie.
+3. **Budget en tijd**: Het aantal te onderzoeken objecten of personen zal ook afhankelijk zijn van budget en tijd.
+
+## 4.2 Kiezen van steekproefmethode
+
+
+
+
