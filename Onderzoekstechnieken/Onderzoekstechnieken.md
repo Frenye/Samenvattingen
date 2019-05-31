@@ -319,6 +319,42 @@ Met beschrijvende statistiek bedoelen we een verzameling van technieken om data 
 
 ## 3.2 Gemiddelde
 
-Het gemiddelde van een set waarden is de som van al deze waarden gedeeld door het aantal waarden
+Het gemiddelde van een set waarden is de som van al deze waarden gedeeld door het aantal waarden. Gemiddelde is gevoelig aan outliers.
 
 ![image](./images/Gemiddelde.png)
+
+Waarbij: 
+
+* xi de waarden zijn
+* n het aantal waarden is
+
+## 3.3 Mediaan
+
+Indien we alle cijfers sorteren van klein naar groot, is de mediaan het middelste cijfer, of het 2e middelste cijfer als het aantal even is. Mediaan is niet gevoelig voor outliers.
+
+## 3.4 Modus
+
+Het cijfer dat het meeste voorkomt in een set cijfers
+
+* Heeft geen zin als alle cijfers evenveel voorkomen
+* Bimodaal: twee modi
+* Multimodaal: meerdere modi
+
+## 3.5 Range / Bereik
+
+Het bereik in een set van getallen is de absolute waarde van het verschil tussen het laagste en het grootste getal
+
+## 3.6 Kwartielen & kwartielafstand
+
+De kwartielen zijn de waarden die een gesorteerde lijst van nummers in 4 gelijke delen deelt. Elk deel vormt dus een kwart van de dataset
+
+Dus:
+
+* Het eerste kwartiel Q1 is de getalwaarde die de laagste 25% van de reeks afscheidt
+* Het tweede kwartiel Q2 is de getalwaarde die de laagste 50% van de reeks afscheidt
+* Het derde kwartiel Q3 is de getalwaarde die de laagste 75% van de reeks afscheidt
+
+De **kwartielafstand** is het verschil tussen Q3 en Q1
+
+![image](./images/Kwartiel.png)
+
