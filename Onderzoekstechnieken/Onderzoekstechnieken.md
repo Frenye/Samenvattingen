@@ -611,6 +611,8 @@ De normale verdeling kent volgende eigenschappen
 
 ### 4.4.1 De standaardnormale verdeling
 
+![image](./images/StandaardNV.pnd)
+
 Indien de toevalsveranderlijke X ∼ N(μ, σ ) verdeeld is dan is de toevalsvariabele Z = (X−μ)/σ normaal verdeeld: Z ∼ N(0, 1). Dit noemen we de standaardnormale verdeling.
 
 ![image](./images/StandaardnormaleGrafiek.png)
@@ -618,3 +620,28 @@ Indien de toevalsveranderlijke X ∼ N(μ, σ ) verdeeld is dan is de toevalsvar
 In het algemeen kan men dus bij een waarneming x de zogenaamde z-score bepalen als volgt:
 
 ![image](./images/Zscore.png)
+
+Deze score geeft dus aan hoe extreem een waarneming is of anders gezegd, hoeveel standaardderivatie is de waarneming x van het gemiddelde μ verwijderd. Voor deze z-scores heeft men tabellen opgesteld met de kansen dat een waarde kleiner dan z getrokken wordt uit Z, de zgn linkerstaartkans P(z > Z). 
+
+We komen dat tot de volgende methode voor het berekenen van kansen met de normale verdeling: 
+
+1. Bepaal de kansvariabele met de bijhorende normale verdeling
+2. Bereken de z-score bij de bijhorende x-waarde
+3. Schets de plaats van de gevraagde kans
+4. Herleid de gevraagde kans met behulp van de schets tot een linkerstaartkans en gebruik de z-tabel van de standaardnormale verdeling om deze te bepalen. Gebruik indien nodig de symmetrieregel en de regel van 100% kans.
+
+Voorbeeld voor het berekenen van een kans: 
+
+![image](./images/VoorbeeldKans1.png)
+![image](./images/VoorbeeldKans2.png)
+
+### 4.4.2 Testen op normaliteit
+
+Er zijn verschillende methoden die kunnen gebruikt worden om na te gaan of een steekproef uit een normale verdeling komt.
+
+1. Construeer een histogram en bekijk de vorm. Als de gegevens een normale verdeling hebben zal het histogram een klokcurve vormen.
+2. Bereken de intervallen x ± s, x ± 2s, x ± 3s en bepaal het percentage meetwaarden dat binnen elk van deze intervallen valt. Als de gegevens ongeveer normaal verdeeld zijn, zullen percentages ongeveer gelijk zijn aan respectievelijk 68%, 95% en 99,7%.
+3. Construeer een QQ-plot voor de gegevens. Als de gegevens ongeveer normaal verdeeld zijn zullen de punten ongeveer op een rechte lijn liggen.
+4. Bekijk de kurtosis (welving of platheid): duidt aan hoe scherp de piek van de verdeling is
+*	Een normale verdeling heeft en kurtosis = 0
+	* Een vlakke distributie heeft negatieve kurtosis
