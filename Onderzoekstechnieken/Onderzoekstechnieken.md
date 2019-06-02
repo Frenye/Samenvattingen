@@ -611,7 +611,7 @@ De normale verdeling kent volgende eigenschappen
 
 ### 4.4.1 De standaardnormale verdeling
 
-![image](./images/StandaardNV.pnd)
+![image](./images/StandaardNV.png)
 
 Indien de toevalsveranderlijke X ∼ N(μ, σ ) verdeeld is dan is de toevalsvariabele Z = (X−μ)/σ normaal verdeeld: Z ∼ N(0, 1). Dit noemen we de standaardnormale verdeling.
 
@@ -643,5 +643,27 @@ Er zijn verschillende methoden die kunnen gebruikt worden om na te gaan of een s
 2. Bereken de intervallen x ± s, x ± 2s, x ± 3s en bepaal het percentage meetwaarden dat binnen elk van deze intervallen valt. Als de gegevens ongeveer normaal verdeeld zijn, zullen percentages ongeveer gelijk zijn aan respectievelijk 68%, 95% en 99,7%.
 3. Construeer een QQ-plot voor de gegevens. Als de gegevens ongeveer normaal verdeeld zijn zullen de punten ongeveer op een rechte lijn liggen.
 4. Bekijk de kurtosis (welving of platheid): duidt aan hoe scherp de piek van de verdeling is
-*	Een normale verdeling heeft en kurtosis = 0
+	* Een normale verdeling heeft en kurtosis = 0
 	* Een vlakke distributie heeft negatieve kurtosis
+	* Een piekvormige distributie heeft positieve kurtosis
+5. Bereken de Skewness (scheefheid): duidt symmetrie aan
+	* Symmetrische distributie heeft skewness = 0
+	* Normale verdeling heeft dus ook 0
+	* Lange linkerstaart = negatief
+	* Als absolute waarde van skewness > 1 : geen symmetrische distributie
+
+**QQ-plot of normaliteitsplot**: Spreidingsdiagram met de gesorteerde gegevenswaarden op de ene as en de bijhorende verwachte z-waarden van een standaardnormale verdeling op de andere as.
+
+```
+> m <- 1000
+> s <- 50
+> n <- 50
+> observations <- rnorm ( n , m, s )
+> qqnorm(observations)
+> x <- seq ( -3 , +3 , length = n )
+> lines ( x , m+ s * x , col = 'red' )
+```
+
+## 4.5 Centrale limietstelling
+
+
