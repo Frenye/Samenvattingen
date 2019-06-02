@@ -666,4 +666,17 @@ Er zijn verschillende methoden die kunnen gebruikt worden om na te gaan of een s
 
 ## 4.5 Centrale limietstelling
 
+Als een steekproefomvang voldoende groot is, dan kan de kansverdeling van het steekproefgemiddelde benaderd worden met een normale verdeling. Dit geldt ongeacht de vorm van de kansverdeling van de onderliggende populatie.
+
+Een lineaire combinatie van onafhankelijke, gelijk verdeelde stochasten is steeds normaal verdeeld.
+
+![image](./images/CentraleLS.png)
+
+Bijgevolg zal ook het steekproefgemiddelde van een steekproef uit een populatie met een willekeurige verdeling, nagenoeg normaal verdeeld zijn voor een voldoende grote n.
+
+Beschouw een aselecte steekproef van n waarnemingen die uit een populatie met een willekeurige distributie met verwachtingswaarde μ en standaardafwijking σ. Als n groot genoeg is zal de kansverdeling van x een normale verdeling benaderen met:
+
+![image](./images/CentraleLSvb.png)
+
+Hoe groter de steekproef is, des te beter zal de kansverdeling overeenkomen met een normaalverdeling.
 
