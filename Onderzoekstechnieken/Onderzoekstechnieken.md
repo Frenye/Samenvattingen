@@ -758,5 +758,72 @@ Aangezien p een steekproefgemiddelde is van het aantal successen, stelt dit ons 
 ![image](./images/BI7.png)
 ![image](./images/BI8.png)
 
+##4.6 R
 
+De prefixen zijn als volgt: 
 
+* **d** geeft de hoogte van de respectievelijke kansdichthiedsfunctie
+* **p** geeft de cumulatieve kansdichtheidsfunctie
+* **q** geeft de omgekeerde cumulatieve dichtheidsfunctie
+* **r** geeft een willekeurige waarde
+
+### dnorm
+
+gegeven een waarde geeft het de hoogte van de kansverdeling op elk punt terug. Als u alleen punten zonder gemiddelde en standaardafwijking ingeeft wordt gemiddelde van 0 en standaardafwijking van 1 beschouwd
+
+```
+> dnorm(0)
+[1] 0.3989423
+> dnorm(0)*sqrt(2*pi)
+[1] 1
+> dnorm(0, mean=4)
+[1] 0.0001338302
+> dnorm(0,mean=4, sd=10)
+[1] 0.03682701
+> v <- c(0,1,2)
+> dnorm(v)
+[1] 0.39894228 0.24197072
+[3] 0.05399097
+> x <- seq(-20,20,by=.1)
+> y <- dnorm(x)
+> plot(x,y)
+> y <- dnorm(x, mean=2.5, sd=0.1)
+> plot(x,y)
+```
+
+### pnorm
+
+Dit is de cumulatieve kansdichtheidsfunctie, of anders gezegd de linkerstaartkans
+
+### qnorm
+
+Dit is de inverse van pnorm. Het idee er achter is dat je een kans α geeft, en geeft het geheel getal weer waarvan de cumulatieve distributie overeenkomt met de waarschijnlijkheid van α
+
+```
+> qnorm(0.5)
+[1] 0
+> qnorm(0.5, mean=1)
+[1] 1
+> qnorm(0.5, mean=1, sd=2)
+[1] 1
+> qnorm(0.5, mean=2, sd=2)
+[1] 2
+> qnorm(0.5, mean=2, sd=4)
+[1] 2
+> qnorm(0.25, mean=2, sd=2)
+[1] 0.6510205
+> qnorm(0.333)
+[1] -0.4316442
+> qnorm(0.333, sd=3)
+[1] -1.294933
+> qnorm(0.75, mean=5, sd=2)
+[1] 6.34898
+> v = c(0.1, 0.3, 0.75)
+> qnorm(v)
+[1] -1.2815516 -0.5244005  0.6744898
+> x <- seq(0, 1, by=.05)
+> y <- qnorm(x)
+> plot(x,y)
+> y <- qnorm(x, mean=3, sd=2)
+> plot(x,y)
+```
