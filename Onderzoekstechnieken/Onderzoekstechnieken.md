@@ -680,3 +680,44 @@ Beschouw een aselecte steekproef van n waarnemingen die uit een populatie met ee
 
 Hoe groter de steekproef is, des te beter zal de kansverdeling overeenkomen met een normaalverdeling.
 
+### 4.5.1 Toepassing van centrale limietstelling
+
+![image](./images/Limietstelling.png)
+
+### 4.5.2 Schatten van een parameter
+
+Indien we nu een steekproef onderzoeken, willen we uit de berekening op de steekproef een aantal conclusies trekken met betrekking tot de populatie. Als we een schatting geven voor een onbekende parameter, noemen we dat een puntschatter.
+
+**Een puntschatter** voor een populatieparameter is een regel of een formule die ons zegt hoe we uit de steekproef een getal poeten berekenen om de populatie parameter te schatten. Dit is dus een steekproefgrootheid.
+
+### 4.5.3 Betrouwbaarheidsinterval populatiegemiddelde bij grote steekproef
+
+In het geval van het schatten van een gemiddelde van een populatie uit een steekproef hebben we totaal geen idee over hoe correct deze schatting is. Daarvoor geen we opzoek naar een interval waarvan we met een bepaalde zekerheid bv 95% kunnen zeggen dat het de te testen karakteristiek bevat.
+
+**Een betrouwbaarheidsinterval** is een regel of een formule die ons zegt hoe we uit de steekproef een interval moeten berekenen dat de waarde van de parameter met een bepaalde hoge waarschijnlijkheid bevat.
+
+Een goede schatting voor populatiegemiddelde zou steekproefgemiddelde zijn. Deze schatting is echter niet de werkelijke waarde van de populatie. Daarom wordt vaak rondom x een interval geconstrueerd dat de waarden bevat die aannemelijk zijn voor μ. Hiervoor kunnen we gebruik maken van de centrale limietstelling: het gemiddelde in een te trekken steekproef van omvang n is normaal verdeeld met karakteristieken µ en σ/√n. Als we het gemiddelde standardiseren krijgen we:
+
+![image](./images/CL1.png)
+
+Deze uitdrukking hangt af van µ maar we weten wel dat  deze standaarnormaal verdeeld is. We kunnen daarom getallen -z en z vinden, onafhankelijk van µ, waartussen Z met een gekozen kans 1-α ligt. deze kans wordt de betrouwbaarheidsniveau genoemd. we nemen hier dat 1-α=0.95
+
+![image](./images/CL2.png)
+
+Hieruit halen we dat α=0.05. Door het toepassen van de symmetrieregel weten we dus dat we de volgende term moeten berekenen:
+
+![image](./images/CL3.png)
+
+Kijken we in de Z-tabel vinden we voor de rechterstaartkans 0.025 de z-score van 1.96
+
+Dus vinden we: 
+
+![image](./images/CL4.png)
+
+Hier gaan we er van uit dat we de standaardderivatie van de populatie kennen, wat meestal niet zo is. Indien de steekproef gorrt genoeg is kunnen we de steekproefstandaardderivatie nemen als schatter.
+
+![image](./images/CL5.png)
+
+### 4.5.4 Betrouwbaarheidsinterval populatiegemiddelde bij kleine steekproef
+
+Bij kleine steekproeven kunnen we niet veronderstellen dat de kansverdeling van x bij benadering normaal verdeeld is. CLS garandeerd allen normaliteit bij grote steekproeven (n>30). De vorm van de verdeling van de steekproefgemiddelde hangt nu af van de vorm van verdeling van de populatie. Standaardafwijking kan een slechte benadering zijn voor σ.
