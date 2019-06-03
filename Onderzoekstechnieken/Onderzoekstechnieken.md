@@ -863,3 +863,22 @@ Een **statische hypothese** is een uitspraak over de numerieke waarde van een po
 4. Aanvaardings- en kritiek gebied:
 	* **Aanvaardingsgebied**: Het gebied van waarden die de nullhypothese ondersteunt
 	* **Verwerpingsgebied**: Gebied dat waarden bevat die de nullhypothese verwerpen. Ook kritiek gebied genoemd.
+
+Een alternatief voor de laatste stap is het berekenen van de overschrijdingskans.
+
+## 5.2 Toetsingsprocedure voor de z-toets
+
+In de eerste toetsingsprocedure die we uitwerken, gaan we een uitspraak over het populatiegemiddelde µ verifiëren. Deze is algemeen bekend als de z-toets.
+
+1. De vermoedens over de populatie worden vastgelegd in 2 hypothesen H0 en H1. Voor de z-toets is de nullhypothese dat het populatiegemiddelde µ een bepaalde waarde heeft, en de alternatievehypothese dat µ groter is.
+2. Het significantieniveau α en de steekproefomvang n worden vastgelegd. Je kan α in principe zelf kiezen (bv 0,05). Hoe dichter het significantieniveau bij 0 ligt, hoe minder twijfel er is over het resultaat van de toets. Maar langs de andere kant wordt het ook moeilijker om de nullhypothese te verwerpen.
+3. De waarde van de toetsingsgrootheid in de steekproef wordt berekend. De uitkomst is bepalend voor de beslissing of we de nullhypothese H0 kunnen verwerpen of niet.
+4. Het kritieke gebied bepalen, of meer bepaald de grens tussen het aanvaardings- en het verwerpingsgebied. we zoeken de grenswaarde g zodat: 
+
+![image](./images/TP1.png)
+
+De z-waarde hangt af van het gekozen significantieniveau en kan worden opgezocht in een z-tabel of berekend worden met de R-functie qnorm(1-alpha). Daaruit kunnen we dan g afleiden: 
+
+![image](./images/TP2.png)
+
+Alle waarden links van g vormen het aanvaardingsgebied. Waarden rechts, die dus ver van het H0 veronderstelde populatiegemiddelde liggen, zijn het verwerpingsgebied.
