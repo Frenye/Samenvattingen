@@ -721,3 +721,42 @@ Hier gaan we er van uit dat we de standaardderivatie van de populatie kennen, wa
 ### 4.5.4 Betrouwbaarheidsinterval populatiegemiddelde bij kleine steekproef
 
 Bij kleine steekproeven kunnen we niet veronderstellen dat de kansverdeling van x bij benadering normaal verdeeld is. CLS garandeerd allen normaliteit bij grote steekproeven (n>30). De vorm van de verdeling van de steekproefgemiddelde hangt nu af van de vorm van verdeling van de populatie. Standaardafwijking kan een slechte benadering zijn voor σ.
+
+Als oplossing kunnen we een nieuwe grootheid bepalen. in plaats van 
+
+![image](./images/BI1.png)
+
+construeren we
+
+![image](./images/BI2.png)
+
+Deze heeft een kansverdeling die beschreven wordt door een Student-t verdeling. Deze lijkt zeer goed op een normale verdeling, maar de precieze vorm hangt af van de steekproefomvang n. We zeggen dat de t-verdeling (n-1) vrijheidsgraden heeft (afgekort df).
+
+* (n-1) werd ook gebruikt om s² te berekenen 
+* als n -> ∞ krijgenn we de standaardnormale verdeling
+
+Om betrouwbaarheidsinterval voor het gemiddelde te bepalen op basis van een kleine steekproef bepalen we:
+
+![image](./images/BI3.png)
+
+waarbij t(α/2) gebaseerd is op (n-1) vrijheidsgraden0 We veronderstellen wel dat we een aselecte steekproef genomen hebben uit een populatie die bij benadering normaal verdeeld is.
+
+![image](./images/BI4.png)
+
+### 4.5.5 Betrouwbaarheidsinterval voor populatiefractie bij grote steekproef
+
+Indien je een variabele wil meten als een fractie, bijvoorbeeld % mensen die ja geantworrd heeft op bepaalde vraag,willen we in feite de kans p op succes in een bernouilli experiment schatten, waarbij p de kans is dat een willekeurige geselecteerde respondent een succes is. we kunnen p dan schatten door bijvoorbeeld:
+
+![image](./images/BI5.png)
+
+om de betrouwbaarheid van schatter p te bepalen moeten we zijn kansverdeling kennen. Via centrale limietstelling: n elementen, succes=1 faling=0 -> kans op 1 is p en kans op 0 is 1-p. Het gemiddelde p heeft dan bij benadering een normale verdeling of dus:
+
+![image](./images/BI6.png)
+
+Aangezien p een steekproefgemiddelde is van het aantal successen, stelt dit ons in staat een betrouwbaarheidsinterval te berekenen analoog als die voor de intervalschatting van µ voor grote steekproeven.
+
+![image](./images/BI7.png)
+![image](./images/BI8.png)
+
+
+
