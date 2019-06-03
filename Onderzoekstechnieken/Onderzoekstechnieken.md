@@ -849,3 +849,17 @@ Kan willekeurige getallen genereren waarvan de distributie normaal is. Het argum
 > qqline(y)
 ```
 
+# 5. Toetsingsprocedures
+
+We kunnen de informatie van het vorige hoofdstuk ook gebruiken voor bepaalde hypothesen over een populatie te toetsen. Een hypothese is een veronderstelling waarvan nog moet worden bewezen dat deze correct is. Het doel van een toetsingsprocedure is het testen van een hypothese omtrent de waarheden van 1 of meer populatieparameters. 
+
+Een **statische hypothese** is een uitspraak over de numerieke waarde van een populatieparameter.
+
+## 5.1 Elementen van een hypothesetoets
+
+1. **Nullhypthese** H0: Deze hypothese proberen we te ontkrachten door een redenering in het ongerijmde. We gaan deze hypothese accepteren, tenzij de observaties uit de steekproef overtuigend wijzen op het tegendeel.
+2. **Alternatieve hypothese** H1: Dit is meestal de hypothese die de onderzoeker wil bewijzen. Deze hypothese zal echter alleen worden geaccepteerd als de observaties uit de steekproef overtuigend wijzen op de juistheid hiervan.
+3. **Teststatistiek**: De veranderlijke die berekend wordt uit de steekproef.
+4. Aanvaardings- en kritiek gebied:
+	* **Aanvaardingsgebied**: Het gebied van waarden die de nullhypothese ondersteunt
+	* **Verwerpingsgebied**: Gebied dat waarden bevat die de nullhypothese verwerpen. Ook kritiek gebied genoemd.
