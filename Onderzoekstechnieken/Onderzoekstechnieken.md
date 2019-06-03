@@ -827,3 +827,25 @@ Dit is de inverse van pnorm. Het idee er achter is dat je een kans α geeft, en 
 > y <- qnorm(x, mean=3, sd=2)
 > plot(x,y)
 ```
+
+### rnorm
+
+Kan willekeurige getallen genereren waarvan de distributie normaal is. Het argument dat je ingeeft is het aantal willekeurige getallendat u wilt, met optionele argumenten om de gemiddelde en standaardafwijking op te geven
+
+```
+> rnorm(4)
+[1] -0.0531426 -1.2896160  0.1294976 -1.3827267
+> rnorm(4, mean=3)
+[1] 2.415890 2.886442 3.972199 3.393040
+> rnorm(4, mean=3, sd=3)
+[1] 1.816145 2.913165 2.692808 2.792216
+> y <- rnorm(200)
+> hist(y)
+> y <- rnorm(200, mean=2)
+> hist(y)
+> y <- rnorm(200, mean=2, sd=4)
+> hist(y)
+> qqnorm(y)
+> qqline(y)
+```
+
