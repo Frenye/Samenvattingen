@@ -913,3 +913,25 @@ De formule voor de berekening van de grenswaarde is gebaseerd op de centrale lim
 De kritieke grenswaarde vormt een betrouwbaarheidsinterval rond µ met een gekozen zekerheidsniveau. Als we bijvoorbeeld stellen dat α = 0,05, weten we vanuit de centrale limietstelling dat we kunnen verwachten dat als we herhaaldelijk voldoende steekproeven uit deze populatie nemen, in 95% van de gevallen het steekproefgemiddelde binnen dit betrouwbaarheidsgeval zal liggen.
 
 Als we de redenering omkeren, en een steekproef genomen hebben waar het gemiddelde niet binnen dit betrouwbaarheidsinterval ligt, dan is de kans heel klein dat deze uit een populatie getrokken is met het veronderstelde gemiddelde µ. In dat geval kunnen we de nulhypothese dus verwerpen.
+
+![image](./images/KG1.png)
+
+## 5.4 Overschrijdingskans
+i
+Een karakteristiek die gebruikt wordtom weer te geven hoe sterk de geobserveerde waarde afwijkt van H0, is de overschrijdingskans. Dit vormt een alternatieve manier om te bepalen of de nullhypothese al dan niet verworpen kan worden.
+
+**Overschrijdingskans** is de kans, indien de nullhypothese waar is, om een waarde te verkrijgen van de toetsingsgrootheid die minstens even extreem is als de geobserveerde waarde.
+
+**Statische significantie** In een statische hypothesetoets heeft men een statisch significant resultaat behaald wanneer de geobserveerde overschrijdingskans p van de teststatistiek lager is dan het significantieniveau α. De p-waarde wordt onder het gekozen significantieniveau beschouwd als te extreem om de veronderstelling dat de nullhypothese waar is aan te houden.
+
+![image](./images/OK1.png)
+
+Als de overschrijdingskans of de p-waarde kleiner is dan de onbetrouwbaarheidsdrempel dan moet H0 verworpen worden, is de p-waarde groter of gelijk aan α dan mag je H0 niet verwerpen.
+
+## 5.5 Eenzijdig of tweezijdig toetsen
+
+In het voorbeeld ligt het kritieke gedeelte om H0 te verwerpen aan de rechterzijde van de curve dus is deze toets rechtszijdig.
+
+Wat moeten we in de vergelijking veranderen voor correcte kritieke waarde voor linkszijdige z-toets?
+
+![image](./images/TT1.png)
