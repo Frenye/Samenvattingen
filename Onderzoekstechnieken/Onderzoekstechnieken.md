@@ -1010,4 +1010,7 @@ Voorbeeld: vorig voorbeeld maar met n=25
 
 ### Oplossing via t.test
 
+![image](./images/TT5.png)
+
+## 5.9 De t-toets voor twee steekproeven
 
