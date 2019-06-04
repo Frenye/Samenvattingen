@@ -905,3 +905,11 @@ M ~ Nor( µ = 3,3 ; σ = 0,1 )
 ![image](./images/TP4.png)
 
 Het steekproefgemiddelde x = 3,483 ligt nog verder van µ = 3,3 dan de grenswaarde g = 3,45. De kans is heel klein dat zo een steekproef getrokken wordt uit een populatie met dit gemiddelde. Slechts in 34 op 1000. Met andere woorden, de steekproefwaarde ligt in het verwerpingsgebied. We kunnen dus H0 verwerpen en besluiten dat superhelden inderdaad meer dan 3,3 mensen per dag redden.
+
+## 5.3 Kritieke gebied
+
+De formule voor de berekening van de grenswaarde is gebaseerd op de centrale limietstelling, meer bepaald betrouwbaarheidsintervallen.
+
+De kritieke grenswaarde vormt een betrouwbaarheidsinterval rond µ met een gekozen zekerheidsniveau. Als we bijvoorbeeld stellen dat α = 0,05, weten we vanuit de centrale limietstelling dat we kunnen verwachten dat als we herhaaldelijk voldoende steekproeven uit deze populatie nemen, in 95% van de gevallen het steekproefgemiddelde binnen dit betrouwbaarheidsgeval zal liggen.
+
+Als we de redenering omkeren, en een steekproef genomen hebben waar het gemiddelde niet binnen dit betrouwbaarheidsinterval ligt, dan is de kans heel klein dat deze uit een populatie getrokken is met het veronderstelde gemiddelde µ. In dat geval kunnen we de nulhypothese dus verwerpen.
