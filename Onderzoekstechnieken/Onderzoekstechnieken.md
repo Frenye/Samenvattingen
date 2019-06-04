@@ -935,3 +935,79 @@ In het voorbeeld ligt het kritieke gedeelte om H0 te verwerpen aan de rechterzij
 Wat moeten we in de vergelijking veranderen voor correcte kritieke waarde voor linkszijdige z-toets?
 
 ![image](./images/TT1.png)
+
+Soms kan het ook dat er **tweezijdig** moet getoetst worden. De alternatieve hypothese wordt dan geformuleerd als zijnde het populatiegemiddelde verschillend is van de opgegeven waarde. Er moeten dan 2 kritieke grenswaarden berekend worden.
+
+![image](./images/TT2.png)
+
+Als we opnieuw significantieniveau α = 0,05 nemen, zoeken we dus de z-waarde waarvoor geldt dat:
+
+![image](./images/TT3.png)
+
+De overeenkomstige z-waarde is dan ongeveer 1.96 (door qnorm(.975))
+
+![image](./imags/ZT.png)
+
+## 5.6 De z-toets in R
+
+```
+> n <- 30
+> sm <- 3.483
+> s <- 0.55
+> a <- 0.05
+> m0 <- 3.3
+```
+
+### Methode 1: Overschrijdingskans
+
+Wat is de kans dat je in een steekproef het gegeven steekproefgemiddelde ziet?
+
+```
+> p <- 1 - pnorm (sm, m0, s/sqrt(n))
+> p
+[1] 0.03419546
+```
+
+Als p kleiner is dan a: H0 verwerpen
+
+### Methode 2: Kritieke grensgebied
+
+Onder welke waarde kan je H0 niet verwerpen?
+
+```
+> g <- m0 + qnorm(1-a) * s / sqrt(n)
+> g
+[1] 3.465169
+```
+
+als sm kleiner is dan g: H0 niet verwerpen.
+
+### Plot van deze casus
+
+![image](./images/ZT2.png)
+
+![image](./images/ZT1.png)
+
+## 5.8 De t-toets
+
+Bij de z-toets gaan we uit van een aantal veronderstellingen waar we rekening mee moeten houden.
+
+* De steekproef moet voldoende groot zijn
+* De variantie van de toetsingsgrootheid moet normaal verdeeld zijn
+* we veronderstellen dat de standaardafwijking van de populatie bekend is
+
+Soms zijn deze veronderstellingen niet geldig en mogen we de z-toets niet gebruiken. We kunnen wel gebruik maken van de student-t verdeling.
+
+Aangepaste formule van kritieke grenswaarde:
+
+![image](./images/KGW.png)
+
+Voor het bepalen van de t-waarde hebben we het aantal vrijheidsgraden nodig, n-1. Om de standaardafwijking te schatten gebruiken we de steekproefstandaardsafwijking s.
+
+Voorbeeld: vorig voorbeeld maar met n=25
+
+![image](./images/TT4.png)
+
+### Oplossing via t.test
+
+
