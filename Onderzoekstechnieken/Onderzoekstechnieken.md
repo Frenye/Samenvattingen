@@ -758,7 +758,7 @@ Aangezien p een steekproefgemiddelde is van het aantal successen, stelt dit ons 
 ![image](./images/BI7.png)
 ![image](./images/BI8.png)
 
-##4.6 R
+## 4.6 R
 
 De prefixen zijn als volgt: 
 
@@ -882,3 +882,26 @@ De z-waarde hangt af van het gekozen significantieniveau en kan worden opgezocht
 ![image](./images/TP2.png)
 
 Alle waarden links van g vormen het aanvaardingsgebied. Waarden rechts, die dus ver van het H0 veronderstelde populatiegemiddelde liggen, zijn het verwerpingsgebied.
+
+**Voorbeeld**
+
+Algemeen wordt aangenomen dat superhelden gemiddeld 3,3 mensen per dag redden. De onderzoekers krijgen echter gevoel dat dat niet zo is: ze hebben de indruk dat een superheld gemiddeld meer dan 3,3 mensen per dag redt.
+
+Ze gaan dit onderzoeken en voeren een steekproef uit bij n=30 superhelden. In deze steekproef is het gemiddelde x = 3,483. De standaardafwijking in de populatie is gekend en is σ = 0, 55.
+
+1. We veronderstellen dat het aantal mensen dat een superheld redt normaal verdeeld is en formuleren twee hypothesen omtrent de parameter µ.
+	* H0 = de nulhypothese (te weerleggen): µ = 3,3
+	* H1 = alternatieve hypothese (aan te tonen) : µ > 3,3 
+
+2. Vastleggen significantieniveau α en steekproefomvang n. We willen significantieniveau van 5% kiezen dus α = 0.05 en n = 30
+
+3. De waarde van de toetsingsgrootheid in de steekproef bepalen. We nemen het steekproefgemiddelde x = 3,483. Volgens centrale limietstelling geldt dat:  
+M ~ Nor( µ = 3,3 ; σ = 0,1 )
+
+![image](./images/TP3.png)
+
+4. Kritieke grenswaarde berekenen. De z-waarde voor een significantieniveau van 0,05 is 1.645²
+
+![image](./images/TP4.png)
+
+Het steekproefgemiddelde x = 3,483 ligt nog verder van µ = 3,3 dan de grenswaarde g = 3,45. De kans is heel klein dat zo een steekproef getrokken wordt uit een populatie met dit gemiddelde. Slechts in 34 op 1000. Met andere woorden, de steekproefwaarde ligt in het verwerpingsgebied. We kunnen dus H0 verwerpen en besluiten dat superhelden inderdaad meer dan 3,3 mensen per dag redden.
