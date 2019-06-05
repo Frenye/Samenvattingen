@@ -1141,4 +1141,43 @@ met k = kleinste waarde van het aantal kolommen of het aantal rijen van de tabel
 
 ## 6.3 Regressie
 
+Bij regressie gaan we proberen een consistente en systematische koppeling tussen de variabelen te vinden
+
+* **Monotoon**: Verband waarbij de onderzoeker de algemene richting van samenhang kan aanduiden.Hetzij stijgend hetzij dalend.
+* **Niet-monotoon**: aanwezigheid van variabele wordt gerelateerd aan aanwezigheid van andere maar de richting kan niet aangeduid worden.
+
+Bij lineaire regressie gaan we ons beperken tot lineair verband waarbij kennis van de onafhankelijke variabele kennis over de afhankelijke geeft.
+
+Karakteristieken: 
+
+1. Aanwezigheid: is er wel een verband?
+2. Richting: dalend of stijgend?
+3. Sterkte: sterk, gematigd of niet-bestaand
+
+### Uitwerking
+
+Gezochte lijn: y = β₀ + β₁x
+Afwijking gegeven door: e = y - β₀ + β₁x
+
+Som van kwadraten van afwijking moet minimaal zijn. Hierdoor kunnen we de punten bepalen: 
+
+![image](./images/Reg1.png)
+
+### Uitwerking in R
+
+![image](./image/Reg2.png)
+
+## 6.4 Correlatie
+
+### 6.4.1 Pearsons product-momentcorrelatiecoefficient
+
+We kunnen twee statistieken bepalen die de sterkte van een lineair verband uitdrukken.
+
+Correlatiecoefficient is een maat voor de sterkte van de lineaire samenhang tussen X en Y. De waarde kan variëren van -1 tot 1.
+
+* Waarde van +1 duidt positief lineair verband aan
+* Waarde van -1 duidt negatief lineair verband aan
+* Waarde van 0 wil zeggen dat er totaal geen lineaire samenhang is
+
+Hoe dichter bij -1 of 1 hoe beter de kwaliteit van het lineaire model
 
