@@ -1173,11 +1173,46 @@ Som van kwadraten van afwijking moet minimaal zijn. Hierdoor kunnen we de punten
 
 We kunnen twee statistieken bepalen die de sterkte van een lineair verband uitdrukken.
 
-Correlatiecoefficient is een maat voor de sterkte van de lineaire samenhang tussen X en Y. De waarde kan variëren van -1 tot 1.
+Correlatiecoefficient R is een maat voor de sterkte van de lineaire samenhang tussen X en Y. De waarde kan variëren van -1 tot 1.
 
 * Waarde van +1 duidt positief lineair verband aan
 * Waarde van -1 duidt negatief lineair verband aan
 * Waarde van 0 wil zeggen dat er totaal geen lineaire samenhang is
 
 Hoe dichter bij -1 of 1 hoe beter de kwaliteit van het lineaire model
+
+### 6.4.2 Determinatiecoëfficiënt
+
+Determinatiecoëfficiënt R² is het kwadraat van de correlatiecoëfficiënt en verklaart het percentage van de variantie van de waargenomen waarden tov de regressierechte.
+
+#### Bepaling van R en R²
+
+![image](./images/R1.png)
+
+Als we de kwadranten volgens gemiddelde verdelen kunnen we volgende situaties bekijken
+
+![image](./images/R2.png)
+
+Maat om verband tussen 2 variabelen te meten
+
+![image](./images/R3.png)
+
+We kunnen de maat onafhankelijk maken van de grootte van de steekproef door te delen door de steekproefgrootte n. Dit noemen we co-variantie.
+
+![image](./images/R4.png)
+
+Correlatiecoëfficiënt = Relatieve co-variantie. Het is onafhankelijk van het aantal waarnemingen en de orde van grootte van de getalswaarden.
+
+![image](./images/R5.png)
+
+#### R² interpretatie
+
+![image](./images/R6.png)
+
+![image](./images/R7.png)
+
+![image](./images/R8.png)
+
+
+
 
