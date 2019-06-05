@@ -1216,3 +1216,51 @@ Correlatiecoëfficiënt = Relatieve co-variantie. Het is onafhankelijk van het a
 
 
 
+# 7. De X² toets
+
+## 7.1 X² toets voor verdelingen
+
+Eenvoudigste voor toetsen van hypothesen wanneer alle variabelen nominaal zijn. De test kan gebruikt worden om na te gaan in welke mate de steekproef overeenstemt met een null hypothese over de verdeling van de variabele.
+
+### 7.1.1 Voorbeeld
+
+We willen kijken of de steekproef representatief is. Als dat zo is dan is de frequentie in een steekproef even groot als die in een populatie
+
+expected e: 
+
+![image](./images/X1.png)
+
+We merken op: 
+
+* Indien de verschillen klein zijn => verdeling komt voldoende overeen
+* Indien de verschillen groot => verdeling niet representatief
+
+We bepalen nu een kritieke grenswaarde g die een X² verdeling heeft. Hierbij speelt het aantal vrijheidsgraden (df) een rol. Er geldt: 
+
+df = k - 1
+
+Met k het aantal categorieën
+
+Als X² kleiner is dan g mogen we besluiten dat de steekproef representatief is.
+
+### 7.1.2 Toetsingsprocedure
+
+1. **Bepalen hypothese**: Als nullhypothese formuleren we dat de verdeling in de steekproef gelijk is aan die in de populatie.
+
+* H₀: Steekproef is representatief
+* H₁: Steekproef is niet representatief
+
+2. **Bepalen α en n**: α = 0,05
+
+3. **Toetsingsgrootheid en waarde er van in steekproef**
+
+![image](./images/X2.png)
+
+4. **Bereken en teken kritiek gebied**
+
+### 7.1.3 Voorwaarden
+
+1. Voor alle categorieën moet gelden dat de vewachte waarde e groter is dan 1
+2. In ten hoogste 20% van de categoriën mag de verwachte waarde e kleiner dan 5 zijn
+
+## 7.2 
