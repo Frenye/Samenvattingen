@@ -1014,3 +1014,51 @@ Voorbeeld: vorig voorbeeld maar met n=25
 
 ## 5.9 De t-toets voor twee steekproeven
 
+De t-toets kan ook gebruikt worden om 2 steekproeven met elkaar te vergelijken.Je kan er mee nagaan of het steekproefgemiddelde van beide steekproeven significant verschillend is.
+
+Men maakt onderscheid tussen 2 gevallen:
+
+* Beide steekproeven zijn onafhankelijk
+* Steekproeven zijn afhankelijk
+
+Voorbeeld: Nagaan of nieuwe medicijn als bijwerking een verminderde reactiesnelheid heeft
+
+* Controlegroep: 91, 87, 99, 77, 88, 91 (x=88,83)
+* Interventiegroep: 101, 110, 103, 93, 99, 104 (x=101,67)
+
+We noteren µ₁ voor het gemiddelde van de niet behandelde populatie en µ₂ voor het populatiegemiddelde van de behandelde patienten. De hypothesen worden genoteerd als:
+
+![image](./images/TT6.png)
+
+Als teststatistiek gebruiken we x - y.
+
+Het gaat dus over een linkszijdige test, weergegeven door de optie alternative="less". Als nullhypothese verwachten we dat het verschil 0 is, aangeduid met optie mu=0
+
+```
+> controle <- c(91, 87, 99, 77, 88, 91)
+> interventie <- c( 101, 110, 103, 93, 99, 104)
+> t.test(controle, interventie, alternative="less", mu=0)
+
+	Welch Two Sample t-test
+
+data:  controle and interventie
+t = -3.4456, df = 9.4797, p-value =
+0.003391
+alternative hypothesis: true difference in means is less than 0
+95 percent confidence interval:
+      -Inf -6.044949
+sample estimates:
+mean of x mean of y
+ 88.83333 101.66667
+```
+
+## 5.10 Fouten in hypothesetoetsen
+
+Wanneer we H₀onterecgt verwerpen spreken we van fout type 1, wanneer we H₀ onterecht aanvaarden spreken we van fout type 2
+
+Het significantieniveau bepaalt wanneer een nulhypothese precies verworpen kan worden. Dit is dus gelijk aan de kans op het maken van een fout type 1.
+
+We willen de kans op type 1 zo klein mogelijk houden maar dat is ten koste van de kans op type 2, aangeduid met β die hierdoor groter wordt.
+
+![image](./images/FH.png)
+
