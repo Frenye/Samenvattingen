@@ -1062,3 +1062,83 @@ We willen de kans op type 1 zo klein mogelijk houden maar dat is ten koste van d
 
 ![image](./images/FH.png)
 
+# 6. Analyse op 2 variabelen
+
+Wanneer we een verband beschrijven tussen variabelen onderscheiden we:
+
+* De afhankelijke variabele, waarover we een voorspelling willen doen
+* De Onafhankelijke variabele, op basis van dewelke we de voorspelling doen
+
+Welke soort van grafieken we kunnen gebruiken hangt af van het meetniveau
+
+* Interval of ratio
+	* Staafdiagram van de gemiddelden
+	* Boxplot per groep
+* Ordinaal of nominaal
+	* Kruistabel
+	* Geclusterd staafdiagram
+	* Rependiagram
+
+Bij de vraag of er samenhang is tussen twee variabelen kunnen we de volgende grafieken gebruiken
+
+* Nominaal x Nominaal
+	* Kruistabel met Cramér's V
+* Ordinaal x Ordinaal
+	* Geclusterd staafdiagram
+	* Rependiagram
+* Ratio x Ratio
+	* Spreidingsdiagram
+	* Regressie en correlatie met correlatiecoefficient
+
+## 6.1 Kruistabellen en Cramér's V
+
+**Kruistabel**: Hierin worden frequenties van de 2 variabelen samengevat
+
+![image](./images/KT1.png)
+
+Hoe bepalen we de samenhang tussen tussen de verschillende variabelen? Bepalen aan de hand van Cramér's. Maar eerst de x² waarden.
+
+## 6.2 X²-test voor associatie
+
+Wordt gebruikt om te bepalen of er een significant vervand bestaat tussen 2 variabelen. Berekening: 
+
+1. Stel kruistabel op samen met marginale totalen
+
+2. Stel voor elke cel een schatter op voor de theoretische kans om in die cel te geraken
+
+![image](./images/CK2.png)
+
+Hieruit kan theoretische waarde e dan alsvolgt berekend worden
+
+![image](./images/CK1.png)
+
+Voor cel 1,2 is dat dus 9,36
+
+3. Dan berekenen we het verschil tussen geobserveerde a en verwachte frequentie e
+
+![image](./images/CK3.png)
+
+4. Berekenen van maat van afwijking
+
+![image](./images/CK4.png)
+
+![image](./images/CK6.png)
+
+5. Optellen
+
+![image](./images/CK5.png)
+
+Hiermee kunnen we de waarde van Cremér's V berekenen
+
+![image](./images/CK7.png)
+
+met k = kleinste waarde van het aantal kolommen of het aantal rijen van de tabel
+
+### Uitwerking in R
+
+![image](./images/CK8.png)
+![image](./images/CK9.png)
+
+## 6.3 Regressie
+
+
