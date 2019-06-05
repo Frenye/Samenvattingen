@@ -946,7 +946,7 @@ Als we opnieuw significantieniveau α = 0,05 nemen, zoeken we dus de z-waarde wa
 
 De overeenkomstige z-waarde is dan ongeveer 1.96 (door qnorm(.975))
 
-![image](./imags/ZT.png)
+![image](./images/ZT.png)
 
 ## 5.6 De z-toets in R
 
@@ -1165,7 +1165,7 @@ Som van kwadraten van afwijking moet minimaal zijn. Hierdoor kunnen we de punten
 
 ### Uitwerking in R
 
-![image](./image/Reg2.png)
+![image](./images/Reg2.png)
 
 ## 6.4 Correlatie
 
