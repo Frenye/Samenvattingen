@@ -1263,3 +1263,10 @@ Als X² kleiner is dan g mogen we besluiten dat de steekproef representatief is.
 1. Voor alle categorieën moet gelden dat de vewachte waarde e groter is dan 1
 2. In ten hoogste 20% van de categoriën mag de verwachte waarde e kleiner dan 5 zijn
 
+# 8. Tijdreeksen
+
+Soms is het nodig om data op te volgen die voortdurend veranderd.
+
+## 8.1 Tijdreeksen en voorspellingen
+
+Een tijdreeks is een opeenvolging van observaties van een willekeurige variabele in functie van tijd. 
