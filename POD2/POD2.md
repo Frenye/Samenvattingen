@@ -154,4 +154,58 @@ De functie fx wordt de kansdichtheid genoemd
 
 ## 2.4 Verwachtingswaarde en variantie
 
+### 2.4.1 Discrete kansvariabele
+
+Veronderstel dat een toevalsveranderlijke X geassocieerd werd met de uitkomstenruimte Ω van een bepaald experiment, met elke w ∈ Ω werd een reeel getal X(w) geassocieerd. Bij herhalingen van het experiment komen we een lijst van reele getallen X(w) uit. we willen hiervan het **gemiddelde** berekenen: 
+
+![image](./images/DKVG.png)
+
+De **Verwachtingswaarde** van een discrete toevalsveranderlijke X wordt genoteerd als µx of E(X), en is een gewogen gemiddelde van de waarden xi die X kan aannemen met de respectievelijke kansen als gewichten. In formulevorm: 
+
+![image](./images/DKVV.png)
+
+De verwachtingswaarde geeft aan rond welke waarde de kansvariabele ligt. Het is een centraliteitsmaat.
+
+De **Variantie** is de gewogen gemiddelde kwadratische afwijking tov zijn verwachtingswaarde:
+
+![image](./images/DKVV1.png)
+
+De **Standaardafwijking** is de spreidingsmaat waarvan de eenheid hetzelfde is als die van de verwachtingswaarde:
+
+![image](./images/DKVS.png)
+
+### 2.4.2 Continue kansvariabele
+
+Op analoge manier als bij de discrete kansvariabelen heeft men de volgende definities.
+
+De **Verwachtingswaarde** en **Variantie** worden gedefinieerd als:
+
+![image](./images/CKVV.png)
+
+### 2.4.3 Eigenschappen van verwachtingswaarde en variantie
+
+**Law of the unconscious statistican**: Als X een discrete kansvariabele is en g een functie van R naar R dan geldt:
+
+![image](./images/LOTUS.png)
+
+De **verwachtingswaarde** en **variantie** voldoen aan de volgende eigenschappen:
+
+1. Als X constant is, dan is E(X)=k
+
+2. Als a ∈ R een constante is dan geldt: E(X+a) = E(X) + a waaruit volgt dat: E(X-µx) = 0
+
+3. Als a ∈ R een constante is dan geldt: E(aX) = a E(X)
+
+4. Er geldt steeds dat:
+
+![image](./images/EVV1.png)
+
+5. De variantie wijzigt niet als we de toevalsveranderlijke verschuiven:
+
+![image](./images/EVV2.png)
+
+6. Vermenigvuldigen met een constante wijzigt de variantie op een kwadratische manier
+
+![image](./images/EVV3.png)
+
 
