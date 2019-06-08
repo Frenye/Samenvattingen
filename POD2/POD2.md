@@ -209,3 +209,27 @@ De **verwachtingswaarde** en **variantie** voldoen aan de volgende eigenschappen
 ![image](./images/EVV3.png)
 
 
+# 3. Kansverdelingen
+
+## 3.2 Discrete kansverdelingen
+
+### 3.2.1 Bernoulliverdeling
+
+Experimenten met slechts 2 mogelijke uitkomsten.
+
+We noemen de ene uiykomst succes en stellen ze voor door 1 en de andere misslukking en stellen deze voor door 0
+
+**Verwachtingswaarden** en **variantie** Als X een toevalsveranderlijke is die een bernoulliverdeling volgt met kans op succes p, dan geldt:
+
+![image](./images/Bernoulli.png)
+
+### 3.2.2 Binomiale verdeling: aantal successen
+
+Geldt als n onafhankelijke uitvoeringen van eenzelfde bernoulli experiment. De toevalsveranderlijke X die telt hoeveel successen er voorkomen wanneer men n onafhankelijke bernoulli experimenten uitvoert volgt de binomiale verdeling. Deze wordt gekenmekt door 2 parameters: n en p. We noteren:
+
+![image](./images/BV.png)
+
+Veronderstel dat X ~ B(n,p), dan wordt de kansfunctie van X gegeven door
+
+
+
