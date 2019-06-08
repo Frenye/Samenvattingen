@@ -129,9 +129,11 @@ De functie fx wordt de kansdichtheid genoemd
 1. De functie fx is nergens negatief: fx(x) >= 0
 
 2. Als men fx integreert over R dan bekomt men als uitkomst 1
+
 ![image](./images/CKV2.png)
 
 3. De kans dat X behoort tot een interval [a,b] wordt uitgedrukt mbh de volgende integraal
+
 ![image](./images/CKV3.png)
 
 #### Zowel voor discrete als continue kansvariabelen geldt: 
@@ -139,12 +141,15 @@ De functie fx wordt de kansdichtheid genoemd
 1. F is gedefinieerd in heel R: dom(F) = R
 
 2. F is niet dalend
+
 ![image](./images/CKV4.png)
 
 3. De X-as is een horizontale asymptoot op min oneindig:
+
 ![image](./images/CKV5.png)
 
 4. De rechte met vergelijking y=1 is een horizontale asymptoot op plus oneindig
+
 ![image](./images/CKV6.png)
 
 ## 2.4 Verwachtingswaarde en variantie
