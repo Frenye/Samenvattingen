@@ -62,3 +62,27 @@ Kans op A gegeven B:
 
 ![image](./images/VK.png)
 
+Wanneer de waarschijnlijkheid niet veranderd kunnen we zeggen dat A en B onafhankelijk zijn. Gebeurtenissen zijn onafhankelijk als:
+
+P(A ∩ B) = P(A)P(B)
+
+Als A en B onafhankelijk zjn dan geldt 
+
+P(A) = P(A|B)
+
+#### Kettingregel
+
+Wanneer A₁ tem An gebeurtenissen zijn waarvoor
+
+P(A₁ ∩ A₂ ∩ ... ∩ An-1) > 0
+
+Dan geldt
+
+![image](./images/KR.png)
+
+### 1.5.2 Regel van Bayes
+
+Gegeven een gebeurtenis A met n elkaar uitsluitende oorzaken Bi geldt voor elke j dat:
+
+![image](./images/RvB.png)
+
