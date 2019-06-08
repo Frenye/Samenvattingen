@@ -86,3 +86,72 @@ Gegeven een gebeurtenis A met n elkaar uitsluitende oorzaken Bi geldt voor elke 
 
 ![image](./images/RvB.png)
 
+# 2. Kans- of toevalsvariabelen
+
+## 2.1 Inleiding
+
+Het kan gebeuren dat we bij toevalsverschijnselen niet geintereseerd zijn in de kansen van verschillende uitkomsten, maar aan de verschillende gebeurtenissen getalwaarden te hechten.
+
+Een kansvariabele X is een afbeelding van Ω naar R. Deze afbeelding associeert met elke mogelijke uitkomst van een kansexperiment een reëel getal. Men maakt ook een onderscheid tussen discrete en continue kansvariabelen.
+
+## 2.2 Discrete kansvariabelen
+
+Een kansvariabele X is discreet wanneer X slechts een eindig of aftelbaar oneindig aantal waarden aanneemt.
+
+De kansfunctie van de discrete toevalsveranderlijke X:
+
+![image](./images/DKV.png)
+
+Een kansfunctie f voor een discrete toevalsveranderlijke voldoet aan de volgende eigenschappen:
+
+![image](./images/DKV1.png)
+
+Men definieert ook de comulatieve kansfunctie, de Kansverdelingsfunctie. Deze wordt gedefinieerd als:
+
+![image](./images/DKV2.png)
+
+## 2.3 Continue kansvariabelen
+
+Er zijn oneindig veel mogelijkheden en elk heeft evenveel kans. Het is eerder zinvol om na te gaan wat de kans is van een bepaald interval. De fundamentele grootheid is dan dus ook de kansverdelingsfunctie
+
+De kansverdelingsfunctie Fx van toevalsveranderlijke X is een functie van R naar het interval [0,1] gegeven door:
+
+![image](./images/CKV.png)
+
+Een toevalsveranderlijke X is continu als er een functie fx van R naar R⁺ bestaat zodanig dat 
+
+![image](./images/CKV1.png)
+
+De functie fx wordt de kansdichtheid genoemd
+
+#### De functie fx voldoet aan de volgende eigenschappen
+
+1. De functie fx is nergens negatief: fx(x) >= 0
+
+2. Als men fx integreert over R dan bekomt men als uitkomst 1
+
+![image](./images/CKV2.png)
+
+3. De kans dat X behoort tot een interval [a,b] wordt uitgedrukt mbh de volgende integraal
+
+![image](./images/CKV3.png)
+
+#### Zowel voor discrete als continue kansvariabelen geldt: 
+
+1. F is gedefinieerd in heel R: dom(F) = R
+
+2. F is niet dalend
+
+![image](./images/CKV4.png)
+
+3. De X-as is een horizontale asymptoot op min oneindig:
+
+![image](./images/CKV5.png)
+
+4. De rechte met vergelijking y=1 is een horizontale asymptoot op plus oneindig
+
+![image](./images/CKV6.png)
+
+## 2.4 Verwachtingswaarde en variantie
+
+
