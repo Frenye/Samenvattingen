@@ -222,7 +222,7 @@ We noemen de ene uiykomst succes en stellen ze voor door 1 en de andere misslukk
 **Verwachtingswaarden** en **variantie** Als X een toevalsveranderlijke is die een bernoulliverdeling volgt met kans op succes p, dan geldt:
 
 ![image](./images/Bernoulli.png)
-
+i
 ### 3.2.2 Binomiale verdeling: aantal successen
 
 Geldt als n onafhankelijke uitvoeringen van eenzelfde bernoulli experiment. De toevalsveranderlijke X die telt hoeveel successen er voorkomen wanneer men n onafhankelijke bernoulli experimenten uitvoert volgt de binomiale verdeling. Deze wordt gekenmekt door 2 parameters: n en p. We noteren:
@@ -231,5 +231,34 @@ Geldt als n onafhankelijke uitvoeringen van eenzelfde bernoulli experiment. De t
 
 Veronderstel dat X ~ B(n,p), dan wordt de kansfunctie van X gegeven door
 
+![image](./images/BV.png)
+
+De **kansfunctie** wordt gegeven door:
+
+![image](./images/BV1.png)
+
+met C = n!/k!(n-k)!
+
+**Verwachtingswaarde** en **variantie** als X ~ B(n,p)
+
+![image](./images/BV2.png)
+
+### 3.2.3 Geometrische verdeling: wachten op eerste succes
+
+Als X geometrisch verdeeld is met parameter p dan wordt de kansfunctie fx gegeven door: 
+
+![image](./images/GV.png)
+
+**Verwachtingswaarde** en **variantie** als X geometrisch verdeeld is met parameter p
+
+![image](./images/GV1.png)
+
+Men kan hiermee ook bepalen hoeveel trekkingen met teruglegging men moet uitvoeren om uit een populatie van n verschillende elementen er juist r verschillende te bepalen
+
+![image](./images/GV2.png)
+
+![image](./images/GV3.png)
+
+### 3.2.4 Poisson verdeling: zeldzame gebeurtenissen
 
 
