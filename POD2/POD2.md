@@ -261,4 +261,46 @@ Men kan hiermee ook bepalen hoeveel trekkingen met teruglegging men moet uitvoer
 
 ### 3.2.4 Poisson verdeling: zeldzame gebeurtenissen
 
+Zeer groot aantal n onafhankelijke uitvoeringen van eenzelfde bernoulli experiment. De kans op succes p is zeer klein en het gemiddeld aantal successen n*p is ongeveer constant. Deze wordt genoteerd met de lambda 
+
+Als X Poisson-verdeeld is met parameter λ, dqn wordt zijn kansfunctie gegeven door:
+
+![image](./images/PV.png)
+
+**Verwachtingswaarde** en **variantie** als X Poisoon-verdeeld is met parameter λ
+
+![image](./images/PV1.png)
+
+Het eenheidsinterval kan vervangen worden door een willekeurig tijdsinterval [0,t]
+
+![image](./images/PV2.png)
+
+## 3.3 Continue kansverdelingen
+
+### 3.3.1 Uniforme verdeling:
+
+Boven een bepaalde ondergrens a en bovengrens b is de kansdichtheid constant. Alle waarden tussen a en b hebben dus evenveel kans om voor te komen.
+
+Als X een continue uniforme verdeling volgt met grenzen a en b dan wordt de kansdichtheid van X gegeven door:
+
+![image](./images/UV.png)
+
+**Verwachtingswaarde** en **variantie** als X een continue uniforme verdeling volgt met grenzen a en b:
+
+![image](./images/UV1.png)
+
+![image](./images/UV2.png)
+
+### 3.2.2 Exponentiele verdeling
+
+Veronderstel dat we te maken hebben met een poisson proces met parameter λ. We kunnen ons dan afvragen wat de verdeling is van de tijd T die nodig is voor het eerste success. T heeft een exponentiele verdeling.
+
+De kansdichtheid en kansverdelingsfunctie van een exponentieel verdeelde veranderlijke T met parameter λ wordt gegeven door:
+
+![image](./images/EV.png)
+
+**verwachtingswaarde** en **variantie** als T een toevalsveranderlijke is die exponentieel verdeeld is met parameter λ
+
+![image](./images/EV1.png)
+
 
