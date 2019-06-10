@@ -304,3 +304,259 @@ De kansdichtheid en kansverdelingsfunctie van een exponentieel verdeelde verande
 ![image](./images/EV1.png)
 
 
+# 4. Bomen
+
+## 4.1 Terminologie mbt bomen
+
+Een boom is een abstractie die situaties waar informatie geordend is volgens hierarchische structuur modelleert.
+
+![image](./images/Boom.png)
+
+Een **gewortelde boom** T is een verzameling van **toppen** die aan de volgende eigenschappen voldoet.
+
+1. Er is 1 speciale top t die de wortel van de boom wordt genoemd
+2. De andere toppen zijn verdeeld in m >= 0 disjuncte verzamelingen T₁ ... Tm die op hun beurt weer elk een gewortelde boom zijn 
+
+Bomen T₁ tem Tm zijn deelbomen van T. De wortels t₁ tem tm van deelbomen T₁ tem Tm worden de kinderen van de wortel t genoemd. Het aantal deelbomen van een top wordt de graad van de top genoemd. Een blad is een top met graad 0. De graad van een boom wordt gezien als het maximum van de graden van zijn toppen.
+
+De diepte van een top n mbt een boom T wordt alsvolgt gedefinieerd: de diepte van de wortel van T is nul terwijl de diepte van elke andere top 1 meer is dan de diepte van zijn ouder.
+
+![image](./images/Boom1.png)
+
+## 4.2 Datastructuren voor bomen
+
+### 4.2.1 Array-van-kinderen voorstelling
+
+Rechtstreekse implementatie van de vader-kind structuur
+
+![image](./images/AVKV.png)
+
+Als n = aantal toppen en k = graad dan zijn er n*k referenties waarvan er slechts n-1 verschillend van null zijn. 
+
+Het nadeel hiervan is dus dat het geheugen inefficient gebruikt wordt.
+
+### 4.2.2 Eerste-kind-volgende-broer voorstelling
+
+In plaats van referenties naar alle kinderen houden we enkel een referentie bij voor het eerste kind en de volgende broer. Dit gaat efficienter om met het geheugen maar navigeren in de boom is moeilijker
+
+![image](./images/EKVBV.png)
+
+## 4.3 Recursie op bomen
+
+### 4.3.1 Alle toppen van een boom bezoeken
+
+Boom doorlopen in **preorde**
+
+1. Bezoek de wortel van de boom
+2. Doorloop de deelbomen van de wortel in preorde
+
+Boom doorlopen in **postorde**
+
+1. Doorloop de deelbomen van de wortel in postorde
+2. Bezoek de wortel van de boom
+
+Het proces eindigt als een boom slechts uit 1 top bestaat.
+
+![image](./images/APO.png)
+
+![image](./images/APO1.png)
+
+Afgedrukt in preorde: 
+
+n1, n2, n5, n6, n3, n4, n7
+
+Afgedrukt in postorde: 
+
+n5, n6, n2, n3, n7, n4, n1
+
+### 4.3.2 Eenvoudige berekeningen op bomen
+
+Veronderstel dat we het aantal toppen van een boom willen berekenen maar de voorstelling van de boom dit niet rechtsreeks toe laat.
+
+![image](./images/AAT.png)
+
+## 4.4 Binaire bomen
+
+### 4.4.1 Definitie en eigenschappen
+
+Een binaire boom is een verzameling toppen die 
+
+1. Ofwel leeg is
+2. Ofwel bestaat uit een wortel en 2 disjuncte verzamelingen Tl en Tr
+
+In een binaire boom is het aantal toppen met diepte k hoogstens 2^k 
+
+Voor een (niet-lege) binaire boom T met diepte d >= 0 geldt dat: 
+
+![image](./images/BBE.png)
+
+### 4.4.2 Voorstelling van een binaire boom
+
+De top van een binaire boom wordt voorgesteld door een structuur, die behalve de eigenlijke data voor die top, ook 2 referenties bijhoudt naar de linker en rechter deelboom. De boom zelf wordt voorgesteld door een referentie naar zijn wortel.
+
+![image](./images/VVBB.png)
+
+### 4.4.3 Alle toppen van een binaire boom zoeken
+
+Binaire boom doorlopen in **preorde**
+
+1. Bezoek de wortel van de boom
+2. Als de linkerdeelboom niet leeg is, doorloop de linkerdeelboom dan recursief in preorde
+3. Als de rechterdeelboom niet leeg is, doorloop de rechterdeelboom dan recursief in preorde
+
+Binaire boom doorlopen in **postorde**
+
+1. Als de linkerdeelboom niet leeg is, doorloop de linkerdeelboom dan recursief in postorde
+2. Als de rechterdeelboom niet leeg is, doorloop de rechterdeelboom dan recursief in postorde 
+3. Bezoek de wortel van de boom
+
+Binaire boom doorlopen in **inorde**
+
+1. Als de linkerdeelboom niet leeg is, doorloop de linkerdeelboom dan recursief in inorde
+2. Bezoek de wortel van de boom
+3. Als de rechterdeelboom niet leeg is, doorloop de rechterdeelboom dan recursief in inorde
+
+![image](./images/BBI.png)
+
+![image](./images/BBI1.png)
+
+## 4.5 Binaire zoekbomen
+
+Vaak voorkomende activiteit in een computerprogramma is het bijhouden van een verzameling waarden waarbij we wensen
+
+1. gegevens toe te voegen aan de verzameling
+2. gegevens verwijderen uit de verzameling
+3. te controleren of een element aanwezig is in de verzameling
+
+Een noodzakelijke voorwaarde voor een binaire zoekboom is dat de labels een totaal geordende verzameling vormen. dit wil zeggen dat voor elk paar labels x en y geldt dat 
+
+![image](./images/BZB.png)
+
+Deze labels worden vaak sleutels genoemd. De labels kunnen getallen of karakterreeksen zijn.
+
+Een **binaire zoekboom** is een gelabelde binaire boom die aan een bijzondere voorwaarde, de binaire zoekboomeigenschap, voldoet.
+
+De **binaire zoekboomeigenschap** is de volgende: voor elke top x van een binaire zoekboom geldt dat alle toppen in de linkerdeelboom van x een label hebben dat kleiner is dan het label van x, terwijl voor alle toppen in de rechterdeelboom van x geldt dat hun label groter is dan dat van x.
+
+![image](./images/BZB1.png)
+
+![image](./images/BZB2.png)
+
+Wanneer we deze boom in inorde doorlopen worden de toppen in volgende volgorde doorzocht: 1, 3, 4, 6, 7, 8, 10, 13, 14
+
+### 4.5.1 Opzoeken van een sleutel in een binaire boom
+
+Wanneer we een sleutel x willen opzoeken kunnen we gebruik maken van de binaire zokboomeigenschap om uit te maken of x aanwezig is of niet.
+
+Om recursief te zoeken naar een bepaalde waarde x in een binaire zoekboom T gaat men als volgt tewerk:
+
+1. Wanneer de boom leeg is geef dan "niet gevonden" terug
+
+2. Vergelijk x met de sleutel van de wortel
+	* Wanneer x kleiner is dan dit label zoek dan recursief in de linkerdeelboom
+	* Wanneer x groter is dan dit label zoek dan recursief in de rechterdeelboom
+	* Geef de wortel van de boom terug (x werd gevonden)
+
+Om het kleinste element van een binaire zoekboom te vinden ga je als volgt tewerk:
+
+1. Wanneer de linkerdeelboom van de wortel leeg is, geef dan de wortel terug
+2. In het andere geval zoek je recursief naar het kleinste element van de linkerdeelboom
+
+### 4.5.2 Toevoegen van een sleutel aan een binaire zoekboom
+
+Als we een een sleutel toevoegen dan moet de nieuwe zoekboom ook voldoen aan de binaire zoekeigenschap.
+
+We kunnen het toevoegen recursief formuleren: Vergelijk x met de wortel
+
+1. Wanneer x kleiner is dan het label van de wortel, voeg x dan toe aan de linkerdeelboom wanneer die niet leeg is. Als die leeg is vervang dan de null referentie door de referentie naar een nieuwe top met x als label
+2. Wanneer x groter is dan het label van de wortel, voeg x dan toe aan de rechterdeelboom wanneer die niet leeg is. Als die leeg is vervang dan de null referentie door de referentie naar een nieuwe top met x als label
+3. Doe niets, want x behoort reeds tot de boom.
+
+### 4.5.3 Verwijderen van een sleutel uit een binaire zoekboom
+
+Het verwijderen van sleutel x start met het opzoeken van deze sleutel in de boom. Er kunnen zich nu 3 gevallen voordoen:
+
+1. De sleutel x bevindt zich in een blad 
+2. De sleutel x bevindt zich in een top met 1 kind
+3. De sleutel x bevindt zich in een top met 2 kinderen
+
+#### De sleutel bevindt zich in een blad
+
+Wanneer x zich in een blad bevindt, dan kunnen we eenvoudig dit blad verwijderen.
+
+#### De sleutel bevindt zich in een top met 1 kind
+
+Wanneer de top n die x bevat slechts 1 kind heeft, dan kunnen we n vervangen door dit ene kind
+
+#### De sleutel bevindt zich in een top met 2 kinderen 
+
+Wanneer de top n die x bevat 2 kinderen heeft dan kunnen we x vervangen door het kleinste element y van de rechterdeelboom. In een volgende stap kunnen we dit element y gaan verwijderen uit de rechterdeelboom
+
+### 4.5.4 Tijdscomplexiteit van de bewerkingen
+
+In het slechtste geval heeft een bewerking op een binaire zoekboom een uitvoeringstijd die evenredig is met de diepte van die boom
+
+![image](./images/TCBB.png)
+
+## 4.6 Binaire hopen
+
+### 4.6.1 Prioriteitswachtrij
+
+Bestaat uit sleutel en een waarde. De sleutel geeft de prioriteit aan. Meestal hoe kleiner de sleutel hoe groter de prioriteit.
+
+Bij een prioriteitswachtrij kan men:
+
+1. het element met de kleinste sleutel opzoeken
+2. het element met de kleinste sleutel verwijderen
+3. een nieuw element toevoegen aan wachtrij
+
+Enkel element met kleinste sleutel kan efficient bereikt worden. Dit wil zeggen dat het flexibel is voor het toevoegen van elementen maar niet voor het verwijderen.
+
+### 4.6.2 Implementatie als binaire hoop
+
+![image](./images/BH.png)
+
+Een binaire hoop is een complete binaire boom voor die aan een extra ordeningseigenschap voldoet.
+
+Een **complete binaire boom** is een binaire boom van diepte d waarbij het aantal toppen met diepte k (d > k) maximaal is. De toppen met diepte d komen voor van links naar rechts.
+
+De **ordeningseigenschap voor binaire hopen** zegt dat de sleutel van elke top hoogstens gelijk is aan de kleinste sleutel van zijn kinderen.
+
+### 4.6.3 Implementatie
+
+We kunnen een binaire hoop implementeren als een binaire boom waarbij men voor elke top bijhoudt wat zijn linker en rechterkinderen zijn.
+
+![image](./images/BHI.png)
+
+Aangezien de binaire boom steeds compleet is kunnen we dit ook met een array doen
+
+![image](./images/BHI1.png)
+
+### 4.6.4 Opzoeken element met kleinste sleutel
+
+Het element met de kleinste sleutel is steeds de wortel van de boom
+
+### 4.6.5 Toevoegen van een element
+
+We gaan als volgt tewerk:
+
+1. Creëer een nieuw element
+2. Voeg dit toe op de eerste beschikbare plaats
+3. Als de ordeningseigenschap geschonden is verwissel het dan met zijn parent en herhaal.
+
+![image](./images/BHTS.png)
+
+### 4.6.6 Verwijderen element met kleinste sleutel
+
+Het verwijderen van een element loopt alsvolgt:
+
+1. Verwissel de wortel met het meest rechtse blad met de grootste diepte
+2. Verwijder het meest rechtse blad
+3. Als de ordeningseigenschap geschonden is, verwissel de wortel dan met zijn kleinste kind en heraal.
+
+![image](./images/BHVS.png)
+
+### 4.6.7 Tijdscomplexiteit van de bewerkingen
+
+![image](./images/BHTB.png)
+
