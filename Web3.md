@@ -1,4 +1,4 @@
-# 10solVoorbeeldExamen
+# Voorbeeldexamen Web3 + oplossing
 
 Als voorbeeldexamen hieronder het examen van januari 2018. De volledige instructies zoals je ze op het examen vindt zijn hieronder letterlijk overgenomen, uiteraard hoef je nu geen folder van naam te wijzigen of op het einde te comprimeren.
 
@@ -194,6 +194,8 @@ Als de applicatie compileert :
 ## De oplossing
 
 ### 1. EF, mapping
+
+Implementeer de methode **Configure in ReservatieConfiguration**. Maak gebruik van fluent api en zorg dat de mapping resulteert in bovenstaand databank diagram. Maak een expliciete mapping voor alle associaties. Om je mapping te controleren kan je je programma runnen. De home page wordt getoond en de databank is op dat moment reeds aangemaakt... Je kan de tabellen bekijken in Sql Server Object Explorer, connecteer met .\sqlexpresshogent. De database naam is PlacesToMeet. Indien je de fout “Network related problem” krijgt, vraag dan aan de docent om je verder te helpen.
 
 ``` csharp
 namespace ThePlaceToMeet.Data.Mappers
