@@ -1,10 +1,3 @@
----
-title: Webapplicaties III
-output: 
-  html_document:
-     css: assets/css/style.scss
-     self_contained: no
----
 # Voorbeeldexamen Web3 + oplossing
 
 Als voorbeeldexamen hieronder het examen van januari 2018. De volledige instructies zoals je ze op het examen vindt zijn hieronder letterlijk overgenomen, uiteraard hoef je nu geen folder van naam te wijzigen of op het einde te comprimeren.
@@ -212,8 +205,10 @@ namespace ThePlaceToMeet.Data.Mappers
         public void Configure(EntityTypeBuilder<Reservatie> builder)
         {
             builder.ToTable("Reservatie");
-            builder.HasOne(r => r.Catering).WithMany().IsRequired(false).OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(r => r.Korting).WithMany().IsRequired(false).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(r => r.Catering).WithMany().IsRequired(false)
+	    	.OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(r => r.Korting).WithMany().IsRequired(false)
+	    	.OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
@@ -331,7 +326,8 @@ reservaties is 10 of meer dan wordt de korting vanaf 10 reservaties toegekend.
 ``` csharp
 private Korting GetKorting(IEnumerable<Korting> kortingen, int aantalReservaties)
 {
-    return kortingen.OrderByDescending(t => t.MinimumAantalReservatiesInJaar).FirstOrDefault(k => k.MinimumAantalReservatiesInJaar <= 	aantalReservaties);
+    return kortingen.OrderByDescending(t => t.MinimumAantalReservatiesInJaar)
+    	.FirstOrDefault(k => k.MinimumAantalReservatiesInJaar <= aantalReservaties);
 }
 ```
 
@@ -370,7 +366,10 @@ public Reservatie Reserveer(Klant klant, IEnumerable<Korting> kortingen, DateTim
     {
         throw new ArgumentException("Catering minstens week op voorhand");
     }
-    Reservatie r = new Reservatie() { AantalPersonen = aantalPersonen, BeginUur = beginUur, Catering = catering, Dag = dag, DuurInUren = aantalUren, PrijsPerUur = this.PrijsPerUur };
+    
+    Reservatie r = new Reservatie() { AantalPersonen = aantalPersonen, BeginUur = beginUur, 
+    	Catering = catering, Dag = dag, DuurInUren = aantalUren, PrijsPerUur = this.PrijsPerUur };
+	
     if (standaardCatering) r.PrijsPerPersoonStandaardCatering = this.PrijsPerPersoonStandaardCatering;
     if (catering != null) r.PrijsPerPersoonCatering = catering.PrijsPerPersoon;
     Reservaties.Add(r);
@@ -389,7 +388,9 @@ public decimal TotalePrijs
 {
     get
     {
-        return ((PrijsPerUur * DuurInUren) * (1-(Korting != null ? (decimal) Korting.Percentage / 100 : 0))) + ((PrijsPerPersoonStandaardCatering + PrijsPerPersoonCatering)*AantalPersonen);
+        return ((PrijsPerUur * DuurInUren) * 
+		(1-(Korting != null ? (decimal) Korting.Percentage / 100 : 0))) 
+		+ ((PrijsPerPersoonStandaardCatering + PrijsPerPersoonCatering)*AantalPersonen);
     }
 }
 ```
@@ -436,7 +437,9 @@ De gegenereerde html voor 1 room, bvb de Brainstorm Room -1, is als volgt:
         <form>
             <div class="form-group">
                 <label for="aantalPersonen" class="control-label">Zoek een vergaderruimte voor </label>
-                <input type="number" name="aantalPersonen" id="aantalPersonen" placeholder="aantal" value=@ViewData["aantalPersonen"] style="border:1px solid #dedede" /> <b>personen</b>&nbsp;&nbsp;
+                <input type="number" name="aantalPersonen" id="aantalPersonen" placeholder="aantal" 
+		       value=@ViewData["aantalPersonen"] style="border:1px solid #dedede" /> 
+		    <b>personen</b>&nbsp;&nbsp;
                 <input type="submit" value="zoek" class="btn btn-default" />
             </div>
         </form>
@@ -453,7 +456,8 @@ De gegenereerde html voor 1 room, bvb de Brainstorm Room -1, is als volgt:
                         <strong>@(item.Naam)</strong>
                     </p>
                     <p class="text-center small">Maximaal @(item.MaximumAantalPersonen) personen</p>
-                    <img src="/images/@(item.VergaderruimteType.ToString()).jpg" alt="meetingroom" class="room" />
+                    <img src="/images/@(item.VergaderruimteType.ToString()).jpg" alt="meetingroom" 
+			 class="room" />
                     <div class="text-center btn-reserveer">
                         <a class="btn btn-default" href="/Reservatie/Reserveer/@(item.Id)">Reserveer</a>
                     </div>
@@ -565,13 +569,15 @@ Voeg de select list toe voor de catering.
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="StandaardCatering" /> @Html.DisplayNameFor(model => model.StandaardCatering)
+                        <input asp-for="StandaardCatering" /> 
+			    @Html.DisplayNameFor(model => model.StandaardCatering)
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <label asp-for="CateringId" class="control-label"></label>
-                <select asp-for="CateringId" asp-items=@(ViewData["catering"] as SelectList) class="form-control">
+                <select asp-for="CateringId" asp-items=@(ViewData["catering"] as SelectList) 
+			class="form-control">
                     <option value="0">--selecteer catering--</option>
                 </select>
                 <span asp-validation-for="CateringId" class="text-danger"></span>
@@ -609,9 +615,12 @@ public IActionResult Reserveer(int id, ReservatieViewModel viewmodel, Klant klan
     {
         try
         {
-            Catering catering = viewmodel.CateringId != 0 ? _cateringRepository.GetBy(viewmodel.CateringId) : null;
+            Catering catering = viewmodel.CateringId != 0 ? _cateringRepository
+	    	.GetBy(viewmodel.CateringId) : null;
             Vergaderruimte v = _vergaderruimteRepository.GetById(id);
-            Reservatie r = v.Reserveer(klant, _kortingRepository.GetAll(), viewmodel.Dag, viewmodel.BeginUur, viewmodel.Duur, viewmodel.AantalPersonen, catering, viewmodel.StandaardCatering);
+            Reservatie r = v.Reserveer(klant, _kortingRepository.GetAll(), 
+	    	viewmodel.Dag, viewmodel.BeginUur, viewmodel.Duur, viewmodel.AantalPersonen, 
+		catering, viewmodel.StandaardCatering);
             _vergaderruimteRepository.SaveChanges();
             return View("Bevestiging", r);
         }
@@ -620,7 +629,8 @@ public IActionResult Reserveer(int id, ReservatieViewModel viewmodel, Klant klan
             ModelState.AddModelError("", ex.Message);
         }
     }
-    ViewData["catering"] = new SelectList(_cateringRepository.GetAll().OrderBy(c => c.Titel), nameof(Catering.Id), nameof(Catering.Titel));
+    ViewData["catering"] = new SelectList(_cateringRepository.GetAll().OrderBy(c => c.Titel), 
+    	nameof(Catering.Id), nameof(Catering.Titel));
     return View(viewmodel);
 }
 ```
@@ -657,7 +667,8 @@ namespace ThePlaceToMeet.Filters
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            context.ActionArguments["klant"] = context.HttpContext.User.Identity.IsAuthenticated ? _klantRepository.GetByEmail(context.HttpContext.User.Identity.Name) : null;
+            context.ActionArguments["klant"] = context.HttpContext.User.Identity.IsAuthenticated ? 
+	    	_klantRepository.GetByEmail(context.HttpContext.User.Identity.Name) : null;
             base.OnActionExecuting(context);
         }
     }
@@ -706,6 +717,8 @@ public void ReserveerPost_OngeldigeModelState_RetourneertDefaultView()
 [Fact]
 public void Reserveer_DatumLigtNietInDeToekomst_WerptArgumentException()
 {
-    Assert.Throws<ArgumentException>(() => _vergaderruimte.Reserveer(_klantZonderReservaties, _context.Kortingen, DateTime.Today, 8, 10, 10, null, true));
+    Assert.Throws<ArgumentException>(() => _vergaderruimte
+    	.Reserveer(_klantZonderReservaties, _context.Kortingen, 
+		DateTime.Today, 8, 10, 10, null, true));
 }
 ```
