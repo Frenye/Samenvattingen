@@ -335,7 +335,8 @@ private Korting GetKorting(IEnumerable<Korting> kortingen, int aantalReservaties
 methodes die reeds aanwezig zijn in deze klasse.
 
 ``` csharp
-public Reservatie Reserveer(Klant klant, IEnumerable<Korting> kortingen, DateTime dag, int beginUur, int aantalUren, int aantalPersonen, Catering catering, bool standaardCatering)
+public Reservatie Reserveer(Klant klant, IEnumerable<Korting> kortingen, DateTime dag, int beginUur, int aantalUren, 
+	int aantalPersonen, Catering catering, bool standaardCatering)
 {
     int tot = beginUur + aantalUren;
     if (dag.Date <= DateTime.Today)
