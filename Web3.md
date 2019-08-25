@@ -18,25 +18,25 @@ Bij **ThePlaceToMeet** kan je een vergaderruimte huren. Je hebt de keuze uit ver
 
 Een gebruiker surft naar [http://localhost:xxxx/Reservatie]() en krijgt initieel een overzicht van alle vergaderruimtes, gesorteerd in oplopende volgorde van vergaderruimte-type en vervolgens het maximaal aantal personen.
 
-![1.overview.png](docs/images/1.overview.png)
+![1.overview.png](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/1.overview.png)
 
 Er kan gezocht worden naar vergaderruimtes die voldoende groot zijn voor een opgegeven aantal personen.
 
-![](docs/images/2.zoekvergaderruimte.png)
+![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/2.zoekvergaderruimte.png)
 
 Indien er geen vergaderruimtes gevonden worden voor het opgegeven aantal personen, wordt een melding gegeven.
 
-![](docs/images/3.geengevonden.png)
+![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/3.geengevonden.png)
 
 Een **aangemelde gebruiker** (~een klant), kan een nieuwe reservatie aanmaken door te klikken op een knop “Reserveer”.
 
-![](docs/images/4.reserveerknoppen.png)
+![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/4.reserveerknoppen.png)
 
 Indien de gebruiker niet is aangemeld of niet voldoet aan de “Klant” policy wordt deze omgeleid naar de login pagina.
 
 Als de gebruiker is aangemeld dan komt hij op de pagina [http://localhost:xxxx/Reservatie/Reserveer/](). Merk op dat in de starter applicatie alle reservaties gebeuren voor de klant met email peter@hogent.be (en nog niet voor de aangemelde gebruiker)
 
-![](docs/images/5.reserveerscherm.png)
+![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/5.reserveerscherm.png)
 
 Voor het Dag-veldje wordt een date picker gebruikt (~Chrome browser)
 Bij het **submitten** van het formulier worden volgende **voorwaarden aan client- en serverside gecheckt**:
@@ -48,7 +48,7 @@ Bij het **submitten** van het formulier worden volgende **voorwaarden aan client
 
 Als het formulier niet correct werd ingevuld dan wordt de gebruiker geïnformeerd via gepaste berichten:
 
-![](docs/images/6.reserveererrors.png)
+![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/6.reserveererrors.png)
 
 Indien het formulier correct werd ingevuld zal een nieuwe reservatie worden aangemaakt voor de vergaderruimte en de klant, **als aan volgende domeinregels is voldaan**:
 
@@ -68,17 +68,17 @@ Bij een succesvolle reservatie wordt de **bevesting** pagina getoond. Bij een ni
 
 Onderstaand scherm toont je het resultaat van een succesvolle reservatie. Merk op dat in dit voorbeeld de klant een korting krijgt, daar het zijn 3de reservatie is in 2018.
 
-![](docs/images/7.reserveerbevestiging.png)
+![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/7.reserveerbevestiging.png)
 
 ## Het domein
 
-![](docs/images/8.domein.png)
+![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/8.domein.png)
 
 ## Het databank diagram
 
 Merk op: dit diagram bevat geen AspNetxxx tabellen. Voor de relaties zijn er geen cascading delete.
 
-![](docs/images/9.databank.png)
+![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/9.databank.png)
 
 ## de opgave
 
