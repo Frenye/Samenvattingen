@@ -1,3 +1,10 @@
+---
+title: Webapplicaties III
+output: 
+  html_document:
+     css: assets/css/style.scss
+     self_contained: no
+---
 # Voorbeeldexamen Web3 + oplossing
 
 Als voorbeeldexamen hieronder het examen van januari 2018. De volledige instructies zoals je ze op het examen vindt zijn hieronder letterlijk overgenomen, uiteraard hoef je nu geen folder van naam te wijzigen of op het einde te comprimeren.
