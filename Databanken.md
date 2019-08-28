@@ -4,7 +4,7 @@
 
 ## Hoofdstuk 1: Basic concepts revisited
 
-###Introduction
+### Introduction
 
 Basic form of a SELECT statement
 
@@ -564,7 +564,7 @@ RETURNS INT -- RETURNS TABLE
 AS -- RETURN SELECT * FROM myTable
 BEGIN 
 	RETURN DATEDIFF(year, @birthdate, @eventdate) - 
-		CASE WHEN 100 * MONTH(@eventdate) + DAY(@eventdate) < 100 * 					MONTH(@birthdate) + DAY(@birthdate) 
+		CASE WHEN 100 * MONTH(@eventdate) + DAY(@eventdate) < 100 * MONTH(@birthdate) + DAY(@birthdate) 
 		THEN 1 ELSE 0 
 	END; 
 END;
@@ -634,7 +634,7 @@ FETCH NEXT FROM orders_cursor INTO @orderid, @orderamount, @customername
 
 WHILE @@FETCH_STATUS = 0
 BEGIN
-	PRINT 'Order: ' + str(@orderid) + ', Amount:  ' + str(@orderamount) + ', 			Customer: ' + @customername 
+	PRINT 'Order: ' + str(@orderid) + ', Amount:  ' + str(@orderamount) + ', Customer: ' + @customername 
 	
 	FETCH NEXT FROM orders_cursor INTO @orderid, @orderamount, @customername
 END 
