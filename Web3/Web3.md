@@ -18,12 +18,7 @@ Bij **ThePlaceToMeet** kan je een vergaderruimte huren. Je hebt de keuze uit ver
 
 Een gebruiker surft naar [http://localhost:xxxx/Reservatie]() en krijgt initieel een overzicht van alle vergaderruimtes, gesorteerd in oplopende volgorde van vergaderruimte-type en vervolgens het maximaal aantal personen.
 
-<a href="https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/1.overview.png" target="_blank"><img src="https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/1.overview.png">
-</a>
-
-![1.overview.png](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/1.overview.png)
-
-<img src="https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/1.overview.png">
+![1.overview.png](images/1.overview.png)
 
 Er kan gezocht worden naar vergaderruimtes die voldoende groot zijn voor een opgegeven aantal personen.
 
