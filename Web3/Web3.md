@@ -22,7 +22,7 @@ Een gebruiker surft naar [http://localhost:xxxx/Reservatie]() en krijgt initieel
 
 Er kan gezocht worden naar vergaderruimtes die voldoende groot zijn voor een opgegeven aantal personen.
 
-![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/2.zoekvergaderruimte.png)
+![](images/2.zoekvergaderruimte.png)
 
 Indien er geen vergaderruimtes gevonden worden voor het opgegeven aantal personen, wordt een melding gegeven.
 
