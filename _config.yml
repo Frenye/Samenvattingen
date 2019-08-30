@@ -4,7 +4,7 @@ github: [metadata]
 encoding: UTF-8
 kramdown:
   input: GFM
-  hard_wrap: false
+  hard_wrap: true
 future: true
 jailed: false
 gfm_quirks: paragraph_end
