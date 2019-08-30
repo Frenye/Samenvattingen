@@ -26,17 +26,17 @@ Er kan gezocht worden naar vergaderruimtes die voldoende groot zijn voor een opg
 
 Indien er geen vergaderruimtes gevonden worden voor het opgegeven aantal personen, wordt een melding gegeven.
 
-![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/3.geengevonden.png)
+![](images/3.geengevonden.png)
 
 Een **aangemelde gebruiker** (~een klant), kan een nieuwe reservatie aanmaken door te klikken op een knop “Reserveer”.
 
-![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/4.reserveerknoppen.png)
+![](images/4.reserveerknoppen.png)
 
 Indien de gebruiker niet is aangemeld of niet voldoet aan de “Klant” policy wordt deze omgeleid naar de login pagina.
 
 Als de gebruiker is aangemeld dan komt hij op de pagina [http://localhost:xxxx/Reservatie/Reserveer/](). Merk op dat in de starter applicatie alle reservaties gebeuren voor de klant met email peter@hogent.be (en nog niet voor de aangemelde gebruiker)
 
-![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/5.reserveerscherm.png)
+![](images/5.reserveerscherm.png)
 
 Voor het Dag-veldje wordt een date picker gebruikt (~Chrome browser)
 Bij het **submitten** van het formulier worden volgende **voorwaarden aan client- en serverside gecheckt**:
@@ -48,7 +48,7 @@ Bij het **submitten** van het formulier worden volgende **voorwaarden aan client
 
 Als het formulier niet correct werd ingevuld dan wordt de gebruiker geïnformeerd via gepaste berichten:
 
-![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/6.reserveererrors.png)
+![](images/6.reserveererrors.png)
 
 Indien het formulier correct werd ingevuld zal een nieuwe reservatie worden aangemaakt voor de vergaderruimte en de klant, **als aan volgende domeinregels is voldaan**:
 
@@ -68,17 +68,17 @@ Bij een succesvolle reservatie wordt de **bevesting** pagina getoond. Bij een ni
 
 Onderstaand scherm toont je het resultaat van een succesvolle reservatie. Merk op dat in dit voorbeeld de klant een korting krijgt, daar het zijn 3de reservatie is in 2018.
 
-![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/7.reserveerbevestiging.png)
+![](images/7.reserveerbevestiging.png)
 
 ## Het domein
 
-![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/8.domein.png)
+![](images/8.domein.png)
 
 ## Het databank diagram
 
 Merk op: dit diagram bevat geen AspNetxxx tabellen. Voor de relaties zijn er geen cascading delete.
 
-![](https://github.com/WebIII/10exVoorbeeldExamen/blob/master/docs/images/9.databank.png)
+![](images/9.databank.png)
 
 ## de opgave
 
