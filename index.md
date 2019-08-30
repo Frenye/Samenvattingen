@@ -1,7 +1,8 @@
-# [Onderzoekstechnieken](Onderzoekstechnieken/Onderzoekstechnieken.md)
-## [Header1.1](href)
-# Header2
-## [Header2.1](href)
-### [Header2.1.1](href)
-## [Header2.2](href)
-# @UidForAnArticle
+# 2e jaar
+
+## [Onderzoekstechnieken] (Onderzoekstechnieken/Onderzoekstechnieken.md)
+## [Webapplicaties 3](Web3/Web3.md)
+## [Ontwerpen 3](Ontwerpen3/Ontwerpen3.md)
+## [Probleem Oplossend Denken 2](POD2/POD2.md)
+## [Databanken 2](Databanken/Databanken.md)
+
