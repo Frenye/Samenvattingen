@@ -17,3 +17,5 @@ Takes a client request and gives something back to the client.
 Lets the user request something on the server, and shows the user the result of the request.
 
 ![](./images/1.1clientserver.png)
+
+
