@@ -37,3 +37,16 @@ When a web server sends an HTML page to the client, it sends it using HTTP.
 
 ### What is the HTTP protocol?
 
+#### Key elements of the request stream
+
+* HTTP method: the action to be performed
+* The page to access: a URL
+* Form parameters: like arguments to a method
+
+#### Key elements of the response stream 
+
+* A status code: for whether the request was succesfull
+* Content-type: text, picture, ...
+* The content; the actual HTML, images , ...
+
+
