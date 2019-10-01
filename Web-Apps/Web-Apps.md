@@ -56,3 +56,39 @@ First thing you will find is an HTTP method name.
 The method name tells the server the kind of request that's being made, and how the rest of the message will be formatted.
 
 The HTTP protocols has several methods, but the ones you'll use most often are **GET** and **POST**
+
+### GET and POST
+
+#### GET
+
+The simplest HTTP method, the point is to get something back from the server.
+
+#### POST
+
+The more powerfull request, you can request something and at the same time send form data to the server.
+
+![](./images/2.1.3getandpost.png)
+
+### Container
+
+Servlets don't have a main() method. They are under the control of another Java application called a **container**.
+
+When your web server application gets a request for a servlet, the server hands the request not to the servlet itsel, but to the Container in which the servlet is deployed.
+
+It is the Container that gives the servlet the HTTP request and response, and it is the Container that calls the servlet's method.
+
+![](./images/2.1.4container.png)
+
+#### How the Container handles a request
+
+![](./images/2.1.4.1container.png)
+![](./images/2.1.4.2container.png)
+![](./images/2.1.4.3container.png)
+
+1. User click a link that has a URL to a servlet instead of a static page.
+2. The container sees that the request is for a servlet, so the container creates two objects; HttpServletResponse and HttpServletRequest.
+3. The container finds the correct servlet based on the URL in the request, creates or allocates a thread for that request, and passes the request and response objects to the servlet thread.
+4. The container calls the servlet's service() method. Depending on the type of request, the service() method calls either the doGet() or doPost() method. For this example, we will assume the request was an HTTP GET.
+5. The doGet() method generates the dynamic page and stuffs the page into the response object. Remember, the container still has a reference to the response object.
+6. The thread completes, the container converts the response object into a HTTP response, sends it back to the client, then deletes the request and response objects.
+
