@@ -49,4 +49,10 @@ When a web server sends an HTML page to the client, it sends it using HTTP.
 * Content-type: text, picture, ...
 * The content; the actual HTML, images , ...
 
+### What is the request?
 
+First thing you will find is an HTTP method name.
+
+The method name tells the server the kind of request that's being made, and how the rest of the message will be formatted.
+
+The HTTP protocols has several methods, but the ones you'll use most often are **GET** and **POST**
