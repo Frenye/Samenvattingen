@@ -18,4 +18,22 @@ Lets the user request something on the server, and shows the user the result of 
 
 ![](./images/1.1clientserver.png)
 
+## Clients and servers know HTML anh HTTP
+
+#### HTML
+
+1. Server answers request
+2. Server sends content to browser
+3. Browser displays
+
+Servers oftend send the browser a set of instructions written in HTML. All web browsers know what to do with html.
+
+#### HTTP
+
+1. Client sends HTTP request
+2. Server answers with HTTP response
+
+When a web server sends an HTML page to the client, it sends it using HTTP.
+
+### What is the HTTP protocol?
 
