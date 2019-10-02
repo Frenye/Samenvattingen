@@ -110,4 +110,19 @@ Java Servlet technology defines HTTP-specific servlet classes.
 
 ### Servlet Life Cycle
 
+If an instance of a servlet does not exist, the container:
+
+* Loads the servlet class
+* Creates an instance of the servlet class
+* Initializes the servlet instance by calling the init method
+* Invokes the service method, passing a request and response object 
+
+If the container needs to remove the servlet, it finalizes the servlet by calling the servlet's destroy method.
+
+![](./images/1.2servletlife.png)
+
+**Each request runs in a separate thread**
+
+![](./images/1.2servletlife2.png)
+
 
