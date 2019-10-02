@@ -92,3 +92,22 @@ It is the Container that gives the servlet the HTTP request and response, and it
 5. The doGet() method generates the dynamic page and stuffs the page into the response object. Remember, the container still has a reference to the response object.
 6. The thread completes, the container converts the response object into a HTTP response, sends it back to the client, then deletes the request and response objects.
 
+# Servlets 
+
+## Introduction
+
+The client requests that som action is performed, the server performs the action and responds to the client.
+
+This request-response model of communication is the foundation for the highest-level views of networking in Java-Servlets and JavaServer Pages.
+
+![](./images/1introduction.png)
+
+### What is a SERVLET?
+
+A servlet is a **Java programming language class** used to extend the capabilities of servers that host applications accessed via a **request-response programming model**.
+
+Java Servlet technology defines HTTP-specific servlet classes.
+
+### Servlet Life Cycle
+
+
