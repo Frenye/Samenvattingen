@@ -125,4 +125,20 @@ If the container needs to remove the servlet, it finalizes the servlet by callin
 
 ![](./images/1.2servletlife2.png)
 
+### GET and POST
+
+The two most common HTTP request types
+
+* GET: retrieves information from the server 
+* POST: sends data to server, such as authentication information or data from a form
+
+### HTTPServlet Class
+
+Web-based servlets typically extend class HttpServlet
+
+* method doGet() responds to GET requests
+* method doPost() responds to POST requests
+
+## Handling http get Requests
+
 
