@@ -139,6 +139,27 @@ Web-based servlets typically extend class HttpServlet
 * method doGet() responds to GET requests
 * method doPost() responds to POST requests
 
-## Handling http get Requests
+## Handling http GET Requests
 
+### WelcomeServlet demonstration
 
+The servlet and HTML document demonstrate a servlet that handles HTTP get requests
+
+#### WelcomeServlet.java
+
+```java
+@WebServlet("/welcome1")
+public class WelcomeServlet extends HttpServlet
+{
+	//process "get" requests
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+		throws ServletException, IOException
+	{
+		response.setContentType("text/html");
+		try(PrintWriter out = response.getWriter()){
+			//Write HTML document
+		}
+	}
+}
+```
