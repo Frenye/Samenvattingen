@@ -163,3 +163,42 @@ public class WelcomeServlet extends HttpServlet
 	}
 }
 ```
+
+#### welcomeForm.htmm
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Handling an HTTP Get Request</title>
+	</head>
+	<body>
+		<form action="welcome1" method="get">
+			<p>
+				<label>Click to invoke servlet</label>
+				<input type="submit" value="Get HTML doc"/>
+			</p>
+		</form>
+	</body>
+</html>
+```
+
+The HTML document provides a form that invokes the servlet
+
+The form's action (welcome1) specifies the URL path that invokes the servlet, and the form's method indicates that the browser sends a get request to the server. This results in a call to the servlet's doGet method.
+
+#### How the container found the servlet
+
+**A servlet can have 2 names**
+
+* Client-known URL name: e.g. the link to register/registerMe servlet
+* Programmer-known file name: e.g. SignUpServlet.class
+
+#### Mapping servlet names improves your app's flexibility and security
+
+Gives you the flexibility to move things around without having to change the client code that refers to the old location of the servlet files.
+
+Better security: the client doesn't know how things are structured on your server.
+
+#### Handling http get requests containing data
+
