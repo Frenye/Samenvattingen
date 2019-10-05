@@ -187,7 +187,7 @@ The HTML document provides a form that invokes the servlet
 
 The form's action (welcome1) specifies the URL path that invokes the servlet, and the form's method indicates that the browser sends a get request to the server. This results in a call to the servlet's doGet method.
 
-#### How the container found the servlet
+### How the container found the servlet
 
 **A servlet can have 2 names**
 
@@ -213,5 +213,37 @@ In welcomeForm.html:
 ```html
 <input type="text" name="firstname"/>
 ```
+
+## Handling http POST requests
+
+A http post request is often used to post data from an HTML form to a server-side form handler that processes the data.
+
+Browsers often cache web pages so they can quickly reload the pages. The browser minimizes the amount of data that must be downloaded for you to view a web page.
+
+Browsers typically do not cache the server's response to a post request, because the next post might not return the same result.
+
+### Differences between GET and POST
+
+* GET requests can be bookmarked, POST requests cannot.
+* GET is meant to be used for getting things; POST is meant to be used for sending data to be processed.
+
+### Demonstration
+
+#### WelcomeServlet.java
+
+```java
+protected void doPost (HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IOException
+
+	//instead of doGet()
+```
+
+#### welcomeForm.html
+
+```html
+<form action="welcome1" method="post">
+```
+
+## Redirecting Requests to Other Resources
 
 
