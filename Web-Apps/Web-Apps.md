@@ -202,3 +202,16 @@ Better security: the client doesn't know how things are structured on your serve
 
 #### Handling http get requests containing data
 
+In WelcomeServlet.java: 
+
+```java
+String firstname = request.getParameter("firstname");
+```
+
+In welcomeForm.html:
+
+```html
+<input type="text" name="firstname"/>
+```
+
+
