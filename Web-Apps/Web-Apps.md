@@ -246,4 +246,38 @@ protected void doPost (HttpServletRequest request, HttpServletResponse response)
 
 ## Redirecting Requests to Other Resources
 
+The RedirectServlet.java recieves a page parameter as part of a get request, then uses that parameter to redirect the request to a different resource.
 
+### Demonstration
+
+#### RedirectForm.html
+
+```html
+<a href = "redirect?page=oracle">
+```
+
+#### RedirectServlet.java
+
+```java
+@WebServlet("/redirect")
+public class RedirectServlet extends HttpServlet
+{
+	//process "get" request from client
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException
+	{
+		String location = request.getParameter("page");
+		if (location != null)
+		{
+			if (location.equals("oracle"))
+				response.sendRedirect("http://www.oracle ...");
+			else
+				if (location.equals("welcome"))
+					response.sendRedirect("welcome1");
+		}
+	}
+}
+```
+
+### Redirect vs Request Dispatch
