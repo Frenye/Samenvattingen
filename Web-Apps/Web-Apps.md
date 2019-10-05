@@ -281,3 +281,20 @@ public class RedirectServlet extends HttpServlet
 ```
 
 ### Redirect vs Request Dispatch
+
+#### Request Dispatch
+
+The servlet calls: 
+
+```java
+RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+view.forward(request, response);
+```
+
+When a servlet does a request dispatch it's like asking a co-worker to take over working with a client.
+
+The co-worker ends up responding to the client. Yhe user never knows someone else took over, because the URL in the browser bar doesn't change.
+
+#### Redirect
+
+
