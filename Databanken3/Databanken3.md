@@ -1,8 +1,3 @@
----
-
-
----
-
 <h1 id="what-is-big-data">1. What is big data?</h1>
 <h2 id="information-management">1.1 Information Management</h2>
 <p>Information Management includes</p>
