@@ -97,3 +97,25 @@ An all-encompassing term for any collection of data sets so large and complex th
 
 * New data characteristics 
 * New data challenges
+
+This data has it's own characteristics and the efficient processing of this data brings new challenges along.
+
+## 1.4 The four V's of Big Data
+
+### Volume: BIG data
+
+The amount of data, also reffered to the data at rest 
+
+Big data can be the result of a large data volume. This feature is most common. There is a great need to be able to work with ever-increasing data collections
+
+### Variety: Varied data
+
+The range of data types and sources that are used, data in its many forms
+
+### Velocity: Fast data
+
+The speed at which data comes in and goes out, data in motion, streaming data
+
+### Veracity: Bad data
+
+The uncertainty of the data, data in doubt
