@@ -8,7 +8,7 @@ Information Management includes
 * Data processing
 * Data visualisation
 
-![Decision Support Systems](https://raw.githubusercontent.com/Frenye/Samenvattingen/master/Databanken3/images/1.1.1.png)
+![Decision Support Systems](images/1.1.1.png)
 
 ### Hierarchial structure of information management systems 
 
@@ -50,5 +50,5 @@ Information Management includes
 
 ### Traditional Systems
 
-
+![Traditional Systems](images/1.1.2.png)
 
