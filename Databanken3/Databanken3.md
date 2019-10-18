@@ -87,4 +87,13 @@ Back flushing the error correction is important to insure that the data sources 
 
 Traditional databases, ETL processes, Data warehouses, Data Mining, ... are not suited for processing data with specific characteristics. Such data is called **Big Data**.
 
+## 1.2 What are Big Data?
 
+Data of very large size, typically to the extent that its manipulation and management present significant logistical challenges.
+
+An all-encompassing term for any collection of data sets so large and complex that it becomes difficult to process using on-hand data management tools or traditional data processing applications.
+
+## 1.3 The origin of Big Data
+
+* New data characteristics 
+* New data challenges
