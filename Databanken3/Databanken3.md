@@ -106,16 +106,32 @@ This data has it's own characteristics and the efficient processing of this data
 
 The amount of data, also reffered to the data at rest 
 
-Big data can be the result of a large data volume. This feature is most common. There is a great need to be able to work with ever-increasing data collections
+Big data can be the result of a large data volume. This feature is most common. There is a great need to be able to work with ever-increasing data collections.
 
 ### Variety: Varied data
 
 The range of data types and sources that are used, data in its many forms
 
+In the conventional information systems we assume the data can be structured in a fixed database schema the only rarely needs to be adjusted. If data does not fit into a fixed database schema ut must first be converted, which is time consuming. In practice data is often available in various shapes and sizes.
+
+Big data can be characterised by a lack of uniformity in the structure of the data, making it very difficult to set up a fixed database schema for it.
+
 ### Velocity: Fast data
 
 The speed at which data comes in and goes out, data in motion, streaming data
 
+Quickly and efficiently processing is necessary in order not to loose any information. Limitaions on the acquisition speed and timelines of the data can be another reason for characterising data as big data.
+
 ### Veracity: Bad data
 
 The uncertainty of the data, data in doubt
+
+* Imprecise data
+* Vague data
+* Uncertain data
+* Incomplete data
+* Inconsistent data
+
+This indicates the quality or trustworthiness of the data. Large volumes with varied data that must be processed very quickly are very sensitive to poor data quality.
+
+To be valuable an information system should offer adequate guarantees that the user at least knows how reliable the processing of the data was done -> truthfulness.
