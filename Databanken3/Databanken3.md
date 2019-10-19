@@ -139,3 +139,25 @@ To be valuable an information system should offer adequate guarantees that the u
 As the quality of your data can not be checked with a conventional information the data is described as big data.
 
 Poor quality data is often due to inaccuracy, vagueness, uncertainty, incompleteness, inconsistency and can be caused by incorrect user input, redundant data, corrupt data.
+
+## 1.5 Some other V's
+
+### Virality 
+
+How long do we need to keep the data, when does it become outdated? 
+
+### Viscosity
+
+Do we have enough data to perform relevant to analysis?
+
+### Visualisation
+
+Can the results easily be presented?
+
+### Value
+
+Can we create additional value based upon the data?
+
+## 1.6 Bottlenecks
+
+
