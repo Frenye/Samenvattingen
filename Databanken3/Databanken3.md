@@ -135,3 +135,7 @@ The uncertainty of the data, data in doubt
 This indicates the quality or trustworthiness of the data. Large volumes with varied data that must be processed very quickly are very sensitive to poor data quality.
 
 To be valuable an information system should offer adequate guarantees that the user at least knows how reliable the processing of the data was done -> truthfulness.
+
+As the quality of your data can not be checked with a conventional information the data is described as big data.
+
+Poor quality data is often due to inaccuracy, vagueness, uncertainty, incompleteness, inconsistency and can be caused by incorrect user input, redundant data, corrupt data.
