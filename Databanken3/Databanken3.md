@@ -160,4 +160,7 @@ Can we create additional value based upon the data?
 
 ## 1.6 Bottlenecks
 
+### Most common pitfalls
 
+* Believing that one has huge volumes of data, hence requiring big data setup, even trough modern RDBMs are perfectly capable of handling these.
+* Big data technologies are not easy to query, analyse, or derive insights from.
