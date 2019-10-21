@@ -337,7 +337,7 @@ Big data is first about managing and storing huge, high-speed, and/or unstructur
 
 The use of big data must be justified by the potential to create additional value in the activities of a company.
 
-![enter image description here](images/1.6.1.png)
+![Big Data](images/1.6.1.png)
 
 
 # 2 Introduction to NoSQL
@@ -396,6 +396,32 @@ DBMSs are not good at extensive horizontal scaling.
 
 ## 2.4 The NoSQL Movement
 
+Describes databases that store and manipulate data in other formats than regular relations.
+
+NoSQL databases aim at near linear horizontal scalability, by distributing data over a cluster of database nodes for the sake of performance as well as availability.
+
+**Eventual consistency**: the data will become consistent at some point in time after each transaction. 
+
+![The NoSQL movement](images/2.4.1.png)
+
+## 2.5 Limitations of NoSQL
+
+### SQL
+
+40 years old -> very mature
+
+Switching from one relational database to another is much easier than switching between 2 NoSQL databases
+
+### Each NoSQL database has unique aspects
+
+The developer must invest time and effort to learn the new query language and the consistency semantics 
+
+## 2.6 Independence Mismatch
+
+* In software: cohesive structures of objects in memory
+* In databases: you have to stripe the object over multiple tables
+
+NoSQL databases allow developers to develop without having to convert in-memory structures to relational structures.
 
 
 
