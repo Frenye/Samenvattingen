@@ -331,6 +331,12 @@ Can we create additional value based upon the data?
 * Believing that one has huge volumes of data, hence requiring big data setup, even trough modern RDBMs are perfectly capable of handling these.
 * Big data technologies are not easy to query, analyse, or derive insights from.
 
+### Big Data
+
 Big data is first about managing and storing huge, high-speed, and/or unstructured datasets, but this does not automatically mean one can analyze them or easily leverage them to obtain insights.
 
 The use of big data must be justified by the potential to create additional value in the activities of a company.
+
+![enter image description here](images/1.6.1.png)
+
+
