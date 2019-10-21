@@ -340,3 +340,62 @@ The use of big data must be justified by the potential to create additional valu
 ![enter image description here](images/1.6.1.png)
 
 
+# 2 Introduction to NoSQL
+
+## 2.1 Classical relational database follow the ACID rules
+
+### Atomic
+
+A transaction is a logical unit of work which must be either completed with all of its data modifications or nothing at all.
+
+### Consistent
+
+At the end of a transaction, all the data must be left in a consistent state 
+
+### Isolated
+
+Modifications of data performed by a transaction must be independent of another transaction. Otherwise the outcome of a transaction may be erroneous.
+
+### Durable
+
+When the transaction is completed, effects of the modification performed by the transaction must be permanent in the system.
+
+## 2.2 Relational Database Management Systems
+
+RDMSs put a lot of emphasis on keeping data consistent. They require a formal database system, and new or modified data is not accepted unless they comply with this schema in terms of data type, referential integrity etc...
+
+This guarantees that the entire database is consistent at all times.
+
+**The focus on consistency may hamper flexibility and scalability**
+
+As the data volume or the number of parallel transactions increases, capacity can be increased by
+
+* Vertical scaling: extending storage capacity and/or CPU power of the database server
+* Horizontal scaling: multiple DBMS servers being arranged in a cluster
+
+## 2.3 Vertical vs Horizontal scaling
+
+### Vertical scaling
+
+You can scale things up using bigger boxes, this costs a lot more and there are real limits on how far you can go.
+
+Extending storage capacity and/or CPU power of the database server.
+
+However there are hardware induced limitations to vertical scaling.
+
+### Horizontal scaling
+
+You can use lots and lots of little boxes, just commodity hardware, all thrown into massive grids. However relational databases were not designed to run efficiently on clusters.
+
+This provides the necessary performance, which cannot be realised by a single server, but also guarantees availability, with the data being replicated over multiple nodes.
+
+DBMSs are not good at extensive horizontal scaling.
+
+* Coordination overhead because of focus on consisntency 
+* Rigid database schemas.
+
+## 2.4 The NoSQL Movement
+
+
+
+
