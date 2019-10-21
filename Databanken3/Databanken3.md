@@ -460,4 +460,4 @@ Assume we need to spread our hashes over three servers.
 Since the nature of a hash function is to spread inputs uniformly over its output range, it is easy to create an index over the hash range that can spread out the hash table over different locations.
 
 ![Hashing example](images/3.1.2.png)
-** = Sharding: distributes different data across multiple servers, so each server acts as a single source for a subset of data.**
+**= Sharding: distributes different data across multiple servers, so each server acts as a single source for a subset of data.**
