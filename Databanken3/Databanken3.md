@@ -534,4 +534,6 @@ It's also possible to set up a full redundancy scheme where each node itself cor
 
 ![Redundancy](images/3.4.1.png)
 
+## 3.5 Eventual Consistency 
+
 
