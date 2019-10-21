@@ -474,4 +474,64 @@ Since the nature of a hash function is to spread inputs uniformly over its outpu
 
 ## 3.2 Request Coordination
 
+In many NoSQL implementations all nodes implement the same functionality and are all able to perform the role of request coordinator.
+
+need for membership protocol 
+
+* Dissemination
+* Failure detection 
+
+It's the duty of the client to make sure requests to store and retrieve key-value pairs are routed to the desired node which will store the data.
+
+However starting from the basic key-value architecture it is possible to move such duties from the client to the nodes themselves. In such a setup, all nodes often implement the same functionality and can all perform the role of request coordinator: i.e. the responsible party to route requests to the appropriate destination node and relay back the result status of operation.
+
+it is necessary that all nodes remain informed at all times of the other nodes on the network. This problem is addressed through a membership protocol.
+
+**Membership Protocol**: Each node talks to the network to retrieve a membership list and keep its view of the whole network up to date. This protocol allows all nodes to know about the existence of other nodes, and is the fundamental underlying protocol on top of which other functionality can be built.
+
+Each membership protocol contains two sub-components, called dissemination and failure detection. Implementation in practice mimics how rumours or gossips are spread.
+
+## 3.3 Consistent Hashing
+
+Consistent hashing schemes are often used, which avoid having to remap each key to a new node when nodes are added or removed.
+
+At the core of a consistent hashing setup is a so called "ring-topology", which is basically a representation of the number range [0,1[
+
+![Ring set-up](images/3.3.1.png)
+
+Hash each key to a position on a ring, and store the actual key-value pair on the first server that appears clockwise of the hashed point on the ring.
+
+![Ring set-up](images/3.3.2.png)
+
+Because of the uniformity property of a good hash function, roughly 1/n of key-value pairs will end up being stored on each server. Most of the key-value pairs will remain unaffected if a machine is added or removed.
+
+![Ring set-up](images/3.3.3.png)
+
+For instance, say we add a new server to the ring, only the keys positioned on the highlighted section of the ring in the figure above would have to be moved to the new server.
+
+Typicily the fraction of keys that need to be moved when using this set-up is about **k / (n + 1)**
+
+## 3.4 Replication and Redundancy
+
+### Problems with consistent hashing
+
+* If two servers end up being mapped close to one another, one of these nodes will end up with few keys to store 
+* In case a server is added, all of the keys moved to to this new node originate from just one other server.
+
+### Solution
+
+Instead of mapping a server s to a single point on our ring, we map it to multiple positions, called replicas.
+
+For each physical server s, we hence end up with r (number of replicas) points on the ring. Each of the replicas still represents the same physical instance.
+
+We increase uniformity with which key-value pairs will end up being distributed to servers, and can also ensure that an even lower number of keys must be moved when a server is adde to a cluster.
+
+### Redundancy
+
+To handle data replication and redundancy, many vendors extend the consistent hashing mechanism so that key-value pairs are duplicated across multiple nodes, for instance by storing the key-value pair on 2 or more nodes clockwise from the key's position on the ring.
+
+It's also possible to set up a full redundancy scheme where each node itself corresponds to multiple physical machines each storing a fully redundant copy of the data
+
+![Redundancy](images/3.4.1.png)
+
 
