@@ -509,7 +509,7 @@ Because of the uniformity property of a good hash function, roughly 1/n of key-v
 
 For instance, say we add a new server to the ring, only the keys positioned on the highlighted section of the ring in the figure above would have to be moved to the new server.
 
-Typicily the fraction of keys that need to be moved when using this set-up is about **k / (n + 1)**
+Typically the fraction of keys that need to be moved when using this set-up is about **k / (n + 1)**
 
 ## 3.4 Replication and Redundancy
 
