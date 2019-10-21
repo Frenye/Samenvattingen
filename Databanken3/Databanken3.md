@@ -462,3 +462,16 @@ Since the nature of a hash function is to spread inputs uniformly over its outpu
 ![Hashing example](images/3.1.2.png)
 
 **= Sharding: distributes different data across multiple servers, so each server acts as a single source for a subset of data.**
+
+### Key Value Stores
+
+* Request coordination 
+* Consistent hashing
+* Replication and redundancy
+* Eventual consistency 
+* Stabilization
+* Integrity constraints and querying
+
+## 3.2 Request Coordination
+
+
