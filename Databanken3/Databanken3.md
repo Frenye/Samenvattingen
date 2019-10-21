@@ -536,4 +536,42 @@ It's also possible to set up a full redundancy scheme where each node itself cor
 
 ## 3.5 Eventual Consistency 
 
+Membership protocol does not guarantee that every node is aware of every other node at all times. It will reach a consistent state over time.
 
+State of the network might not be perfectly consistent at any moment in time, though will become eventually consistent at a future point in time.
+
+Most NoSQL databases follow the BASE principle
+
+### CAP theorem
+
+States that a distributed computer system cannot guarantee the following three properties at the same time:
+
+* Consistency (all nodes see the same data at the same time)
+* Availability (guarantees that every request receives a response indicating a succes or failure result)
+* Partition tolerance (the system continues to work even if nodes go down or are added)
+
+Most NoSQL databases sacrifice the consistency part of CAP in their setup, instead striving for eventual consistency
+
+### BASE acronym 
+
+* Basically Available: NoSQL databases adhere to the available guarantee of the CAP theorem
+* Soft state: the system can change over time, even without receiving input
+* Eventual consistency: the system will become consistent over time but might not be consistent at a particular moment.
+
+## 3.6 Stabilization
+
+The operation which repartitions hashes over nodes in case nodes are added or removed is called stabilisation. This should be as efficient as possible to reduce network overhead or waiting time. 
+
+If a consistent hashing-scheme is being applied, the number of fluctuations in the hash node mappings will be minimised.
+
+If a node is removed, entries can only be deleted from the to-be-removed node once they are present in their new, correct location.
+
+## 3.7 Integrity Constraints and Querying
+
+* Key value stores represent a very diverse gamut of systems
+* Full blown DBMSs versus caches 
+* Only limited query facilities are offered
+* Limited to no means to enforce structural constraints
+* No relationships, referential integrity constraints or database schema, can be defined 
+* The database knows nothing about the value
+* They always use primary key acces -> great performance
