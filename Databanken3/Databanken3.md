@@ -1,5 +1,5 @@
 
-# 1. What is big data?
+# 1 What is big data?
 
 ## 1.1 Information Management
 
@@ -424,4 +424,40 @@ The developer must invest time and effort to learn the new query language and th
 NoSQL databases allow developers to develop without having to convert in-memory structures to relational structures.
 
 
+# 3 Types of NoSQL Databases - Key-value stores
 
+## 3.1 Key-value Stores
+
+Key-Value based database stores data as (key, value) pairs. 
+
+* Keys are unique. Sometimes keys are composed of multiple fields to yield a unique key.
+* The value contains an uninterpreted value that may have any length and content
+
+Keys are hashed by means of a so called hash function.
+
+* A hash function takes an arbitrary value of arbitrary size and maps it into a key with a fixed size which is called the hash value.
+* Each hash can be mapped to a space in computer memory
+
+### Good hash functions should be: 
+
+* Deterministic: Hashing the same input value must always provide the same hash value. 
+* Uniform: A good hash function should map the inputs evenly over its output range, to prevent so-calles collisions between closely related pairs of inputs.
+* Defined size: It is desirable that the output of a hash function has a fixed size, which makes it easier to store the data structure efficiently.
+
+The reason hashes allow for efficient storage and lookup of entries is because each hash can be mapped to a space computer memory, allowing for rapid, exact lookup of a key.
+
+![Hash function](images/3.1.1.png)
+
+### NoSQL
+
+NoSQL Databases are bult with horizontal scalability support in mind. We can distribute the hah tables over different locations.
+
+Assume we need to spread our hashes over three servers.
+
+* Hash every key to a server indentifier 
+* index(hash) = mod(hash, nrServers) + 1
+
+Since the nature of a hash function is to spread inputs uniformly over its output range, it is easy to create an index over the hash range that can spread out the hash table over different locations.
+
+![Hashing example](images/3.1.2.png)
+** = Sharding: distributes different data across multiple servers, so each server acts as a single source for a subset of data.**
