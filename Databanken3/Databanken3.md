@@ -827,3 +827,26 @@ db.comedy.count({'comments.by': 'Steve'})
 Skip de rest
 
 
+# 9 Column Oriented Databases
+
+## 9.1 Column Oriented
+
+A column oriented DBMS is a database management system that stores data tables as sections of columns of data.
+
+Usefull if: 
+
+* Aggregates are regularly computed over large numbers of similar data items
+* data is sparse, i.e. columns with many null values
+
+No wasting storage on empty cells. All values of a column are placed together on disk.
+
+![Column oriented DBMS](images/9.1.1.png)
+
+The need for separate indexes disappears here, as the primary keys for each column are the data values themselves, mapping directly to record identifiers (i.e. genre "fantasy" maps to records 1 and 4).
+
+## 9.2 Disadvantages
+
+* Retrieving all attributes pertaining to a single entity becomes less efficient
+* Join operations will be slowed down
+
+
