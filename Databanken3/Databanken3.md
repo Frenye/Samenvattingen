@@ -577,7 +577,7 @@ If a node is removed, entries can only be deleted from the to-be-removed node on
 * They always use primary key acces -> great performance
 
 
-# 4. Types of NoSQL Databases
+# 4 Types of NoSQL Databases
 
 ## 4.1 Tuple Store
 
@@ -653,3 +653,4 @@ Many RDBMS vendors start implementing NoSQL by:
 * Suppler for special data types, such as geospatial data
 
 
+# 5 Getting acquainted with MongoDB - Part 1
