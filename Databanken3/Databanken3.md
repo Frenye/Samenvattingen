@@ -750,4 +750,80 @@ Opposite of in: Not in
 db.comedy.find({'technical.runningTime': {$nin: [100,105]}});
 ```
 
+Use Boolean with or
+```
+db.comedy.find({'merits.boxOffice': {$gt:500}, $or: [{year: 2010}, {year: 2012}]});
+```
+
+Opposite of or: nor
+```
+db.comedy.find({$nor: [{year: 2010}, {year: 2011}]});
+```
+
+Use boolean with and
+```
+db.comedy.find({$and:[{'merits.budget': {$lte: 50}}, {'merits.boxOffice':{$gt: 500}}]})
+```
+
+Specify the number of elements
+```
+db.comedy.find({cast: {$size:4}})
+```
+
+Use regular expressions
+```
+db.comedy.find({'comments.text': /love.*/i})
+```
+
+Not operator (needs regex or document otherwise use ne)
+```
+db.comedy.find({name: {$not: /The hangover.*/i}});
+```
+
+Javascript expressions
+```
+db.comedy.find('this.year > 2009 && this.name !== "Ted"')
+```
+
+Where operator
+```
+db.comedy.find({'comments.by':'Steve', $where: 'this.merits.budget >= 50'})
+```
+
+The $all operator is similar to $in, but instead of matching any value in the specified array all values in the array must be matched.
+```
+db.comedy.find ({'cast': {$all: ['Bradley Cooper', 'Mila Kunis']}})
+```
+
+Check for existence
+```
+db.comedy.find ({'merits.boxOffice': {$exists : true}})
+```
+
+Variables
+```
+var myCursor =db.comedy.find({year: {$gt: 2010}})
+```
+
+Use the cursor method next()
+```
+var myCursor = db.comedy.find({year: {$gt: 2010}})
+while (myCursor.hasNext()) {
+	printjson (myCursor.next());
+}
+```
+
+Use forEach() method
+```
+var myCursor = db.comedy.find({year: {$gt: 2010}})
+myCursor.forEach(printjson)
+```
+
+Total number of documents in collection
+```
+db.comedy.count({'comments.by': 'Steve'})
+```
+
+Skip de rest
+
 
