@@ -654,3 +654,100 @@ Many RDBMS vendors start implementing NoSQL by:
 
 
 # 5 Getting acquainted with MongoDB - Part 1
+
+## 5.1 Introduction to MongoDB
+
+### Document Database
+
+A record in MongoDB is a document, which is a data structure composed of field and value pairs. MongoDB documents are similar to JSON objects. The value fields may include other documents, arrays and arrays of documents.
+
+vantages of using documents are: 
+
+* Documents correspondent to native data types in many programming languages.
+* Embedded documents and arrays reduce need for expensive joins.
+* Dynamic schema supports fluent polymorphism.
+
+### Collections
+
+MongoDB is a document-oriented database system made up of the hierarchy of **database > collection > document > field > key:value**
+
+Comparison between MongoDB and SQL data models 
+
+* database = database
+* collection = table
+* document = row
+* field = /
+* {key:value} = /
+
+In MongoDB, documents stored in a collection must have a unique _id field that acts a a primary key
+
+## 5.2 MongoDB CRUD operations
+
+### Insert documents
+
+Create database: 
+```
+use movies
+```
+
+Insert a single document into a collection
+```
+db.comedy/insert({name: 'Ted', year: 2012})
+```
+```
+db.comedy.insertOne({name: 'Ted', year: 2012})
+```
+
+Insert multiple documents into a collection
+```
+db.comedy.insertMany([{name: 'The Hangover', year: 2009}, {name: 'Ted', year: 2012}])
+```
+
+### Query documents 
+
+To read data from a collection
+```
+db.comedy.find()
+```
+
+Equeal to query
+```
+db.comedy.find({year: 2012})
+```
+
+Greater than and less than
+```
+db.comedy.find({year: {$lt: 2012}})
+```
+
+Search for an object inside an object
+```
+db.comedy.find({'merits.budget' : {$gt: 50}})
+```
+
+Combining operators
+```
+db.comedy.find({year: {$gt: 2010, $lt: 2013}})
+```
+
+Specify the fields that have to be shown
+```
+db.comedy.find({year: {$lt:2012}}, {name:true})
+```
+
+Not equals
+```
+db.comedy.find({year: {$ne: 2011}})
+```
+
+Specify an array of possible matches
+```
+db.comedy.find({'merits.budget': {$in: [50,60,70,80]}});
+```
+
+Opposite of in: Not in
+```
+db.comedy.find({'technical.runningTime': {$nin: [100,105]}});
+```
+
+
