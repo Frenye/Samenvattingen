@@ -575,3 +575,81 @@ If a node is removed, entries can only be deleted from the to-be-removed node on
 * No relationships, referential integrity constraints or database schema, can be defined 
 * The database knows nothing about the value
 * They always use primary key acces -> great performance
+
+
+# 4. Types of NoSQL Databases
+
+## 4.1 Tuple Store
+
+Similar to a key-value store, with the difference that it does not store pairwise combinations of a ke and value, but instead stores a unique key together with a vector of data.
+
+Example: marc -> ("Marc", "McLast Name", 25, "Germany")
+
+No requirement to have the same length or semantic ordering.
+
+Various NoSQL implementations do, however, permit organising entries in semantical groups (aka collections or tables)
+
+For instance a collection "Person" might hold these two entries
+* Person:marc -> ("Marc", "McLast Name", 25, "Germany")
+* Person:harry -> ("Harry", "Smith", 29, "Belgium")
+
+**A tuple-based structure is unlabelled and ordered**
+
+## 4.2 Document Store
+
+Document stores store a collection of attributes that are labeled and unordered, representing items that are semi structured.
+
+**Document stores store a collection of attributes labeled and unordered**
+
+for instance: 
+
+{
+	"title" : "Harry Potter",
+	"authors" : ["J.K. Rowling"],
+	"price" : 32,
+	"dimensions" : {
+		"width": 8.5,
+		"height": 11.0,
+		"depth": 0.5
+		}
+}
+
+Most modern NoSQL databases choose to represent documents using JSON
+
+## 4.3 Items with Keys
+
+Most NoSQL document stores will allow you to store items in tables (collections) in a shema-less manner, but will enforce that a primary key is specified.
+
+Since document stores store collections of attributes, it is possible to include an item's key directly in this collection of attributes.
+
+The primary key will be used as a partitioning key to create a hash and determine where the data will be stored.
+
+## 4.4 Filters and Queries
+
+Document stores deal with semi-unstructured items. They impose no particular schema on the structure of items stored in a particular collection, but assume that items nevertheless exhibit an implicit structure following from their representational format, representing a collection of attributes.
+
+Just as with key-value stores, the primary key of each item can be used to rapidly retrieve a particular item from a collection, but since items are composed of multiple attributes, most document stores can retrieve items based on simple filters as well.
+
+The big difference between a key-value database and a document database is that you can query into the document structure and you can usually retrieve portions of the document or update portions of a document.
+
+## 4.5 MongoDB
+
+One of the most well-known and widely used implementation of a document store.
+
+MongoDB is strongly consistent by default: if you write data and read it back out, you will always be able to read the result of the write you just performed.
+
+MongoDB is a single-master: all reads go to a primary node by default.
+
+## 4.6 SQL After All
+
+Filtering and query operations are quite a challenge in MongoDB. It will become apparent that many traditional GROUP BY-style SQL queries are convertible to an equivalentmap-reduce pipeline.
+
+Many RDBMS vendors start implementing NoSQL by:
+
+* Focusing on horizontal scalability and distributed querying
+* Dropping schema requirements
+* Support for nested data types or allowing to store JSON directly in tables
+* Sopport for Map-Reduce operations
+* Suppler for special data types, such as geospatial data
+
+
