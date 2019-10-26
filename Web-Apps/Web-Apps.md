@@ -296,5 +296,3 @@ When a servlet does a request dispatch it's like asking a co-worker to take over
 The co-worker ends up responding to the client. Yhe user never knows someone else took over, because the URL in the browser bar doesn't change.
 
 #### Redirect
-
-
