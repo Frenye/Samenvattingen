@@ -293,8 +293,72 @@ view.forward(request, response);
 
 When a servlet does a request dispatch it's like asking a co-worker to take over working with a client.
 
-The co-worker ends up responding to the client. Yhe user never knows someone else took over, because the URL in the browser bar doesn't change.
+The co-worker ends up responding to the client. The user never knows someone else took over, because the URL in the browser bar doesn't change.
 
 #### Redirect
+
+When a servlet does a redirect it's like asking the client to call someone else instead. 
+
+In this case, the client is the browser, not the user. The browser makes the new call on the users behalf. The user sees the new URL in the browser.
+
+## 2.5 Session Tracking
+
+* Personalization 
+* Privacy invasion
+* HTTP-stateless protocol 
+	* does not support persistent information
+* Track clients individually 
+	* Cookies
+	* Session tracking
+	* Hidden type input 
+	* URL rewriting 
+
+### Session tracking with HttpSession
+
+![HttpSession](images/2.5.1.png)
+
+#### Three ways a session can die
+
+##### 1. It times out
+
+Configuring session timeout in the Deployment Descriptor
+
+```html
+<servlet>
+	...
+</servlet>
+<session-config>
+	<session-timeout>15</session-timeout>
+<session-config>
+```
+
+Setting session timeout for a specific session
+
+```java
+session.setMaxInactiveInterval(20*60);
+```
+
+##### 2. You can invalidate() on the session object
+
+```java
+session.invalidate();
+```
+
+##### 3. The application goes down 
+
+crashes or is undeployed
+
+### Important moments in a HttpSession object's life
+
+![enter image description here](images/2.5.2.png)
+
+#### Example: Servlet SessionServlet
+
+* Uses HttpSession objects
+* Handles both get and post requests
+
+sessionSelectLanguage.html document for selecting a programming language and posting the data to the SessionServlet.
+
+#### sessionSelectLanguage.html
 
 
