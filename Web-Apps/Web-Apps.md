@@ -1,12 +1,12 @@
-# Web App Architecture
+# 1 Web App Architecture
 
-## Introduction
+## 1.1 Introduction
 
 How do web clients and web servers talk to one another?
 
 Our goal is to build a web application that clients around the globe can access.
 
-## Client/Server
+## 1.2 Client/Server
 
 ### Web Server
 
@@ -18,7 +18,7 @@ Lets the user request something on the server, and shows the user the result of 
 
 ![](./images/1.1clientserver.png)
 
-## Clients and servers know HTML anh HTTP
+## 1.3 Clients and servers know HTML anh HTTP
 
 #### HTML
 
@@ -92,9 +92,9 @@ It is the Container that gives the servlet the HTTP request and response, and it
 5. The doGet() method generates the dynamic page and stuffs the page into the response object. Remember, the container still has a reference to the response object.
 6. The thread completes, the container converts the response object into a HTTP response, sends it back to the client, then deletes the request and response objects.
 
-# Servlets 
+# 2 Servlets 
 
-## Introduction
+## 2.1 Introduction
 
 The client requests that som action is performed, the server performs the action and responds to the client.
 
@@ -139,7 +139,7 @@ Web-based servlets typically extend class HttpServlet
 * method doGet() responds to GET requests
 * method doPost() responds to POST requests
 
-## Handling http GET Requests
+## 2.2 Handling http GET Requests
 
 ### WelcomeServlet demonstration
 
@@ -214,7 +214,7 @@ In welcomeForm.html:
 <input type="text" name="firstname"/>
 ```
 
-## Handling http POST requests
+## 2.3 Handling http POST requests
 
 A http post request is often used to post data from an HTML form to a server-side form handler that processes the data.
 
@@ -244,7 +244,7 @@ protected void doPost (HttpServletRequest request, HttpServletResponse response)
 <form action="welcome1" method="post">
 ```
 
-## Redirecting Requests to Other Resources
+## 2.4 Redirecting Requests to Other Resources
 
 The RedirectServlet.java recieves a page parameter as part of a get request, then uses that parameter to redirect the request to a different resource.
 
@@ -296,3 +296,5 @@ When a servlet does a request dispatch it's like asking a co-worker to take over
 The co-worker ends up responding to the client. Yhe user never knows someone else took over, because the URL in the browser bar doesn't change.
 
 #### Redirect
+
+
