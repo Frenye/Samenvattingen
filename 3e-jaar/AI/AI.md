@@ -36,6 +36,7 @@ Turing stelde een operationele deﬁnitie van intelligentie voor. Een computer s
 Deze test is niet zo interessant, de studie van de onderliggende principes van de deelvelden wel.
 
 <div style="page-break-after: always;"></div>
+
 ### Menselijk denken
 
 Bepalen hoe mensen denken. Aan de hand van een gedetailleerd model van de werking van het menselijk brein hard- en software gebruiken om dit artificieel te implementeren.
@@ -62,6 +63,7 @@ Men tracht rationale agenten te bouwen en dit is de manier waarop AI nu meestal 
 Kort: Het is niet altijd nodig om de juiste redenering te volgen. Bijvoorbeeld bij Reflexen, je denkt hier ook niet eerst over na wat de voor/nadelen zijn.
 
 <div style="page-break-after: always;"></div>
+
 ## 1.2 Rationale Agenten
 
 ### Definitie 
@@ -108,6 +110,7 @@ PerformantieMaat moet niet gedefinieerd worden in termen van het gedrag van de a
 4. De huidige waarnemingssequentie
 
 <div style="page-break-after: always;"></div>
+
 ### Rationale Agent
 
 Selecteert voor elke mogelijke waarnemingssequentie de actie waarvan verwacht wordt dat deze zijn performantiemaat maximaliseert, rekening houdend met het bewijs aangebracht door de huidige waarnemingssequentie en de eventuele ingebouwde kennis van de agent.
@@ -167,6 +170,7 @@ Een omgeving waarin agenten handelen kunnen gecatalogiseerd worden alnaargelang 
 	* Stochastisch: dit is niet het geval
 	
 	<div style="page-break-after: always;"></div>
+	
 * Episodisch vs Sequentieel
 	* Episodisch: de ervaring van de agent is opgedeeld in verschillende 	onafhankelijke episodes. De actie die wordt ondernomen in de huidige episode 	heeft geen invloed op de volgende
 	* Sequentieel: de huidige actie heeft een (potentiële) invloed heeft op alle 	volgende acties
@@ -221,6 +225,7 @@ Gebruikt een UtiliteitsFunctie die aangeeft hoe “goed” een toestand is. Deze
 Dit is veel flexibeler dan een doelgebaseerde agent.
 
 <div style="page-break-after: always;"></div>
+
 # 2 ZoekAlgoritmes
 
 ## 2.1 Inleiding
@@ -281,6 +286,7 @@ Wanneer dit niet het geval is dan worden de plannen voor alle opvolgers van de (
 Conceptueel bouwen we dus een **Zoekboom** op. Dezelfde toestand kan (en zal) in het algemeen meerdere malen voorkomen in een zoekboom.
 
 <div style="page-break-after: always;"></div>
+
 #### Voorbeeld
 
 ![](images/2.2.1-algoritme.png)
@@ -313,6 +319,7 @@ Het aantal toppen in een zoekboom met vertakkingsfactor b en maximale diepte m w
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(b^m)=\frac{b^{m+1}-1}{b-1}"/>
 
 <div style="page-break-after: always;"></div>
+
 ### 2.2.3 Graafgebaseerd Zoeken
 
 Het grootste probleem van boomgebaseerd zoeken is dat dit algoritme niet onthoudt waar het reeds geweest is. Dit zorgt ervoor dat we in sommige gevallen te oneindige lussen zijn, en dat we in veel andere gevallen een grote hoeveelheid werk herhaaldelijk uitvoeren.
@@ -326,6 +333,7 @@ Bij **graafgebaseerd zoeken** wordt elke toestand hoogstens éénmaal geëxpande
 ![](images/2.2.3-algoritme.png)
 
 <div style="page-break-after: always;"></div>
+
 ## 2.3 Blinde Zoekmethoden
 
 Blinde zoekmethoden kunnen enkel gebruikmaken van de informatie die verschaft wordt door de deﬁnitie van het zoekprobleem. Ze beschikken niet over extra informatie die hen kan helpen bij het zoekproces.
@@ -353,6 +361,7 @@ De tijdscomplexiteit van breedte eerst is exponentieel in de diepte van de meest
 De ruimtecomplexiteit is eveneens gelijk aan O(b<sup>d+1</sup>)
 
 <div style="page-break-after: always;"></div>
+
 #### Breedte Eerst
 
 Bij graafgebaseerd breedte eerst zoeken kan men veel tijd winnen t.o.v. boomgebaseerd zoeken wanneer veel toestanden meerdere malen voorkomen in de zoekboom. Het extra geheugen dat men moet spenderen aan het bijhouden van de gesloten lijst weegt niet op tegen de tijdswinst die men kan maken. Om deze reden wordt breedte eerst zoeken meestal uitgevoerd in zijn graafgebaseerde versie.
@@ -364,6 +373,7 @@ Diepte eerst zoeken is in zekere zin duaal aan breedte eerst zoeken: hier gebrui
 ![](images/2.3.2-diepte-eerst.png)
 
 <div style="page-break-after: always;"></div>
+
 Diepte eerst zoeken genereert steeds een linkerdeel van de boom. Wanneer m eindig is en de enige doeltop helemaal rechts onderaan in de boom zit dan worden alle toppen van de boom gegenereerd. In het slechtste geval is de tijdscomplexiteit m.a.w. O(b<sup>m</sup>). Dit is dezelfde exponentiële (en dus slechte) tijdscomplexiteit als bij breedte eerst.
 
 Diepte eerst kan in bepaalde gevallen toch in een oneindige lus geraken. Diepte eerst is niet optimaal. Zelfs wanneer diepte eerst een oplossing vindt is deze niet gegarandeerd een optimale oplossing.
@@ -387,6 +397,7 @@ Bij elke iteratie van Iteratief Verdiepen, wordt de maximaal toegelaten diepte m
 ![](images/2.3.3-illustratie.png)
 
 <div style="page-break-after: always;"></div>
+
 Op het eerste zicht zou men denken dat dit proces een gigantische hoeveelheid werk te veel doet. De eerste lagen van de zoekboom worden immers meerdere malen opgebouwd. De eerste lagen van de zoekboom bevatten echter relatief weinig toppen tegenover de diepere lagen zodat de hoeveelheid werk die “te veel” wordt verricht relatief beperkt blijft.
 
 Iteratief verdiepen is een compleet zoekalgoritme en zal steeds de oplossing met het minste aantal acties vinden. Het algoritme is in het algemeen niet optimaal maar wel in het bijzondere geval dat alle acties dezelfde kost hebben. Het algoritme heeft een exponentiële tijdscomplexiteit maar slechts een lineaire ruimtecomplexiteit.
@@ -402,6 +413,7 @@ Het idee achter uniforme kost zoeken is dus in essentie gelijk aan het algo- rit
 ![](images/2.3.4-voorbeeld.png)
 
 <div style="page-break-after: always;"></div>
+
 Van S naar B:
 
 ![](images/2.3.4-tabel.png)
@@ -419,6 +431,7 @@ h: S &rarr; R<sup>+</sup> : s &rarr; h(s)
 Wanneer h(s) klein is dan is s niet ver van een doeltoestand verwijderd.
 
 <div style="page-break-after: always;"></div>
+
 #### Toelaatbaar
 
 Een heuristiek h: S → R<sup>+</sup> is toelaatbaar als voor elke toestand s geldt dat h(s) ≤ C<sup>∗</sup>(s) waarbij C<sup>∗</sup> de kost van een optimale oplossing voorstelt van s naar een doeltoestand.
@@ -481,6 +494,7 @@ h(s) = max(h<sub>1</sub>(s), h<sub>2</sub>(s)
 Het resultaat is een betere heuristiek die nog steeds aanvaardbaar is.
 
 <div style="page-break-after: always;"></div>
+
 # 3 Zoeken met een Tegenstander
 
 ## 3.1 Inleiding
@@ -527,6 +541,7 @@ De minimax beslissing is de beste beslissing wanneer er wordt gespeeld tegen een
 </p>
 
 <div style="page-break-after: always;"></div>
+
 ## 3.3 Snoeien van Spelbomen
 
 De waarde van sommige toppen is irrelevant voor het eindresultaat.
@@ -552,6 +567,7 @@ Max wijzigt de α-waarden en Min de β-waarden. Op elk moment heeft de top in de
  ![](images/3.3-uitwerking.png)
  
  <div style="page-break-after: always;"></div>
+ 
 ### Algoritme α-β-snoeien
  
 ![](images/3.3-snoeien.png)
@@ -581,6 +597,7 @@ We krijgen de volgende formule om een heuristische minimax waarde te berekenen v
 De kwaliteit van de heuristische evaluatiefunctie heeft een grote invloed op de performantie van het algoritme. Wanneer een heuristische evaluatiefunctie verkeerdelijk een hoge waarde toekent aan slechte posities, dan zal het algoritme in de richting van de slechte posities gestuurdworden.
 
 <div style="page-break-after: always;"></div>
+
 ### Eigenschappen Heuristische EvaluatieFunctie
 
 1. Eindtoestanden moeten op dezelfde manier geordend worden als de opbrengstFunctie U
@@ -596,6 +613,7 @@ EVAL(s) = θ<sub>1</sub>f<sub>1</sub>(s) + θ<sub>2</sub>f<sub>2</sub>(s) + ··
 Wanneer het niet duidelijk is wat “juiste” waarden voor de gewichten θ<sub>i</sub> zijn,dan kunnen technieken voor machineel leren gebruikt worden om deze tebepalen.
 
 <div style="page-break-after: always;"></div>
+
 # 4 Lokaal Zoeken en Genetische Algoritmen
 
 ## 4.1 Lokale Zoekmethoden
@@ -649,6 +667,7 @@ Hillclimbing is een gulzig algoritme omdat het bij elke iteratie steeds doet wat
 Hier wordt steeds de eerste “beste” opvolgergekozen wanneer er meerdere “beste” opvolgers zijn. In de meeste implementaties van hill climbing kiest men random onder deze beste opvolgers.
 
 <div style="page-break-after: always;"></div>
+
 #### Voordelen
 
 * Eenvoudig en snel algoritme
@@ -683,6 +702,7 @@ De aanvaardingswaarschijnlijkheid daalt naarmate het algoritme vordert.
 Het algoritme gebruikt een afkoelingschema om aan te geven hoe lang het algoritme nog te lopen heeft. Het is van belang dat de temperatuur traag genoeg afkoelt. Dan zal het algoritme een optimale oplossingvinden met een waarschijnlijkheid die nadert naar 1.
 
 <div style="page-break-after: always;"></div>
+
 #### AanvaardingsWaarschijnlijkheid
 
 Figuur toont de aanvaardingswaarschijnlijkheid voor drie verschillende waarden van ∆E
@@ -706,6 +726,7 @@ We nemen verder aan dat de doelfunctie h (met h: R<sup>n</sup> → R) die we wen
 Bij en in elke iteratie wensen we de huidige toestand te verbeteren, in dit geval dus verkleinen, door een stapje te nemen in de richting waarin de functie h het sterkst daalt.
 
 <div style="page-break-after: always;"></div>
+
 #### Gradient Berekenen
 
 Gebruikt om richting van de sterkste stijging te vinden.
@@ -773,6 +794,7 @@ Hierbij krijgt elk individu een stuk van een roulette wiel toegewezen. De groott
 Een probleem van roulette wiel selectie kan zijn dat het fitste individu zo veel beter is dan de rest dat het te vaak wordt gekozen, terwijl het misschien globaal geziennog niet zo’n goed individu is.
 
 <div style="page-break-after: always;"></div>
+
 #### Rang Gebaseerde Selectie
 
 Hierbij wordt enkel rekening gehouden met de relatieve positie van de individuen wanneer ze gerangschikt worden volgens hun fitheid. De kans dat het individu met rang i geselecteerd wordt is dan
@@ -829,6 +851,7 @@ Het is m.a.w. niet gegarandeerd dat een het steeds de beste oplossing vindt.   T
 Het is immers meestal zo dat de recombinatie operatoren grotere stukken opeenvolgend genetisch materiaal doorgeven aan hun kinderen. Het moet dan ook zo zijn dat deze stukken interessante eigenschappen van de oplossing voorstellen.
 
 <div style="page-break-after: always;"></div>
+
 # 5 Machinaal Leren
 
 ## 5.1 Inleiding
@@ -882,6 +905,7 @@ In formulevorm:
 ![](images/5.3.1-classificatie.png)
 
 <div style="page-break-after: always;"></div>
+
 #### Binair Classificatieprobleem
 
 ![](images/5.3.1-binair1.png)
