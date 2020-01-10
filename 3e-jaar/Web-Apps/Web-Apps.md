@@ -16,7 +16,11 @@ Takes a client request and gives something back to the client.
 
 Lets the user request something on the server, and shows the user the result of the request.
 
-![](./images/1.1clientserver.png)
+<p align="center">
+<img src="images/1.1clientserver.png" alt="drawing" width="400"/>
+</p>
+
+<div style="page-break-after: always;"></div>
 
 ## 1.3 Clients and servers know HTML anh HTTP
 
@@ -67,7 +71,9 @@ The simplest HTTP method, the point is to get something back from the server.
 
 The more powerfull request, you can request something and at the same time send form data to the server.
 
-![](./images/2.1.3getandpost.png)
+<p align="center">
+<img src="images/2.1.3getandpost.png" alt="drawing" width="400"/>
+</p>
 
 ### Container
 
@@ -77,13 +83,17 @@ When your web server application gets a request for a servlet, the server hands 
 
 It is the Container that gives the servlet the HTTP request and response, and it is the Container that calls the servlet's method.
 
-![](./images/2.1.4container.png)
+<p align="center">
+<img src="images/2.1.4container.png" alt="drawing" width="400"/>
+</p>
 
 #### How the Container handles a request
 
-![](./images/2.1.4.1container.png)
-![](./images/2.1.4.2container.png)
-![](./images/2.1.4.3container.png)
+<p align="center">
+<img src="images/2.1.4.1container.png" alt="drawing" width="400"/>
+<img src="images/2.1.4.2container.png" alt="drawing" width="400"/>
+<img src="images/2.1.4.3container.png" alt="drawing" width="400"/>
+</p>
 
 1. User click a link that has a URL to a servlet instead of a static page.
 2. The container sees that the request is for a servlet, so the container creates two objects; HttpServletResponse and HttpServletRequest.
@@ -91,6 +101,8 @@ It is the Container that gives the servlet the HTTP request and response, and it
 4. The container calls the servlet's service() method. Depending on the type of request, the service() method calls either the doGet() or doPost() method. For this example, we will assume the request was an HTTP GET.
 5. The doGet() method generates the dynamic page and stuffs the page into the response object. Remember, the container still has a reference to the response object.
 6. The thread completes, the container converts the response object into a HTTP response, sends it back to the client, then deletes the request and response objects.
+
+<div style="page-break-after: always;"></div>
 
 # 2 Servlets 
 
@@ -100,7 +112,9 @@ The client requests that som action is performed, the server performs the action
 
 This request-response model of communication is the foundation for the highest-level views of networking in Java-Servlets and JavaServer Pages.
 
-![](./images/1introduction.png)
+<p align="center">
+<img src="images/1introduction.png" alt="drawing" width="400"/>
+</p>
 
 ### What is a SERVLET?
 
@@ -119,11 +133,15 @@ If an instance of a servlet does not exist, the container:
 
 If the container needs to remove the servlet, it finalizes the servlet by calling the servlet's destroy method.
 
-![](./images/1.2servletlife.png)
+<p align="center">
+<img src="images/1.2servletlife.png" alt="drawing" width="400"/>
+</p>
 
 **Each request runs in a separate thread**
 
-![](./images/1.2servletlife2.png)
+<p align="center">
+<img src="images/1.2servletlife2.png" alt="drawing" width="400"/>
+</p>
 
 ### GET and POST
 
@@ -184,7 +202,6 @@ public class WelcomeServlet extends HttpServlet
 ```
 
 The HTML document provides a form that invokes the servlet
-
 The form's action (welcome1) specifies the URL path that invokes the servlet, and the form's method indicates that the browser sends a get request to the server. This results in a call to the servlet's doGet method.
 
 ### How the container found the servlet
@@ -227,6 +244,8 @@ Browsers typically do not cache the server's response to a post request, because
 * GET requests can be bookmarked, POST requests cannot.
 * GET is meant to be used for getting things; POST is meant to be used for sending data to be processed.
 
+<div style="page-break-after: always;"></div>
+
 ### Demonstration
 
 #### WelcomeServlet.java
@@ -255,6 +274,8 @@ The RedirectServlet.java recieves a page parameter as part of a get request, the
 ```html
 <a href = "redirect?page=oracle">
 ```
+
+<div style="page-break-after: always;"></div>
 
 #### RedirectServlet.java
 
@@ -315,7 +336,11 @@ In this case, the client is the browser, not the user. The browser makes the new
 
 ### Session tracking with HttpSession
 
-![HttpSession](images/2.5.1.png)
+<p align="center">
+<img src="images/2.5.1.png" alt="drawing" width="400"/>
+</p>
+
+<div style="page-break-after: always;"></div>
 
 #### Three ways a session can die
 
@@ -350,7 +375,11 @@ crashes or is undeployed
 
 ### Important moments in a HttpSession object's life
 
-![enter image description here](images/2.5.2.png)
+<p align="center">
+<img src="images/2.5.2.png" alt="drawing" width="400"/>
+</p>
+
+<div style="page-break-after: always;"></div>
 
 #### Example: Servlet SessionServlet
 
