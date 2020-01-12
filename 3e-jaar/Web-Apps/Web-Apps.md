@@ -1,4 +1,13 @@
-<div align="center"><h1>Part 1: Servlet/JSP</h1></div>
+<div id="content" align="center"><h1>Content</h1></div>
+
+[Part 1: Servlet/JSP](#part1)
+
+[Part 2: Spring Basics](#part2)
+
+[Part 3: Spring Web MVC](#part3)
+
+<div style="page-break-after: always;"></div>
+<div id="part1" align="center"><h1>Part 1: Servlet/JSP</h1></div>
 <div style="page-break-after: always;"></div>
 
 
@@ -720,7 +729,7 @@ Your JSP code can quickly become a mix of various HTML tags, JSP tags, and Java 
 2. Java code in a JSP is hard to change and maintain.
 
 <div style="page-break-after: always;"></div>
-<div align="center"><h1>Part 2: Spring Basics</h1></div>
+<div id="part2" align="center"><h1>Part 2: Spring Basics</h1></div>
 <div style="page-break-after: always;"></div>
 
 # 1 Introduction to Spring
@@ -1147,7 +1156,7 @@ public class Audience {
 ```
 
 <div style="page-break-after: always;"></div>
-<div align="center"><h1>Part 3: Spring Web MVC</h1></div>
+<div id="part3" align="center"><h1>Part 3: Spring Web MVC</h1></div>
 <div style="page-break-after: always;"></div>
 
 # 1 MVC Structure
