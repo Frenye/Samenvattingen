@@ -1,3 +1,7 @@
+<div align="center"><h1>Part 1: Servlet/JSP</h1></div>
+<div style="page-break-after: always;"></div>
+
+
 # 1 Web App Architecture
 
 ## 1.1 Introduction
@@ -79,7 +83,7 @@ The more powerfull request, you can request something and at the same time send 
 
 Servlets don't have a main() method. They are under the control of another Java application called a **container**.
 
-When your web server application gets a request for a servlet, the server hands the request not to the servlet itsel, but to the Container in which the servlet is deployed.
+When your web server application gets a request for a servlet, the server hands the request not to the servlet itself, but to the Container in which the servlet is deployed.
 
 It is the Container that gives the servlet the HTTP request and response, and it is the Container that calls the servlet's method.
 
@@ -108,7 +112,7 @@ It is the Container that gives the servlet the HTTP request and response, and it
 
 ## 2.1 Introduction
 
-The client requests that som action is performed, the server performs the action and responds to the client.
+The client requests that some action is performed, the server performs the action and responds to the client.
 
 This request-response model of communication is the foundation for the highest-level views of networking in Java-Servlets and JavaServer Pages.
 
@@ -530,3 +534,626 @@ public classSessionServletextendsHttpServlet
 	}
 }		
 ```
+
+# 3 JSP - Scripting Components
+
+## 3.1 Introduction
+
+JSP is an extension of servlet technology
+
+A JSP becomes a servlet. The container looks at your JSP, translates it into a servlet class source (.java) file, then compiles that into a full-fledged JAVA servlet class. After that, it’s just servlets all the way down.
+
+## 3.2 JSP Overview
+
+JSP simply puts Java inside HTML pages.
+
+The request/response mechanism and lifecycle of a JSP is the same as that of a servlet.
+
+<div style="page-break-after: always;"></div>
+
+## 3.3 A First JavaServer Page example
+
+We can put JAVA code in a JSP using a scriplet, which just means Java code within a <%...%> tag
+
+We can’t put import statements in a JSP. We need a page directive.
+
+```html
+<%@ page import = "java.util.Date, domein.Rotator" %>
+<%@ page contentType = "text/html" pageEncoding = "UTF-8" %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv = "refresh" content = "1"/>
+		<title>A Simple JSP Example</title>
+		<link rel="stylesheet" href="css/style.css"/>
+	</head>
+	<body>
+		<h1>Simple JSP Example</h1>
+		<br>
+		<table>
+			<tr>
+				<td>
+					<p>
+						<!--JSP expression to insert date/time -->
+						<% = newDate() %>
+					</p>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
+```
+
+<div style="page-break-after: always;"></div>
+
+## 3.4 MVC: Servlet = controller, JSP = view
+
+### 3.4.1 Handling Http get Requests
+
+```java
+@WebServlet("/welcome1")
+public class WelcomeServlet extends HttpServlet {
+
+	// process "get" requests from clients
+	
+	protected void doGet( HttpServletRequest request,HttpServletResponse response)
+	throws ServletException, IOException
+	{
+		RequestDispatcher view = request.getRequestDispatcher(“view/welcome.jsp");
+		view.forward(request,response);
+	}
+}
+```
+
+### 3.4.2 Handling Http post Requests 
+
+#### WelcomeServlet.java
+
+```java
+@WebServlet(“/welcome1”)
+public class WelcomeServlet extends HttpServlet {
+
+	// process “post" requests from clients
+	
+	protected void doPost ( HttpServletRequestrequest, HttpServletResponseresponse ) 
+	throws ServletException, IOException
+	{
+		String firstname = request.getParameter("firstname");
+		request.setAttribute("firstName", firstname);
+		RequestDispatcher view = request.getRequestDispatcher(“view/welcome.jsp");
+		view.forward(request,response);
+	}
+}
+```
+
+<div style="page-break-after: always;"></div>
+
+#### Welcome.jsp
+
+```html
+<body>
+	<% String name = (String) request.getAttribute("firstName"); %>
+	<h1> 
+		Welcome to Servlets!
+		<%=name %>
+	</h1>
+</body>
+```
+
+## 3.5 Attributes in a JSP
+
+### Scope
+
+**Page**
+
+* JSP object can be accessed only from within the same page where it was created
+* For the lifetime of the current request
+
+**Request**
+
+* Accessed from any pages that serves that request
+* More than one page can serve a single request
+
+**Session**
+
+* Accessible from pages that belong to the same session from where it was created
+* Accessible to only those with access to a specific HttpSessionSession
+
+**Application**
+
+* Accessed from any pages across the application
+
+<div style="page-break-after: always;"></div>
+
+### Access Attributes
+
+* Page
+
+	* JSP
+		* pageContext.setAttribute(“vb”,vb);
+	* Servlet
+		* does not apply
+		
+* Request
+
+	* JSP
+		* request.setAttribute(“vb”,vb);
+		* <% pageContext.setAttribute(“vb”,vb,PageContext.REQUEST_SCOPE); %>
+	* Servlet
+		* request.setAttribute(“vb”,vb); 
+		
+* Session
+
+	* JSP
+		* session.setAttribute(“vb”,vb);
+		* <% pageContext.setAttribute(“vb”,vb,PageContext.SESSION_SCOPE); %>
+	* Servlet
+		* request.getSession().setAttribute(“vb”,vb);
+		
+* Application
+
+	* JSP
+		* application.setAttribute(“vb”,vb);
+		* <% pageContext.setAttribute(“vb”,vb,PageContext.APPLICATION_SCOPE); %>
+	* Servlet
+		* getServletContext().setAttribute(“vb”,vb);
+
+<div style="page-break-after: always;"></div>
+
+## 3.6 Overview Scripting Components
+
+* Scriptlets (<% and %>)
+
+* Comments (<%-- and --%>)
+
+* Expressions (<% =and %>)
+
+* Declaration (<% !and %>)
+
+* Directive: (<% @and %>)
+
+## 3.7 Java code in a JSP -> complaints 
+
+Your JSP code can quickly become a mix of various HTML tags, JSP tags, and Java code that is difficult to follow, debug, and maintain.
+
+1. Web page designers shouldn’t have to know JAVA.
+2. Java code in a JSP is hard to change and maintain.
+
+<div style="page-break-after: always;"></div>
+<div align="center"><h1>Part 2: Spring Basics</h1></div>
+<div style="page-break-after: always;"></div>
+
+# 1 Introduction to Spring
+
+## 1.1 Spring Framework
+
+The Spring Framework is an open source application framework and **Inversion of Control** container for the java platform.
+
+### Why use the Spring Framework
+
+Simplifying Java Development
+
+Spring makes existing solutions significantly easier to use, and places them in a consistent architectural approach.
+
+## 1.2 The core of the Spring Framework
+
+**Inversion of Control** refers to the generally desirable architectural pattern of having an outside entity (the container) **wire** together objects, such that objects are given their **dependencies** by the container, instead of directly instantiating them themselves.
+
+### 1.2.1 Dependency Injection
+
+#### Dependency Injection
+
+* Dependency: 
+	* Class A need class B to get its job done
+	* Class A is dependenton class B
+
+* Injection: 
+	* Class B will get injected into class A 
+	* By the IoC container.
+
+<div style="page-break-after: always;"></div>
+
+#### Injection Styles
+
+* Constructor injection
+	* Via arguments passed to the constructor when an object is created.
+
+* Setter injection
+	* Via the setter method , after the object has been created.
+
+#### Best choice: Setter Injection
+
+* Swap dependencies on the fly without creating a new instance.
+* The least effect on your code’s usability in non-IoC settings.
+
+### 1.2.2 Example: wiring in Spring
+
+#### Use Spring to Configure a Modularized Application
+
+<p align="center">
+<img src="images/1.2.2modularized.png" alt="drawing" width="400"/>
+</p>
+
+The **Spring container** reads the configuration class, instaniates the beans, and then wires them up according to the configuration information
+
+* Spring framework:
+	* Easily wire and rewire reusable Java beans
+* Task: 
+	* Instantiating concrete instances of Operation or ResultWriter
+* Class CalculateSpring:
+	* Delegates this task to the Spring container
+
+<div style="page-break-after: always;"></div>
+
+#### CalculateSpring
+
+```java
+
+public class CalculateSpring {
+
+	private Operationops;
+	private ResultWriterwriter;
+	
+	public void setOps(Operation ops) {
+		this.ops = ops;
+	}
+	
+	public  void setWriter(ResultWriter writer) {
+		this.writer = writer;
+	}
+	
+	public void execute(String [] args) {
+		long op1 = Long.parseLong(args[0]);
+		long op2 = Long.parseLong(args[1]);
+		writer.showResult("The result of " + op1 +ops.getName() + op2 + " is "+ ops.operate(op1, op2) + "!");
+	}   
+}
+```
+
+#### StartUp
+
+```java
+public class StartUp {
+
+	public static void main(String... args) {
+		ApplicationContext context = 
+			new AnnotationConfigApplicationContext(FirstExampleConfiguration.class);
+	
+		CalculateSpring opsbean = 
+			context.getBean("opsbean", CalculateSpring.class);
+		opsbean.execute(args);
+	}
+}
+```
+
+<div style="page-break-after: always;"></div>
+
+#### Bean Factory
+
+The IoC container in Spring is called the bean factory.
+
+Bean Factory = Interface
+
+Will load bean definitions stored in a configuration source (such as a configuration class)
+
+ApplicationContext extends BeanFactory and adds additional facilities.
+
+#### Configuration Class
+
+```java
+@Configuration
+public class FirstExampleConfiguration {
+
+	@Bean
+	public ResultWriter resultWriter() {
+		return new ScreenWriter();
+	}
+	
+	@Bean
+	public Operation operation() {
+		return new OperationAdd();
+	}
+	
+	@Bean
+	public CalculateSpring opsbean() {
+		CalculateSpring calculate = new CalculateSpring();
+		calculate.setOps(operation());
+		calculate.setWriter(resultWriter());
+		return calculate;
+	}
+}
+```
+
+<div style="page-break-after: always;"></div>
+
+# 2 Wiring Beans
+
+## 2.1 Spring Configuration
+
+<p align="center">
+<img src="images/2.1springconfig.png" alt="drawing" width="400"/>
+</p>
+
+Each approach has its pros and cons.
+
+## 2.2 Spring Configuration: Annotations
+
+* @Service(“...”)
+	* dependency
+	
+* @Autowired
+	* Spring will inject the dependency
+	* It can be applied on setter method, constructor or a field
+
+* @Qualifier("...")
+	* Works by matching the name defined with @Service annotation
+
+Spring throws **NoSuchBeanDefinitionException** if the required dependency is not available. We can change this behavior: 
+
+@Autowired(required=false)
+
+By default, the @Autowired resolve dependencies by type.
+
+<div style="page-break-after: always;"></div>
+
+### 2.2.1 Setter-based Autowiring
+
+```java
+public class CalculateSpring {
+
+	private Operation ops;
+	
+	@Autowired
+	public void setOps(Operation ops) {
+		this.ops = ops;
+	}
+}
+```
+
+### 2.2.2 Constructor-based Autowiring
+
+```java
+public class CalculateSpring {
+
+	private Operation ops;
+	
+	@Autowired
+	public CalculateSpring(Operation ops) {
+		this.ops = ops;
+	}
+}
+```
+
+### 2.2.3 Field or Property-based Autowiring
+
+```java
+public class CalculateSpring {
+
+	@Autowired
+	private Operation ops;
+
+}
+```
+
+<div style="page-break-after: always;"></div>
+
+## 2.3 Example
+
+```java
+@Service("add")
+public class OperationAdd implements Operation { ... }
+```
+
+```java
+@Service("calculate")
+public class CalculateSpring {
+
+	private Operation ops;
+	
+	@Qualifier("add")
+	@Autowired
+	public void setOps(Operation ops) {
+		this.ops = ops;
+	}
+	
+	...
+	
+}
+```
+
+```java
+@ComponentScan(basePackages = {"domain", "spring_wiring"})
+@Configuration
+public class FirstExampleConfiguration {}
+```
+
+```java
+public class StartUp{
+
+	public static void main(String... args) {
+		ApplicationContextcontext = 
+			new AnnotationConfigApplicationContext(FirstExampleConfiguration.class);
+		
+		CalculateSpringopsbean = 
+			context.getBean("calculate", CalculateSpring.class);
+		opsbean.execute(args);
+	}
+}
+```
+
+A configuration class can be used to read the annotated beans definitions. In this example, the class will no longer need any @Bean
+
+But, to be able to look for bean definitions inside Java classes, component scanning has to be enabled &rarr; @ComponentScan
+
+## 2.4 Automatically Wiring Bean Properties
+
+Obvious wiring &rarr; when there’s no question about which bean reference should be wired.
+
+The Spring container is able to autowire relationships between beans. 
+
+Using autowiring, it is possible to reduce or eliminate the need to specify properties or constructor arguments, thus saving a significant amount of typing.
+
+# 3 Aspect-Oriented Programming
+
+## 3.1 OAP
+
+programming paradigm which isolates secondary or supporting functions from the main program's business logic. 
+
+It aims to increase modularity by allowing the separation of cross-cutting concerns, forming a basis for aspect-oriented software development.
+
+## 3.2 Example
+
+A typical application is broken down into modules. 
+
+Each module’s main concern 
+
+* is to provide services for its particular domain. 
+* requires simular ancillary functionalities, such as security, logging, ...
+
+<p align="center">
+<img src="images/3.2ex.png" alt="drawing" width="400"/>
+</p>
+
+<div style="page-break-after: always;"></div>
+
+## 3.3 Aspects
+
+Cross-cutting concerns can be modularized into special objects = aspects.
+
+Two benefits:
+
+* The logic for each concern is in one place.
+* Our service module contains only their primary concern and secondary concerns have been moved to aspects
+
+## 3.4 AOP Concepts
+
+### Join Point
+
+Point in the execution of the application where an aspect can be plugged in. 
+
+This point could be a method being called, an exception being thrown or a field being modified.
+
+### Advice
+
+The code that is executed at a particular joinpoint is the advice.
+
+#### Kinds of advice
+
+* Before
+	* Executes before join point
+* After
+	* Executed regardless of the means by which a join point exits
+* After-returning
+	* Executed after a join point completes normally
+* After-throwing
+	* Executed if a method exits by throwing an exception
+* Around
+	* Advice wraps the advised method, providing some functionality before and after the advised method is invoked
+
+<div style="page-break-after: always;"></div>
+
+### Pointcut
+
+Collection of joinpoints that you use to define when the advice should be executed.
+
+### Target Object
+
+Object being advised by one or more aspects. Also referred to as advised or proxied object.
+
+### AOP proxy
+
+Object created by the AOP framework, including advice.
+
+### Weaving
+
+Assembling aspects to create an advised object.
+
+## 3.5 Spring's AOP support
+
+Use the AspectJ framework in Spring applications.
+
+### AspectJ
+
+* complete and popular AOP framework
+* widely-used de-facto standard for AOP
+* it uses Java-like syntax
+
+### Spring AOP vs AspectJ
+
+<table>
+	<tr>
+		<th>
+			Spring AOP
+		</th>
+		<th>
+			AspectJ
+		</th>
+	</tr>
+	<tr>
+		<td>
+			Method-execution pointcut
+		</td>
+		<td>
+			Method-, constructor- and property-execution pointcut
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Weaving dynamically at runtime
+		</td>
+		<td>
+			Compile-time weaving
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Dynamic proxy
+		</td>
+		<td>
+		</td>
+	</tr>
+</table>
+
+<div style="page-break-after: always;"></div>
+
+## 3.6 Example
+
+```java
+@Aspect
+public class Audience {
+
+	@Around("execution(* *.perform(..))")
+	public void watchPerformance(ProceedingJoinPoint joinpoint) {
+
+		try{
+			System.out.println("The audience is taking their seats.");
+			System.out.println("The audience is turning off their cellphones");
+			long start = System.currentTimeMillis();
+			
+			//Proceed to advised method
+			joinpoint.proceed();
+			
+			long end = System.currentTimeMillis();
+			System.out.println("CLAP CLAP CLAP CLAP CLAP");
+			System.out.println("The performance took " + (end-start) + " milliseconds.");
+		}
+		catch(Throwable e){
+			//After bad performance 
+			System.out.println("Boo! We want our money back!");
+		}
+	}
+}
+
+```
+
+<div style="page-break-after: always;"></div>
+<div align="center"><h1>Part 3: Spring Web MVC</h1></div>
+<div style="page-break-after: always;"></div>
+
+# 1 MVC Structure
+
+## 1.1 Spring Web MVC
+
+
+
+
