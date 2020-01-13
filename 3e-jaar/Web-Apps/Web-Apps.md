@@ -6,10 +6,13 @@
 
 [Part 3: Spring Web MVC](#part3)
 
+[Part 4: Spring and JPA](#part4)
+
 <div style="page-break-after: always;"></div>
 <div id="part1" align="center"><h1>Part 1: Servlet/JSP</h1></div>
 <div style="page-break-after: always;"></div>
-
+&nbsp;
+<div style="page-break-after: always;"></div>
 
 # 1 Web App Architecture
 
@@ -731,6 +734,8 @@ Your JSP code can quickly become a mix of various HTML tags, JSP tags, and Java 
 <div style="page-break-after: always;"></div>
 <div id="part2" align="center"><h1>Part 2: Spring Basics</h1></div>
 <div style="page-break-after: always;"></div>
+&nbsp;
+<div style="page-break-after: always;"></div>
 
 # 1 Introduction to Spring
 
@@ -1158,11 +1163,657 @@ public class Audience {
 <div style="page-break-after: always;"></div>
 <div id="part3" align="center"><h1>Part 3: Spring Web MVC</h1></div>
 <div style="page-break-after: always;"></div>
+&nbsp;
+<div style="page-break-after: always;"></div>
 
 # 1 MVC Structure
 
 ## 1.1 Spring Web MVC
 
+A part of the Spring Framework is Spring Web MVC, an extensible MVC framework for creating web applications.
+
+<p align="center">
+<img src="images/1.1springwebmvc.png" alt="drawing" width="400"/>
+</p>
+
+### DispatcherServlet
+
+A single front controller servlet.
+
+A single servlet delegates responsibility for a request to other components of an application to perform actual processing.
+
+### Primary Flow of Request Handling in Spring MVC
+
+<p align="center">
+<img src="images/1.1primaryflow.png" alt="drawing" width="400"/>
+</p>
+
+<div style="page-break-after: always;"></div>
+
+## 1.2 First Example
+
+<p align="center">
+<img src="images/1.2get.png" alt="drawing" width="400"/>
+<img src="images/1.2post.png" alt="drawing" width="400"/>
+</p>
+
+<div style="page-break-after: always;"></div>
+
+### Config
+
+#### SpringMvcInitializer.java
+
+```java
+public class SpringMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+		return new Class[]{WebConfig.class};
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+		return null;
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+		return new String[]{"/"};
+    }
+
+}
+```
+
+#### WebConfig.java
+
+```java
+@Configuration
+@EnableWebMvc
+@ComponentScan("contoller")
+public class WebConfig extends WebMvcConfigurerAdapter {
+
+    @Bean
+    public HelloService helloService() {
+		return new HelloServiceImpl();
+    }
+
+    @Bean
+    public ViewResolver viewResolver() {
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setPrefix("/WEB-INF/jsp/");
+		resolver.setSuffix(".jsp");
+		return resolver;
+    }
+}
+
+```
+
+### Model
+
+#### HelloService.java
+
+```
+public interface HelloService {
+
+    public String sayHello(String name);
+}
+```
+
+#### HelloServiceImpl.java
+
+```java
+public class HelloServiceImpl implements HelloService {
+
+    @Override
+    public String sayHello(String name) {
+	 	return String.format("Hello %s!", (name != null) ? name : "");
+    }
+
+}
+```
+
+### Controller
+
+#### HelloController.java
+
+```java
+@Controller
+public class HelloController {
+
+    @Autowired
+    private HelloService helloService;
+
+    @RequestMapping(value = {"/hello"}, method = RequestMethod.GET)
+    public String showHomePage(Model model) {
+		model.addAttribute("name", new Name());
+		return "nameForm";
+    }
+
+    @RequestMapping(value = {"/hello"}, method = RequestMethod.POST)
+    public String onSubmit(@ModelAttribute Name name, Model model) {
+		model.addAttribute("helloMessage", helloService.sayHello(name.getValue()));
+		return "helloView";
+    }
+
+}
+```
+
+#### Name.java
+
+```java
+public class Name {
+
+    //the name for this property will be used in the .jsp
+    // modelattribute: name
+    // path: value
+    private String value;
+
+    public String getValue() {
+		return value;
+    }
+
+    public void setValue(String value) {
+		this.value = value;
+    }
+
+}
+```
+
+### View
+
+#### nameForm.jsp
+
+```html
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix = "form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Enter your name</title>
+    </head>
+    <body>
+        <h1>Enter your name</h1>
+
+        <form:form method="POST" action="hello" modelAttribute="name">
+            Name: 
+
+            <form:input path="value" size = "15"/>
+            <input type="submit" value="OK"/>
+        </form:form>
+
+    </body>
+</html>
+```
+
+#### helloView.jsp
+
+```html
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Hello</title>
+    </head>
+    <body>
+        <h2>${helloMessage}</h2>
+    </body>
+</html>
+```
+
+## 1.3 Mapping Requests with @RequestMapping
+
+DispatcherServlet receives a web request 
+
+&rarr; It attempts to dispatch requests to the various controller classes (@Controller)
+
+&rarr; dispatching process depends on the various @RequestMapping
+
+### 1.3.1RequestMapping Example
+
+```java
+@Controller
+@RequestMapping(“/member/*”)
+public class MemberController{
+
+	@RequestMapping(“add”)
+	public String addMember(Model model) {...}
+	
+	@GetMapping(value={“remove”, “delete”})
+	public String removeMember(...) { ... }
+	
+	//This handler method is executed as a catch-all.
+
+	@RequestMapping
+	public void memberList() {... }
+```
+
+<div style="page-break-after: always;"></div>
+
+### 1.3.2 Processing form input
+
+```html
+<form:form method="POST" action="registrationMember"modelAttribute="registration">
+	<form:input path="userName" />
+	<form:password path="password" />
+</form>
+```
+
+```java
+@Controller
+@RequestMapping("/registrationMember")
+public class RegistrationController {
+
+	@GetMapping
+	public String showRegistration(Model model) {
+		Registration registration = new Registration();
+		model.addAttribute("registration", registration);
+		return "registrationform";
+	} 
+	
+	@PostMapping
+	public String processRegistration(@ModelAttribute Registration registration){ ... }
+}
+```
+
+# 2 Spring Boot
+
+Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run"
+
+## 2.1 Dependencies
+
+```java
+<dependencies>
+	<dependency>
+		<groupId>org.apache.tomcat.embed</groupId>
+		<artifactId>tomcat-embed-jasper</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+	</dependency>
+</dependencies>
+```
+
+## 2.2 Example
+
+```java
+@SpringBootApplication
+public class SpringBootFirstExampleApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootFirstExampleApplication.class, args);
+	}
+	
+	@Bean
+	public HelloService helloService() {
+		return new HelloServiceImpl();
+	}
+}
+```
+
+## 2.3 Testing
+
+```java
+@ExtendWith(SpringExtension.class)
+@WebAppConfiguration@SpringBootTest
+//@ContextConfiguration(classes = WebConfig.class)
+public class HelloControllerTest {
+
+	@Autowired
+	private WebApplicationContext wac;
+	
+	private MockMvc mockMvc;  
+	...
+}
+```
+
+<div style="page-break-after: always;"></div>
+
+# 3 Spring Web Flow
+
+## 3.1 Annotation-driven Formatting
+
+### @NumberFormat
+
+Two optional attributes:
+
+* Style
+* Pattern
+
+```java
+public class Account {
+
+	@NumberFormat(pattern="#,##0.00")
+	private BigDecimal balance = new BigDecimal("20003000.2599");
+	
+	// balance = 20,003,000.26
+	
+	@NumberFormat(style=Style.PERCENT)
+	private double percent = 0.25;
+	
+	// percent = 25%
+```
+
+### @DateTimeFormat
+
+Three optional attributes:
+
+* Style
+* Pattern
+* Iso
+
+The style attribute allows you to provide a two-character string that dictates how the date and time should be formatted.
+
+```java
+public class Account {
+
+	@DateTimeFormat(style="MM")
+	private Date activationDate = new Date();
+	
+	//activationDate = 5-jul-2019 22:11:08
+	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private Date currentDate = new Date();
+	
+	// currentDate = 05/07/2019
+```
+
+## 3.2 Validation
+
+### 3.2.1 @Valid
+
+To trigger validation of a @Controller input, simply annotate the input argument as @Valid
+
+```java
+@RequestMapping(method = RequestMethod.POST)
+public String processRegistration(@Valid Registration registration, BindingResult result) 
+{ ... }
+```
+
+#### Annotations for validation
+
+* String
+	* @NotEmpty
+	* @NotEmpty(message = "Password must not be blank.")
+	* @Size(min = 1, max = 20)
+	* @Size(min = 1, max = 10, message = "Password must between 1 to 10 Characters.")
+	* @Email
+	* @Pattern(regexp = "^[a-zA-Z]+")
+	
+* Numbers
+	* @NotNull
+	* @Min(1)
+	* @Max(110)
+	* @DecimalMin(“20.50")
+	* @DecimalMin(value = “20.50", message = "must be greater than or equal to 20.50")
+	* @DecimalMax("5000.50")
+	* @Range(min = 10, max = 90)
+
+### 3.2.2 Validator Class
+
+```java
+public class RegistrationValidation implements Validator{
+
+	@Override
+	public boolean supports(Class<?> klass) {
+		return Registration.class.isAssignableFrom(klass);
+	}
+	
+	@Override
+	public void validate(Object target, Errors errors) {
+		Registration registration = (Registration) target;
+		String userName = registration.getUserName();
+		if (userName.length() < 4 || userName.length() > 15) {
+			errors.rejectValue("userName", "lengthOfUser.registration.userName", “username must be between 4 and 15 characters long.");
+		}
+	}
+}
+```
+
+```java
+@Controller
+@RequestMapping("/registration")
+publicclassRegistrationController {
+
+	@Autowired
+	private RegistrationValidation registrationValidation;
+	
+	@PostMapping
+	public String processRegistration( @Valid Registration registration, BindingResultresult, Modelmodel) {
+		registrationValidation.validate(registration, result);
+		registration.setConfirmPassword(null);
+		registration.setPassword(null);
+		if(result.hasErrors()){
+			return"registrationForm";
+		}
+	
+		...
+	}
+}
+```
+
+<div style="page-break-after: always;"></div>
+
+## 3.3 Write your own custom annotations for specifying constraints
+
+```java
+@Documented
+@Constraint(validatedBy = EmailConstraintValidator.class)
+@Target({METHOD, FIELD})
+@Retention(RUNTIME)
+public @interface ValidEmail {
+	String message() default “you must include a valid email";
+	Class<?>[] groups() default{};
+	Class<? extends Payload>[] payload() default {};
+}
+```
+
+* @Documented
+	* Indicates that annotations with a type are to be documented by javadoc
+
+* @Retention(RetentionPolicy.RUNTIME)
+	* Annotations are to be recorded in the class file by the compiler and retained by the VM at run time, so they may be read reflectively
+	
+* @Target({ElementType.METHOD, ElementType.FIELD})
+	* Indicates the kinds of program element to which an annotation type is applicable
+
+* @Constraint(validatedBy =   EmailConstraintValidator.class)
+	* In bean validation, a constraint is a Java annotation that is annotated with the annotation javax.validation.Constraint
+
+```java
+package validator;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+public class EmailConstraintValidator implements ConstraintValidator<ValidEmail,String>{
+
+	@Override
+	public void initialize(ValidEmail constraintAnnotation) {}
+	
+	@Override
+	public boolean isValid(String value, ConstraintValidatorContext context) {
+		return (value.contains("@"));  
+	}
+}
+```
+
+# 4 Error Messages
+
+skip
+
+# 5 Multiple Row
+
+skip
+
+# 6 Security
+
+skip
+
+<div style="page-break-after: always;"></div>
+<div id="part4" align="center"><h1>Part 4: Spring and JPA</h1></div>
+<div style="page-break-after: always;"></div>
+&nbsp;
+<div style="page-break-after: always;"></div>
+
+# 1 JPA Rehearsal
+
+## 1.1 ORM
+
+The technique of bridging the gap between the object model and the relational model is known as object-relational mapping, often referred to as ORM.
+
+## 1.2 JPA
+
+The Java Persistence API is a lightweight, POJO-based framework for Java persistence.
+
+JPA is the preferred technology for mapping and querying relational databases
+
+### 1.2.1 JPA 2.0
+
+Persistence in this context covers three areas:
+
+* The API itself, defined in the javax.persistencepackage
+* The Java Persistence Query Language(JPQL)
+* Object/relational metadata
+
+### 1.2.2 Persistence framework = Persistence Provider = Provider
+
+EclipseLink 2.0 provides a powerful and flexible framework for storing Java objects in a relational database.
+
+### 1.2.3 Persistence Context
+
+```java
+@PersistenceContext
+private EntityManager em;
+```
+
+A persistence unit tells the container which entity classes are to be managed by the entity manager, and also the datasource used by those entities.
+
+Each user has his own persistence context that lasts for the duration of his own transaction.
+
+<div style="page-break-after: always;"></div>
+
+### 1.2.4 Entity Manager
+
+The entity manager is responsible for creating and removing persistent entity instances and finding entities by their primary keys.
+
+When an entity manager obtains a reference to an entity, it said to be **managed**.
+
+### 1.2.5 Entities
+
+An entity is a lightweight persistence domain object. Typically an entity represents a table in a relational database, and each entity instance corresponds to a row in that table. 
+
+Regular Java classes are easily transformed into entities by annotatingthem.
+
+```java
+@Entity
+public class Country implements Serializable {...
+```
+
+#### Tables 
+
+**@Table**
+
+```java
+@Entity
+@Table
+public class Country { ... 
+```
+
+<div style="page-break-after: always;"></div>
+
+**@SecondaryTable**
+
+```java
+@Entity
+@SecondaryTables({
+	@SecondaryTable(name = “city”),
+	@SecondaryTable(name = “country”)
+})
+public class Address {
+
+@Id
+private Long id;
+
+private String street;
+
+@Column (table = “city”)
+private String state;
+
+@Column (table = “country”)
+private String country;
+
+//constructors, getters, setters
+```
+
+#### Primary Keys
+
+**Automatic ID Generation**
+
+```java
+@Entity
+@Table(name = "docenten")
+public class Docent implements Serializable {
+
+	@Id@GeneratedValue(strategy =  GenerationType.AUTO)
+	private int docentNr;
+	...
+}
+```
+
+**Natural Primary Key**
+(Assigned by application, not by db)
+
+```java
+@Entity
+@Table(name = "boeken")
+public class Boek implements Serializable {
+
+	@Id
+	private String ISBNNr;
+	...
+}
+```
+
+**Composite Primary Key**
+
+```java
+@Embeddable
+public class TaalLand implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private String taal;
+	private String land;
+	
+	// constructor, getters, setters 
+	// ook equals() en hashCode() gebaseerd op taal & land
+}
+```
+
+```java
+@Entity
+public class TaalGebruikPerLand implements Serializable {
+
+	@EmbeddedId
+	private TaalLand id;
+	...
+}
+```
+
+#### Attributes
+
+An entity has all sorts of different attributes, making up its state, that have to be mapped to the table. This state can include almost every Java type that you could want to map.
+
+<div style="page-break-after: always;"></div>
+
+# 2 Queries - JPQL
+
+## 2.1 JPQL
+
+Query language that looks like SQL. Differences:
+
+* Uses classnames instead of table names
+* USes InstanceVariable names instead of column names
 
 
 
