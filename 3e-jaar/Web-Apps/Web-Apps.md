@@ -1815,5 +1815,108 @@ Query language that looks like SQL. Differences:
 * Uses classnames instead of table names
 * USes InstanceVariable names instead of column names
 
+JPA translates each JPQL query to an SQL query
+
+## 2.2 Select
+
+```jpql
+SELECT NEW
+
+SELECT DISTINCT c.firstName 
+FROM Customer c
+
+SELECT COUNT(c) 
+FROM Customer c
+
+SELECT CASE b.editor
+WHEN ‘Apress’ 
+THEN b.price * 0.5 
+ELSE b.price * 0.8 
+END
+FROM Book b
+```
+
+<div style="page-break-after: always;"></div>
+
+## 2.3 Delete and Update
+
+```jpql
+DELETE entityName identiefierVariable
+WHERE where-clauseVoorbeeld
+
+DELETE Seller s WHERE s.status = ‘Silver’
+```
+
+```jpql
+UPDATE entityName identiefierVariable
+SET  single_value_path_expression1 = value1, ...
+single_value_path_expressionN = valueN
+WHERE where-clause
+
+UPDATE Seller s 
+SET s.status = ‘G’, s.commissionRate = 10
+WHERE s.lastName like ‘Van%’
+```
+
+## 2.4 Parameters
+
+### Positional Parameters
+
+```java
+TypedQuery<Docent> query = entityManager.createQuery(
+	"SELECT d 
+	FROM docent d
+	WHERE d.wedde between ? and ?",
+Docent.class);
+
+query.setParameter(1, new BigDecimal(2000));
+query.setParameter(2, new BigDecimal(3000));
+
+List<Docent> docenten = query.getResultList();
+```
+
+<div style="page-break-after: always;"></div>
+
+### Named Parameters
+
+```java
+TypedQuery<Docent> query = entityManager.createQuery(
+	"SELECT d 
+	FROM docent d
+	WHERE d.wedde between :van and :tot",
+Docent.class);
+
+query.setParameter("van", new BigDecimal(2000));
+query.setParameter("tot", new BigDecimal(3000));
+
+List<Docent> docenten = query.getResultList();
+```
+
+## 2.5 @NamedQuery + @NamedQueries
+
+### Definition of named queries
+
+```java
+@NamedQueries ({
+	@NamedQuery(name = "docentenByWedde",
+		query = "SELECT d FROM docent d WHERE d.wedde between :van and :tot"), 
+	@NamedQuery(name = "docentenByVoornaam",
+		query = " SELECT d FROM Docent d WHERE d.voornaam like :voornaamdeel")
+})
+```
+
+### Calling named query
+
+```java
+TypedQuery<Docent> query = 
+	entityManager.createNamedQuery("docentenByVoornaam", Docent.class);
+	
+query.setParameter("voornaamdeel", "h%");
+List<Docent> docenten = query.getResultList();
+```	
+
+
+
+
 
 
