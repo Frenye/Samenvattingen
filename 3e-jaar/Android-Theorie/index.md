@@ -1,5 +1,6 @@
 # Contents
 
+## [Lesson 1 - Build your First App](lesson1.md)
 ## [Lesson 4 - Activity & Fragment Lifecycle](lesson4.md)
 ## [Lesson 5 - App Architecture (UI Layer)](lesson5.md)
 ## [Lesson 6 - App Architecture (Persistence)](lesson6.md)
