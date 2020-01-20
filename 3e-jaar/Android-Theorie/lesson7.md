@@ -12,6 +12,8 @@ An adapter is used to adapt data into something that can be used by RecyclerView
 
 ![](images/7.1.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Adapter Interface
 
 RecyclerView adapters must provide a few methods for RecyclerView to understand how to display the data on screen.
@@ -32,4 +34,24 @@ The Adapter will take care of providing any ViewHolders that the RecyclerView ne
 
 ![](images/7.2.png)
 
+<div style="page-break-after: always;"></div>
 
+## Improving Data Refresh
+
+### notifyDataSetChanged()
+
+Tells RecyclerView that the entire list is potentially invalid. As a result, RecyclerView has to re-bind and re-draw every item in the list, even if the updated item isn't on the screen.
+
+**Better way &rarr; tell RecyclerView exactly what changed.**
+
+### DiffUtil
+
+Helper for RecyclerView adapters that calculates changes in lists and minimizes modifications.
+
+It will take an old list and a new list and figure out the differences. 
+
+### DiffUtil Benefits
+
+* Only redraw changed items
+* Animate by default
+* Efficient

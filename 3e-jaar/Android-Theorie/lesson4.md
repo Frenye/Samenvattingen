@@ -18,6 +18,8 @@ The part of the Lifecycle between onStart and onStop when the activity is visibl
 
 An Activity is said to have focus when it's the activity that the user can iteract with.
 
+<div style="page-break-after: always;"></div>
+
 ### Foreground
 
 When the activity is on the screen.
@@ -49,6 +51,8 @@ The state of the activity when it is running. It's visible and has focus.
 ### Destroyed
 
 Activity is destroyed. It can be ejected from memory at any point and should not be referenced or interacted with.
+
+<div style="page-break-after: always;"></div>
 
 ## Activity Lifecycle Callbacks
 
@@ -105,13 +109,15 @@ Here you should:
 
 * Tear down or release any resources that are related to the activity and are not automatically released for you. Forgetting to do this can cause a memory leak. Logic that refers to the activity or attempts to update the UI after the activity has been destroyed could crash the app!
 
+<div style="page-break-after: always;"></div>
+
 ## Summary of the Fragment Lifecycle
 
 Fragments also have lifecycle states that they go between. The lifecycle states are the same as the activity states. While fragment lifecycle states are the same, the callbacks are different.
 
-## Important Fragment Callbacks to Implement
+### Important Fragment Callbacks to Implement
 
-### onCreate
+#### onCreate
 
 Similar to the Activity's onCreate callback. This is when the fragment is created. This wil only get called once.
 
@@ -120,7 +126,7 @@ Here you should:
 * Initialize anything essential for your fragment.
 * **Do not inflate XML**, do that in onCreateView, when the system is first drawing the fragment NOT reference the activity, it is still being created. Do this in onActivityCreated.
 
-### onCreateView
+#### onCreateView
 
 This is called between onCreate and onActivityCreated. You must return a view in this callback if your fragment has a UI.
 
@@ -128,7 +134,7 @@ Here you should:
 
 * Create your views by inflating your XML.
 
-### onStop
+#### onStop
 
 Very similar to Activity's onStop. This callback is called when the user leaves your fragment. 
 
@@ -136,13 +142,15 @@ Here you should:
 
 * Save any permanent fragment state.
 
-## Other callbacks
+<div style="page-break-after: always;"></div>
 
-### onAttach
+### Other callbacks
+
+#### onAttach
 
 When the fragment is first attached to the activity. This is only called once during the lifecycle of the fragment.
 
-### onActivityCreated
+#### onActivityCreated
 
 Called when the activity onCreate method has returned and the activity has been initialized. If the fragment is added to an activity that's already created, this still gets called. It is called multiple times during the lifecycle of the fragment.
 
@@ -150,27 +158,27 @@ Here you should:
 
 * Execute any code that requires an activity instance.
 
-### onStart
+#### onStart
 
 Called right before the fragment is visible to the user.
 
-### onResume
+#### onResume
 
 When the activity resumes the fragment. This means the fragment is visible, has focus and is running.
 
-### onStop
+#### onStop
 
 Called when the activity's onStop is called. The fragment no longer has focus.
 
-### onDestroyView
+#### onDestroyView
 
 Unlike activities, fragment views are destroyed every time they go off screen. This is called after the view is no longer visible.
 
-### onDestroy
+#### onDestroy
 
 Called when Activity's onDestroy is called.
 
-### onDetach
+#### onDetach
 
 Called when the association between the fragment and the activity is destroyed.
 
