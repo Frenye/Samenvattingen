@@ -47,7 +47,7 @@ Gebied van logica en syllogismen, i.e. redeneerprocessen die leiden tot conclusi
 
 **Voorbeeld**
 
-1. Alle mannen zijn sterfelijj
+1. Alle mannen zijn sterfelijk
 2. Socrates is een man
 3. Socrates is sterfelijk
 
