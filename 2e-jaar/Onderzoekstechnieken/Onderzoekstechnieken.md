@@ -1,6 +1,6 @@
 # 1. Gebruik van R
 
-R is een softwareprogramme voor datamanipulatie, berekening en het grafisch voorstellen van data. Het heeft onder meer: 
+R is een softwareprogramma voor datamanipulatie, berekening en het grafisch voorstellen van data. Het heeft onder meer: 
 
 1. Een effectieve gegevensbeheer- en opslagfaciliteit
 2. Een reeks operatoren voor berekeningen op arrays, in het bijzonder matrices
